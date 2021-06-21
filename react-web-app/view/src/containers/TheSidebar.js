@@ -3,19 +3,18 @@ import { useSelector, useDispatch } from 'react-redux'
 import {CSidebar,CSidebarBrand,CSidebarNav,CSidebarMinimizer,CSidebarNavDropdown,CSidebarNavItem} from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-function wrapperHandler(){
-  if(document.getElementById('wrapperDiv')){
-    console.log(document.getElementById('wrapperDiv').style.marginLeft)
-    document.getElementById('wrapperDiv').style.marginLeft = "0px"
-  }
-  else{
-    console.log('no wrapper')
-  }
-}
-
 const TheSidebar = () => {
   const dispatch = useDispatch();
   const show = useSelector(state => state.sidebarShow)
+  function wrapperHandler(){
+    if(document.getElementById('wrapperDiv').style.marginLeft == "0px"){
+      document.getElementById('wrapperDiv').style.marginLeft = "256px"
+    }
+    else if(document.getElementById('wrapperDiv').style.marginLeft = "256px"){
+      document.getElementById('wrapperDiv').style.marginLeft = "0px"
+      //document.getElementById('wrapperDiv').style.marginLeft = "256px"
+    }
+  }
   React.useEffect(()=>{
     //console.log(JSON.parse(localStorage.getItem('menu')));
   })
@@ -44,7 +43,7 @@ const TheSidebar = () => {
           }}
         /> */}
       </CSidebarNav>
-      <CSidebarMinimizer onClick={wrapperHandler()} className="c-d-md-down-none"/>
+      <CSidebarMinimizer onClick={()=>wrapperHandler()} className="c-d-md-down-none"/>
     </CSidebar>
     </div>
   )

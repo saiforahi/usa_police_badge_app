@@ -22,14 +22,14 @@ const TheHeader = () => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector(state => state.sidebarShow)
   const toggleSidebar = () => {
-    document.getElementsByClassName('c-wrapper')[0].style.marginLeft = "256px"
     const val = [true, 'responsive'].includes(sidebarShow) ? false : 'responsive'
-    if(val == false){
-      console.log('false block')
-      document.getElementsByClassName('c-wrapper')[0].style.marginLeft = "0px"
+    console.log(val)
+    if(val == 'responsive'){
+      document.getElementById('wrapperDiv').style.marginLeft = "256px"
     }
     else{
       console.log('else block')
+      document.getElementById('wrapperDiv').style.marginLeft = "0px"
     }
     dispatch({type: 'set', sidebarShow: val})
   }
