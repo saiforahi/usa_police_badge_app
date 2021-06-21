@@ -1,13 +1,19 @@
+import 'react-app-polyfill/ie11'; // For IE 11 support
+import 'react-app-polyfill/stable';
+import './polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './App';
+import { icons } from './assets/icons'
 import reportWebVitals from './reportWebVitals';
-
+import store from './store/Store'
+import { Provider } from 'react-redux'
+React.icons = icons
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
