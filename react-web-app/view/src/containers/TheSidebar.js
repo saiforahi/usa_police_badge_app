@@ -39,12 +39,11 @@ const TheSidebar = () => {
           name="sygnet"
           height={35}
         /> */}
-        {/* <CIcon
+        <CIcon
           className="c-sidebar-brand-minimized"
           name="cilShieldAlt"
           height={35}
-        /> */}
-        <i className="cil-shield-alt"></i>
+        />
         {/* <h4 id="logoText" style={{marginTop:"12px", marginLeft:"5px"}} class="display-6">Smart Guard</h4> */}
         
       </CSidebarBrand>
@@ -53,7 +52,7 @@ const TheSidebar = () => {
         <CSidebarNavTitle>Administration</CSidebarNavTitle>
         <CSidebarNavItem to="/dashboard/employees" onClick={()=>{history.push('/dashboard/users/show')}} icon="cil-group" name="Employees"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/badges" icon="cil-badge" name="Badges"></CSidebarNavItem>
-        <CSidebarNavItem to="/dashboard/control" icon="cil-control" name="Site Control"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/sitecontrol" icon="cil-control" name="Site Control"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/badges" icon="cil-clock" name="Time"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/control/show" icon="cil-calculator" name="Account"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/control/show" icon="cil-money" name="Billing"></CSidebarNavItem>

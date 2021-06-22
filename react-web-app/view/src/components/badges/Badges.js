@@ -2,7 +2,7 @@ import React from 'react'
 import { CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CDataTable,CBadge,CButton } from '@coreui/react'
 const Badges = ()=>{
     const badgeList=[
-        {}
+        {Number:'1245678','Created Date':'21-01-2021','Scans':'12','Global Scans':'19'}
     ]
     return(
         <>
@@ -10,14 +10,14 @@ const Badges = ()=>{
             <CCol md="12">
                 <CCard>
                     <CCardHeader>
-                        Employees
+                        Badges
                     </CCardHeader>
                     <CCardBody>
                         <CDataTable
-                        items={employeeList}
+                        items={badgeList}
                         fields={[
                             { key: '#',_style: { width: '5%' }, _classes: 'font-weight-bold' },
-                            'Name','Email','Assigned To','Assigned Date','Scans','Global Scans',{key:'Action',label:'',_style: { width: '12%' },sorter:false,filter:false}
+                            'Number','Created Date','Assigned To','Scans','Global Scans',{key:'Action',label:'',_style: { width: '12%' },sorter:false,filter:false}
                         ]}
                         light
                         hover
@@ -26,12 +26,12 @@ const Badges = ()=>{
                         sorter
                         columnFilter
                         clickableRows
-                        onRowClick={(row)=>{
-                            history.push({
-                                pathname: '/dashboard/employees/details',
-                                state: { employee: row }
-                            })
-                        }}
+                        // onRowClick={(row)=>{
+                        //     history.push({
+                        //         pathname: '/dashboard/employees/details',
+                        //         state: { employee: row }
+                        //     })
+                        // }}
                         size="sm"
                         itemsPerPage={10}
                         pagination
@@ -47,9 +47,6 @@ const Badges = ()=>{
                         }}
                         />
                     </CCardBody>
-                    <CCardFooter>
-                        
-                    </CCardFooter>
                 </CCard>
             </CCol>
         </CRow>
