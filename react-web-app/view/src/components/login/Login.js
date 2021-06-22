@@ -19,7 +19,7 @@ import CIcon from '@coreui/icons-react'
 import {TOKEN,PUBLIC_API,API} from '../../config'
 import swal from 'sweetalert'
 import { makeStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import {LinearProgress} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',

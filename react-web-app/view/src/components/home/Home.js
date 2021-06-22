@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import {TOKEN} from '../../config'
 import './Home.css'
+import Header from '../header/header'
+
+
+// import { from } from 'core-js/core/array'
 const isLoggedIn=()=>{
     if(localStorage.getItem(TOKEN)===null){
       return false;
@@ -17,35 +21,21 @@ const Home=()=>{
     return(
         <>
         <div>
-            <header className="header-main dark">
-                <nav>
-                    {/* <a href="#" className="logo" rel="home"><svg xmlns="#" xmlns:xlink="#" width="24" height="24" viewBox="0 0 24 24"><path d="M7.335 1.023l2.462.434a1 1 0 0 1 .811 1.159L8.004 17.388a2 2 0 0 1-2.317 1.622l-3.94-.694a1 1 0 0 1-.81-1.159L3.28 3.862a3.5 3.5 0 0 1 4.054-2.839zm7.039 3.272l7.878 1.39a1 1 0 0 1 .812 1.158l-1.997 11.325a5.5 5.5 0 0 1-6.372 4.461l-4.431-.78a1 1 0 0 1-.812-1.16l2.605-14.771a2 2 0 0 1 2.317-1.623z" fill="currentColor"></path></svg><span>Opalin</span></a> */}
-                    <div className="nav-toggle"></div>
-                    <ul className="inline">
-                        <li><a href="#" className="active">Home</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                    <ul className="inline right">
-                        <li><Link to="/login">Log In</Link></li>
-                        <li><a href="#" className="button button-secondary button-m full-width-tablet" role="button">Sign Up</a></li>
-                    </ul>
-                </nav>
-            </header>
-
+          
+<Header></Header>
             <main>
                 <section className="bg-image-hero center-tablet dark overlay-hero">
                     <div className="full-screen -margin-bottom middle padding padding-top-tablet">
                         <div className="row max-width-l">
                             <div className="col-one-half middle">
                                 <div>
-                                    <h1 className="hero">Opalin HTML Template</h1>
-                                    <p className="lead">A minimal and responsive HTML5 landing page built on lightweight, clean and customizable code.</p>
-                                    <a href="#" className="button button-primary space-top" role="button">Get Started</a>
+                                    <h1 className="hero">SmartGuard</h1>
+                                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <Link to="/login" className="button button-primary space-top" role="button" >Get Started</Link>
                                 </div>
                             </div>
                             <div className="col-one-half middle">
-                                <img src={'assets/bg/hero-illustration.png'} srcset="media/content/hero-illustration.png 1x, media/content/hero-illustration@2x.png 2x" alt="Hero Illustration"/>
+                                <img src={'assets/images/police-cap.jpg'} srcSet="assets/images/police-cap.jpg 1x,assets/images/police-cap@2x.jpg 2x" alt="Hero Illustration"/>
                             </div>
                         </div>
                     </div>
@@ -56,12 +46,12 @@ const Home=()=>{
                                 <p className="paragraph">Everything is neatly organized in Sass and has been heavily focused on performances.</p>
                             </div>
                             <div className="col-one-half">
-                                <img className="rounded shadow-l" src="./Opalin HTML Template_files/editor.png" srcset="media/content/editor.png 1x, media/content/editor@2x.png 2x" alt="Editor"/>
+                                <img className="rounded shadow-l" src="./Opalin HTML Template_files/editor.png" srcSet="media/content/editor.png 1x, media/content/editor@2x.png 2x" alt="Editor"/>
                             </div>
                         </div>
                         <div className="row max-width-l reverse-order">
                             <div className="col-one-half">
-                                <img className="rounded shadow-l" src="./Opalin HTML Template_files/sketch.png" srcset="media/content/sketch.png 1x, media/content/sketch@2x.png 2x" alt="Sketch"/>
+                                <img className="rounded shadow-l" src="./Opalin HTML Template_files/sketch.png" srcSet="media/content/sketch.png 1x, media/content/sketch@2x.png 2x" alt="Sketch"/>
                             </div>
                             <div className="col-one-half middle">
                                 <h3>Designed In Sketch</h3>
@@ -77,7 +67,7 @@ const Home=()=>{
                         <p className="paragraph">Opalin helps you present your business in a wide variety of ways. Display full-width images, divide content in a single or multiple columns, anything to make your product or service stand out!</p>
                     </div>
                     <div className="margin-top max-width-l">
-                        <img className="rounded shadow-l" src="./Opalin HTML Template_files/opalin-dashboard.png" srcset="media/content/opalin-dashboard.png 1x, media/content/opalin-dashboard@2x.png 2x" alt="Opalin Dashboard"/>
+                        <img className="rounded shadow-l" src="./Opalin HTML Template_files/opalin-dashboard.png" srcSet="media/content/opalin-dashboard.png 1x, media/content/opalin-dashboard@2x.png 2x" alt="Opalin Dashboard"/>
                     </div>
                 </section>
             </main>
@@ -155,7 +145,7 @@ const Home=()=>{
                     </div>
                 </div>
                 </div>
-                <p className="copyright"><span>HTML Template by </span><a href="https://uiuxassets.com/" target="_blank">UI/UX Assets</a><span> - © 2018, all rights reserved.</span></p>
+              
             </footer>
             </div>
         </>

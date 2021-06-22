@@ -62,7 +62,9 @@ Table Of Contents
 html button, html hr, html input {
   overflow: visible;
 }
-
+a{
+  text-decoration: none !important;
+}
 html audio, html canvas, html progress, html video {
   display: inline-block;
 }
@@ -1111,9 +1113,10 @@ p:last-child {
   background: linear-gradient(#110f24 0%, #05050b 100%);
 }
 
-/* .overlay-hero:before {
-  background: url(../media/bg/shape-hero.svg);
-} */
+.overlay-hero:before {
+  background: url(../../assets/icons/shape-hero.svg);
+
+}
 
 /* -----------------------------------------------------------------------------
 
@@ -1371,7 +1374,7 @@ p:last-child {
 
 /* Negative spacing */
 .-margin-bottom {
-  margin-bottom: -5rem;
+  margin-bottom: 10rem;
 }
 
 @media only screen and (max-width: 1023px) {
