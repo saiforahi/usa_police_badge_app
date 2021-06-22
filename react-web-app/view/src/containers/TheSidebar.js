@@ -1,52 +1,72 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {CSidebar,CSidebarBrand,CSidebarNav,CSidebarMinimizer,CSidebarNavDropdown,CSidebarNavItem} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-
+import {
+  CSidebar,
+  CSidebarBrand,
+  CSidebarNav,
+  CSidebarNavDivider,
+  CSidebarNavTitle,
+  CSidebarMinimizer,
+  CSidebarNavDropdown,
+  CSidebarNavItem,
+  CImg
+} from '@coreui/react'
+import { CIcon } from '@coreui/icons-react';
+// sidebar nav config
+import { API } from '../config'
+import { useHistory } from 'react-router'
+import '../assets/warehouse.svg'
 const TheSidebar = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  let history=useHistory()
   const show = useSelector(state => state.sidebarShow)
-  function wrapperHandler(){
-    if(document.getElementById('wrapperDiv').style.marginLeft == "0px"){
-      document.getElementById('wrapperDiv').style.marginLeft = "256px"
-    }
-    else if(document.getElementById('wrapperDiv').style.marginLeft = "256px"){
-      document.getElementById('wrapperDiv').style.marginLeft = "0px"
-      //document.getElementById('wrapperDiv').style.marginLeft = "256px"
-    }
-  }
-  React.useEffect(()=>{
-    //console.log(JSON.parse(localStorage.getItem('menu')));
-  })
+  useEffect(()=>{
+    API.get()
+  },[])
   return (
-    <div>
-    <CSidebar show={show} onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}>
+    <CSidebar
+      show={show}
+      onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
+    >
       <CSidebarBrand className="d-md-down-none" to="/">
-        <CIcon className="c-sidebar-brand-full" name="logo-negative" height={35}/>
-        <CIcon className="c-sidebar-brand-minimized" name="sygnet" height={35}/>
+        {/* <CIcon
+          className="c-sidebar-brand-full"
+          name="logo-negative"
+          height={35}
+        />
+        <CIcon
+          className="c-sidebar-brand-minimized"
+          name="sygnet"
+          height={35}
+        /> */}
+        {/* <CIcon
+          className="c-sidebar-brand-minimized"
+          name="cilShieldAlt"
+          height={35}
+        /> */}
+        <i class="cil-shield-alt"></i>
+        {/* <h4 id="logoText" style={{marginTop:"12px", marginLeft:"5px"}} class="display-6">Smart Guard</h4> */}
+        
       </CSidebarBrand>
       <CSidebarNav>
-        <CSidebarNavItem to="/dashboard" name="Dashboard" icon="cil-speedometer"></CSidebarNavItem>
-        
-        <CSidebarNavDropdown name="Employees" icon="cil-file" >
-          <CSidebarNavItem to="/dashboard/employees" name="Employees" />
-        </CSidebarNavDropdown>
-        <CSidebarNavItem to="/dashboard/help" name="Help" icon="cill-file"/>
-        
-        {/* <CCreateElement
-          items={navigation}
-          components={{
-            CSidebarNavDivider,
-            CSidebarNavDropdown,
-            CSidebarNavItem,
-            CSidebarNavTitle
-          }}
-        /> */}
+        <custom icon="cill-shield-alt"/>
+        <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
+        <CSidebarNavTitle>Administration</CSidebarNavTitle>
+        <CSidebarNavItem to="/dashboard/employees" onClick={()=>{history.push('/dashboard/users/show')}} icon="cil-group" name="Employees"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/badges" icon="cil-circle" name="Badges"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/control/show" icon="cil-tag" name="Site Control"></CSidebarNavItem>
       </CSidebarNav>
-      <CSidebarMinimizer onClick={()=>wrapperHandler()} className="c-d-md-down-none"/>
+      <CSidebarMinimizer className="c-d-md-down-none"/>
     </CSidebar>
-    </div>
   )
 }
 
 export default React.memo(TheSidebar)
+
+const custom =(icon)=>{
+  return(
+    <>
+    <i className={icon}></i>
+    </>
+  )
+}

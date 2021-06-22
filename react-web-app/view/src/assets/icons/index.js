@@ -148,6 +148,7 @@ export const icons = Object.assign({}, {
   cilArrowTop,
   cilAsterisk,
   cilBan,
+  cilBasket,
   cilBell,
   cilBold,
   cilBookmark,

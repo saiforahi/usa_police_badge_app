@@ -1,23 +1,17 @@
 .c-app{
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 .c-sidebar {
-  color: #ebedef;
-  background: #021636;
+    color: #ebedef;
+    background: #021636;
 }
 .c-footer {
-  color: #3c4b64;
-  background: #fff;
-  border: none;
-  /* border-top: 1px solid #1e09c6; */
+    color: #3c4b64;
+    background: #fff;
+    border: none;
+    /* border-top: 1px solid #1e09c6; */
 }
 .table-sm th, .table-sm td {
-  padding: 0.3rem;
-  text-align: center;
-}
-
-@media (max-width: 992px) and (min-width: 400px){
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed ~ .c-wrapper {
-      margin-left: 256px;
+    padding: 0.3rem;
+    text-align: center;
   }
-}

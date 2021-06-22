@@ -1,293 +1,312 @@
-import i18n from '../../src/i18n'
-export default [
+import React from 'react'
+import CIcon from '@coreui/icons-react'
+
+const _nav =  [
   {
     _tag: 'CSidebarNavItem',
-    name: i18n.t('Side_Nav.Dashboard'),
+    name: 'Dashboard',
     to: '/dashboard',
-    icon: 'cil-speedometer',
-    // badge: {
-    //   color: 'info',
-    //   text: 'NEW',
-    // }
+    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    }
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Admin',
-    to: '/dashboard/admin',
+    _tag: 'CSidebarNavTitle',
+    _children: ['Theme']
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Colors',
+    to: '/theme/colors',
     icon: 'cil-drop',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Companies',
-        to: '/dashboard/admin/companies',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Roles',
-        to: '/dashboard/admin/role/list',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Privillege',
-        to: '/dashboard/admin/privillege',
-      },
-    ],
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Manage Users',
-    to: '/dashboard/manageusers',
+    _tag: 'CSidebarNavItem',
+    name: 'Typography',
+    to: '/theme/typography',
     icon: 'cil-pencil',
-    _children:[
-      {
-        _tag:'CSidebarNavItem',
-        name: 'Users',
-        to: '/dashboard/manageusers/users'
-      }
-    ]
+  },
+  {
+    _tag: 'CSidebarNavTitle',
+    _children: ['Components']
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Basic Data',
-    route: '/dashboard/basicdata',
+    name: 'Base',
+    route: '/base',
     icon: 'cil-puzzle',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Nationality',
-        to: '/dashboard/basicdata/nationality',
+        name: 'Breadcrumb',
+        to: '/base/breadcrumbs',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Salary Config',
-        to: '/dashboard/basicdata/salaryconfig',
+        name: 'Cards',
+        to: '/base/cards',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Leave Type',
-        to: '/dashboard/basicdata/leavetypelist',
+        name: 'Carousel',
+        to: '/base/carousels',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Education Levels',
-        to: '/dashboard/basicdata/educationlevels',
+        name: 'Collapse',
+        to: '/base/collapses',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Employment Types',
-        to: '/dashboard/basicdata/employeetypes',
+        name: 'Forms',
+        to: '/base/forms',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Departments',
-        to: '/dashboard/basicdata/departments',
+        name: 'Jumbotron',
+        to: '/base/jumbotrons',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Insurance Provider',
-        to: '/dashboard/basicdata/insuranceprovider',
+        name: 'List group',
+        to: '/base/list-groups',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Job Titles',
-        to: '/dashboard/basicdata/jobtitles',
+        name: 'Navs',
+        to: '/base/navs',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Holiday',
-        to: '/dashboard/basicdata/holiday',
+        name: 'Navbars',
+        to: '/base/navbars',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Time Schedule',
-        to: '/dashboard/basicdata/timeschedule',
+        name: 'Pagination',
+        to: '/base/paginations',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Branch',
-        to: '/dashboard/basicdata/branches',
+        name: 'Popovers',
+        to: '/base/popovers',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Appraisal Questions',
-        to: '/dashboard/basicdata/appraisalquestions',
+        name: 'Progress',
+        to: '/base/progress-bar',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Switches',
+        to: '/base/switches',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Tables',
+        to: '/base/tables',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Tabs',
+        to: '/base/tabs',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Tooltips',
+        to: '/base/tooltips',
       },
     ],
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Employee',
-    route: '/dashboard/employee',
+    name: 'Buttons',
+    route: '/buttons',
     icon: 'cil-cursor',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Employee List',
-        to: '/dashboard/employee/list',
+        name: 'Buttons',
+        to: '/buttons/buttons',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Employee Profile',
-        to: '/dashboard/employee/profile',
+        name: 'Brand buttons',
+        to: '/buttons/brand-buttons',
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Buttons groups',
+        to: '/buttons/button-groups',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Dropdowns',
+        to: '/buttons/button-dropdowns',
+      }
     ],
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Appraisal',
-    to: '/appraisal',
-    icon: 'cil-chart-pie',
-    _children:[
-      {
-        _tag:'CSidebarNavItem',
-        name:'Rating',
-        to:'/appraisal/rating',
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Rating List',
-        to:'/appraisal/ratinglist',
-      }
-    ]
+    _tag: 'CSidebarNavItem',
+    name: 'Charts',
+    to: '/charts',
+    icon: 'cil-chart-pie'
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Self Service',
-    route: '/dashboard/selfservice',
+    name: 'Icons',
+    route: '/icons',
     icon: 'cil-star',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Entry Request',
-        to: '/dashboard/selfservice/entryrequest',
+        name: 'CoreUI Free',
+        to: '/icons/coreui-icons',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Approve Entry Request',
-        to: '/dashboard/selfservice/approveentryrequest',
+        name: 'CoreUI Flags',
+        to: '/icons/flags',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'CoreUI Brands',
+        to: '/icons/brands',
       },
     ],
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Leave',
-    route: '/dashboard/leave',
+    name: 'Notifications',
+    route: '/notifications',
     icon: 'cil-bell',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Leave List',
-        to: '/dashboard/leave/list',
+        name: 'Alerts',
+        to: '/notifications/alerts',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'New Leave',
-        to: '/dashboard/leave/new',
+        name: 'Badges',
+        to: '/notifications/badges',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Approve Leave',
-        to: '/dashboard/leave/approveleaves',
+        name: 'Modal',
+        to: '/notifications/modals',
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Toaster',
+        to: '/notifications/toaster'
+      }
     ]
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Loan',
-    to: '/dashboard/loan',
+    _tag: 'CSidebarNavItem',
+    name: 'Widgets',
+    to: '/widgets',
     icon: 'cil-calculator',
     badge: {
       color: 'info',
       text: 'NEW',
     },
-    _children:[
-      {
-        _tag:'CSidebarNavItem',
-        name:'Loan List',
-        to:'/dashboard/loan/list'
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'New Loan',
-        to:'/dashboard/loan/new'
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Approve Loan',
-        to:'/dashboard/loan/approve'
-      }
-    ]
+  },
+  {
+    _tag: 'CSidebarNavDivider'
+  },
+  {
+    _tag: 'CSidebarNavTitle',
+    _children: ['Extras'],
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Payroll',
-    route: '/dashboard/payroll',
-    icon : 'cil-star',
+    name: 'Pages',
+    route: '/pages',
+    icon: 'cil-star',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Salary Process',
-        to: '/dashboard/payroll/salaryprocess',
+        name: 'Login',
+        to: '/login',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Salary List',
-        to: '/dashboard/payroll/salaries',
+        name: 'Register',
+        to: '/register',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Error 404',
+        to: '/404',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Error 500',
+        to: '/500',
       },
     ],
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Reports',
-    icon: 'cil-star',
+    _tag: 'CSidebarNavItem',
+    name: 'Disabled',
+    icon: 'cil-ban',
     badge: {
       color: 'secondary',
       text: 'NEW',
     },
-    _children:[
-      {
-        _tag:'CSidebarNavItem',
-        name:'Companies',
-        to:'/dashboard/reports/company',
-        
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Employees',
-        to:'/dashboard/reports/employee',
-        
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Attendance',
-        to:'/dashboard/reports/attendance',
-        
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Leaves',
-        to:'/dashboard/reports/leave',
-        
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Loans',
-        to:'/dashboard/reports/loan',
-        
-      },
-      {
-        _tag:'CSidebarNavItem',
-        name:'Salaries',
-        to:'/dashboard/reports/salary',
-      }
-    ]
+    addLinkClass: 'c-disabled',
+    'disabled': true
+  },
+  {
+    _tag: 'CSidebarNavDivider',
+    className: 'm-2'
+  },
+  {
+    _tag: 'CSidebarNavTitle',
+    _children: ['Labels']
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Help',
-    to: '/dashboard/help',
-    icon: 'cil-file'
+    name: 'Label danger',
+    to: '',
+    icon: {
+      name: 'cil-star',
+      className: 'text-danger'
+    },
+    label: true
   },
-  
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Label info',
+    to: '',
+    icon: {
+      name: 'cil-star',
+      className: 'text-info'
+    },
+    label: true
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Label warning',
+    to: '',
+    icon: {
+      name: 'cil-star',
+      className: 'text-warning'
+    },
+    label: true
+  },
+  {
+    _tag: 'CSidebarNavDivider',
+    className: 'm-2'
+  }
 ]
 
+export default _nav

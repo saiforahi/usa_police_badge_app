@@ -1,2 +1,11 @@
 // Here you can add other styles
+.c-app .c-default-layout .flex-row .align-items-center{
+    background-color: darkslategrey;
+}
 
+#logoText{
+    text-decoration: none;
+}
+.c-sidebar .c-sidebar-nav-link .c-active:hover{
+    background: wheat;
+}

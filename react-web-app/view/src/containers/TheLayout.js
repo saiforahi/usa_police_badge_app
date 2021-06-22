@@ -1,40 +1,37 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState,useEffect, useLayoutEffect } from 'react'
 import {
   TheContent,
   TheSidebar,
   TheFooter,
   TheHeader
 } from './index'
-
+import {TOKEN,API} from '../config'
+import {Redirect, useHistory} from "react-router"
 const TheLayout = () => {
-  const show = useSelector(state => state.sidebarShow)
-  useEffect(() => {
-      if(show){
-        document.getElementById('wrapperDiv').style.marginLeft = "256px"
-      }
-      else{
-        document.getElementById('wrapperDiv').style.marginLeft = "0px"
-      }
-  },[]);
-
+  const history=useHistory()
+  const isLoggedIn=()=>{
+    if(localStorage.getItem(TOKEN)===null){
+      return false;
+    }
+    return true;
+  }
   return (
-    <div>
-        {/* {
-            isLoggedIn()===false &&
-            <Redirect to="/login"/>
-        } */}
-        <div className="c-app c-default-layout">
-        <TheSidebar/>
-        <div className="c-wrapper" id="wrapperDiv">
-            <TheHeader/>
-            <div className="c-body">
-            <TheContent/>
-            </div>
-            <TheFooter/>
+    <>
+    {/* {
+        isLoggedIn()===false &&
+        <Redirect to="/login"/>
+    } */}
+    <div className="c-app c-default-layout">
+      <TheSidebar/>
+      <div className="c-wrapper">
+        <TheHeader/>
+        <div className="c-body">
+          <TheContent/>
         </div>
-        </div>
+        <TheFooter/>
+      </div>
     </div>
+    </>
   )
 }
 

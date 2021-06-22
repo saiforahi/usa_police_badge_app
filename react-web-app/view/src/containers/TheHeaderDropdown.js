@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import {useHistory } from "react-router"
+import React, { useEffect } from 'react'
 import {
+  CBadge,
   CDropdown,
   CDropdownItem,
   CDropdownMenu,
@@ -8,20 +8,25 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import avatar from '../assets/images/avatar.png'
+import { API } from 'src/config'
+import { useHistory } from 'react-router'
 
 const TheHeaderDropdown = () => {
-  const history=useHistory();
-  const [count,setCount]=useState(0);
+  let history=useHistory()
   const handle_logout=()=>{
-    history.push('/login');
+    // API.post('/logout').then(response=>{
+    //   if(response.data.status===true){
+    //     localStorage.clear()
+    //     history.push('/login')
+    //   }
+    // })
+    localStorage.clear()
+    history.push('/login')
   }
-  
-  React.useEffect(()=>{
-    // console.log(profile);
-  },[count])
+  useEffect(()=>{
+    // console.log(user.email)
+  },[])
   return (
-    <div>
     <CDropdown
       inNav
       className="c-header-nav-items mx-2"
@@ -30,9 +35,9 @@ const TheHeaderDropdown = () => {
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div className="c-avatar">
           <CImg
-            src={avatar}
+            src={'avatars/6.jpg'}
             className="c-avatar-img"
-            // alt={profile.email}
+            alt=''
           />
         </div>
       </CDropdownToggle>
@@ -45,18 +50,28 @@ const TheHeaderDropdown = () => {
         >
           <strong>Account</strong>
         </CDropdownItem>
-        <CDropdownItem to="/dashboard/help">
-          <CIcon name="cil-file" className="mfe-2" /> 
-          Help
+        <CDropdownItem>
+          <CIcon name="cil-user" className="mfe-2" />Profile
+        </CDropdownItem>
+        <CDropdownItem
+          header
+          tag="div"
+          color="light"
+          className="text-center"
+        >
+          <strong>Settings</strong>
+        </CDropdownItem>
+        <CDropdownItem>
+          <CIcon name="cil-settings" className="mfe-2" />
+          Settings
         </CDropdownItem>
         <CDropdownItem divider />
         <CDropdownItem onClick={handle_logout}>
-          <CIcon name="cil-lock-locked" className="mfe-2" /> 
+          <CIcon name="cil-settings" className="mfe-2" />
           Logout
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
-    </div>
   )
 }
 

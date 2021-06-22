@@ -1,14 +1,24 @@
-import React from 'react'
+import { CCol, CRow, CProgress,CWidgetProgressIcon} from '@coreui/react';
+import React from 'react';
+import CIcon from '@coreui/icons-react'
+import {API} from '../../config'
 
-const Dashboard =()=>{
-    React.useEffect(()=>{
-        console.log('dashboard component mounted')
-    },[])
+const Dashboard=()=>{
+    const [count,setCount]=React.useState(0);
+    
+    React.useEffect(() => {
+        console.log('dashboard mounted')
+      },[count]);
     return(
-        <div>
-            Dashboard
-        </div>
+        <>
+        <CRow>
+            <CCol sm="6" md="2">
+                Dashboard
+            </CCol>
+        </CRow>
+
+        </>
     )
 }
 
-export default Dashboard
+export default Dashboard;
