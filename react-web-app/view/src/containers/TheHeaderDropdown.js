@@ -8,7 +8,7 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { API } from 'src/config'
+// import { API } from 'src/config'
 import { useHistory } from 'react-router'
 
 const TheHeaderDropdown = () => {
