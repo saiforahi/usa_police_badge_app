@@ -28,7 +28,7 @@ import {
   cibStripe,
   cibPaypal,
   cibGooglePay,
-  cibCcAmex
+  cibCcAmex,cilBadge,cilControl,cilClock
 } from '@coreui/icons'
 import {
   cifUs,
@@ -104,7 +104,7 @@ import {
   cilPaperclip,
   cilPaperPlane,
   cilPencil,
-  cilPeople,
+  cilPeople,cilMoney,
   cilPhone,
   cilPrint,
   cilPuzzle,
@@ -140,7 +140,7 @@ export const icons = Object.assign({}, {
   logoNegative
 }, {
   cilAlignCenter,
-  cilTag,
+  cilTag,cilMoney,
   cilAlignLeft,
   cilAlignRight,
   cilApplicationsSettings,
@@ -149,7 +149,7 @@ export const icons = Object.assign({}, {
   cilAsterisk,
   cilBan,
   cilBasket,
-  cilBell,
+  cilBell,cilBadge,cilControl,
   cilBold,
   cilBookmark,
   cilCalculator,
@@ -232,7 +232,7 @@ export const icons = Object.assign({}, {
   cilXCircle,
   cilWarning,
   cilGroup,
-  cilBasket
+  cilBasket,cilClock
 }, {
   cifUs,
   cifBr,
