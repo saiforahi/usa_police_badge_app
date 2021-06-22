@@ -52,8 +52,12 @@ const TheSidebar = () => {
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
         <CSidebarNavTitle>Administration</CSidebarNavTitle>
         <CSidebarNavItem to="/dashboard/employees" onClick={()=>{history.push('/dashboard/users/show')}} icon="cil-group" name="Employees"></CSidebarNavItem>
-        <CSidebarNavItem to="/dashboard/badges" icon="cil-circle" name="Badges"></CSidebarNavItem>
-        <CSidebarNavItem to="/dashboard/control/show" icon="cil-tag" name="Site Control"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/badges" icon="cil-badge" name="Badges"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/control" icon="cil-control" name="Site Control"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/badges" icon="cil-clock" name="Time"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/control/show" icon="cil-calculator" name="Account"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/control/show" icon="cil-money" name="Billing"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/control/show" icon="cil-people" name="Contacts"></CSidebarNavItem>
       </CSidebarNav>
       <CSidebarMinimizer className="c-d-md-down-none"/>
     </CSidebar>
