@@ -44,12 +44,11 @@ const TheSidebar = () => {
           name="cilShieldAlt"
           height={35}
         /> */}
-        <i class="cil-shield-alt"></i>
+        <i className="cil-shield-alt"></i>
         {/* <h4 id="logoText" style={{marginTop:"12px", marginLeft:"5px"}} class="display-6">Smart Guard</h4> */}
         
       </CSidebarBrand>
       <CSidebarNav>
-        <custom icon="cill-shield-alt"/>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
         <CSidebarNavTitle>Administration</CSidebarNavTitle>
         <CSidebarNavItem to="/dashboard/employees" onClick={()=>{history.push('/dashboard/users/show')}} icon="cil-group" name="Employees"></CSidebarNavItem>
@@ -62,11 +61,3 @@ const TheSidebar = () => {
 }
 
 export default React.memo(TheSidebar)
-
-const custom =(icon)=>{
-  return(
-    <>
-    <i className={icon}></i>
-    </>
-  )
-}

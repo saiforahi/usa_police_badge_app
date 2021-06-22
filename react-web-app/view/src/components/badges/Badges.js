@@ -1,15 +1,12 @@
 import React from 'react'
 import { CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CDataTable,CBadge,CButton } from '@coreui/react'
-import { useHistory } from 'react-router-dom'
-const Employees=()=>{
-    let history = useHistory()
-    const employeeList =[
-        {id:1,Name:'Mr X',Email:'x@mail.com'},
-        {id:2,Name: 'Mr Y',Email:'y@mail.com'}
+const Badges = ()=>{
+    const badgeList=[
+        {}
     ]
     return(
         <>
-        <CRow>
+         <CRow>
             <CCol md="12">
                 <CCard>
                     <CCardHeader>
@@ -60,4 +57,4 @@ const Employees=()=>{
     )
 }
 
-export default Employees
+export default Badges
