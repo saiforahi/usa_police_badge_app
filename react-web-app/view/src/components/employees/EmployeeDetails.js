@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CForm,CInputGroupAppend,CInputGroupText,CInput,CInputGroup,CInputGroupPrepend,CButton,CImg } from '@coreui/react'
 import { useHistory, useLocation } from 'react-router-dom'
-import CIcon from '@coreui/icons-react'
+import CIcon from "@coreui/icons-react"
 const EmployeeDetails =()=>{
     let location = useLocation()
     let history = useHistory()
@@ -22,7 +22,11 @@ const EmployeeDetails =()=>{
                     </CCardHeader>
                     <CCardBody>
                         <CForm>
-                            <CImg src=""/>
+                            <CRow className="justify-content-center">
+                                <CCol className="justify-content-center" md="2">
+                                <CImg className="mx-auto" style={{height:"100px"}} shape="rounded" src={'assets/images/avatar.png'}/>
+                                </CCol>
+                            </CRow>
                             <CInputGroup className="mb-3">
                                 <CInputGroupPrepend>
                                     <CInputGroupText>
