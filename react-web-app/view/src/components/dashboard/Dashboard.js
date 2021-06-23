@@ -3,7 +3,7 @@ import React from 'react';
 import CIcon from '@coreui/icons-react'
 import {API} from '../../config'
 
-import MainChartExample from '../../views/charts/MainChartExample.js'
+import MainChartExample from '../../views/charts/ChartBarSimple'
 const WidgetsDropdown = React.lazy(() => import('../../views/widgets/WidgetsDropdown.js'))
 const WidgetsBrand = React.lazy(() => import('../../views/widgets/WidgetsBrand.js'))
 const Dashboard=()=>{
