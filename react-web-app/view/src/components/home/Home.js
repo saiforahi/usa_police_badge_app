@@ -1,152 +1,188 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
-import {TOKEN} from '../../config'
+import { Link } from 'react-router-dom'
+import { TOKEN } from '../../config'
 import './Home.css'
 import Header from '../header/header'
 
 
 // import { from } from 'core-js/core/array'
-const isLoggedIn=()=>{
-    if(localStorage.getItem(TOKEN)===null){
-      return false;
+const isLoggedIn = () => {
+    if (localStorage.getItem(TOKEN) === null) {
+        return false;
     }
     return true;
 }
-const Home=()=>{
+const Home = () => {
     // let history=useHistory()
-    const [count,setCount]=useState(0)
-    useEffect(()=>{
+    const [count, setCount] = useState(0)
+    useEffect(() => {
         console.log('home mounted')
-    },[count])
-    return(
+    }, [count])
+    return (
         <>
-        <div>
-          
-<Header></Header>
-            <main>
-                <section className="bg-image-hero center-tablet dark overlay-hero">
-                    <div className="full-screen -margin-bottom middle padding padding-top-tablet">
-                        <div className="row max-width-l">
-                            <div className="col-one-half middle">
-                                <div>
-                                    <h1 className="hero">SmartGuard</h1>
-                                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <Link to="/login" className="button button-primary space-top" role="button" >Get Started</Link>
+            <div>
+
+                <Header></Header>
+                <main>
+                    <section className="bg-image-hero center-tablet dark overlay-hero">
+                        <div className="full-screen -margin-bottom middle padding padding-top-tablet">
+                            <div className="row max-width-l">
+                                <div className="col-one-half middle">
+                                    <div>
+                                        <h1 className="hero">SmartGuard</h1>
+                                        <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <Link to="/login" className="button button-primary space-top" role="button" >Get Started</Link>
+                                    </div>
+                                </div>
+                                <div className="col-one-half middle">
+                                    <img src={'assets/images/police-cap.jpg'} srcSet="assets/images/police-cap.jpg 1x,assets/images/police-cap@2x.jpg 2x" alt="Hero Illustration" />
                                 </div>
                             </div>
-                            <div className="col-one-half middle">
-                                <img src={'assets/images/police-cap.jpg'} srcSet="assets/images/police-cap.jpg 1x,assets/images/police-cap@2x.jpg 2x" alt="Hero Illustration"/>
+                        </div>
+                        <div className="padding">
+                            <div className="row margin-bottom max-width-l">
+                                <div className="col-one-half middle">
+                                    <h3>Emergency Contact One Scan Away</h3>
+                                    <p className="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                                <div className="col-one-half">
+                                    <img className="rounded shadow-l" src={'assets/images/KINEGRAM-Officer-ID.jpg'} srcSet="assets/images/KINEGRAM-Officer-ID.jpg 1x,assets/images/KINEGRAM-Officer-ID@2x.jpg 2x" alt="Keep Track" />
+                                </div>
+                            </div>
+                            <div className="row max-width-l reverse-order">
+                                <div className="col-one-half">
+                                    <img className="rounded shadow-l" src={'assets/images/cusomer-review.jpg'} srcSet="assets/images/cusomer-review.jpg 1x, assets/images/cusomer-review@2x.jpg 2x" alt="Sketch" />
+                                </div>
+                                <div className="col-one-half middle">
+                                    <h3>Civilian Review</h3>
+                                    <p className="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
+
+                    <section className="bg-gradient-light -margin-bottom-2 overlay padding">
+                        <div className="center max-width-m">
+                            <h2 className="second-text">Better Service Experience</h2>
+                            <p className="paragraph second-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                        </div>
+                        <div className="margin-top max-width-l center">
+                            <img className="rounded shadow-l " src={'assets/images/better-service.jpg'} srcSet="assets/images/better-service.jpg 1x, assets/images/better-service@2x.jpg 2x" alt="Opalin Dashboard" />
+                        </div>
+                    </section>
+
+                    <section class="bg-gradient-dark center dark padding">
+                        <div class="margin-top max-width-l">
+                            <div class="margin-bottom max-width-m">
+                                <h3>Over 100 PDs </h3>
+                                <p class="opacity-m paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="row min-two-columns">
+                                <div class="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                </div>
+                                <div class="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                </div>
+                                <div class="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                </div>
+                                <div class="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                </div>
+                            </div>
+                            {/* <img class="margin-top rounded shadow-l" src="assets/images/PDs.jpg" srcset="assets/images/PDs.jpg 1x, assets/images/PDs@2x.jpg 2x" alt="Customers"/> */}
+                        </div>
+                    </section>
+
+                    <section class="bg-light center">
+                        <div class="row no-gutter">
+                            <div class="col-one-half middle padding padding-bottom padding-top">
+                                <div class="max-width-m">
+                                    <p class="paragraph second-text">Danielle Mayer, business owner, says:</p>
+                                    <h3 className="second-text">"Officer X was really helpful !"</h3>
+                                </div>
+                            </div>
+                            <img className="col-one-half padding-bottom padding-top" src={'assets/images/bg/image-03@2x.jpg'} />
+
+
+                        </div>
+                    </section>
+
+                    <section class="bg-gradient-light padding">
+                        <div class="center max-width-l">
+                            <h2 className="second-text">Easy Setup</h2>
+                            <p class="paragraph second-text">At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
+                        </div>
+                        <div class="row margin-top max-width-l">
+                            <div class="col-one-fourth card card-content">
+                                <p class="muted">Step 1</p>
+                                <h4>Step 1</h4>
+                                <p class="paragraph">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div class="col-one-fourth card card-content">
+                                <p class="muted">Step 2</p>
+                                <h4>Step 2</h4>
+                                <p class="paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur mollit.</p>
+                            </div>
+                            <div class="col-one-fourth card card-content">
+                                <p class="muted">Step 3</p>
+                                <h4>Step 3</h4>
+                                <p class="paragraph">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="col-one-fourth card card-content dark">
+                                <p class="muted">Step 4</p>
+                                <h4>Done!</h4>
+                                <p class="paragraph">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                            </div>
+                        </div>
+                        {/* <div class="center margin-top max-width-l">
+                            <span class="muted">If you need any help, make sure to </span><a href="signup.html">book a demo</a><span class="muted">.</span>
+                        </div> */}
+                    </section>
+                </main>
+
+                <footer className="footer-main bg-gradient-primary dark overlay-shape-06">
                     <div className="padding">
-                        <div className="row margin-bottom max-width-l">
-                            <div className="col-one-half middle">
-                                <h3>Custom Framework</h3>
-                                <p className="paragraph">Everything is neatly organized in Sass and has been heavily focused on performances.</p>
-                            </div>
-                            <div className="col-one-half">
-                                <img className="rounded shadow-l" src="./Opalin HTML Template_files/editor.png" srcSet="media/content/editor.png 1x, media/content/editor@2x.png 2x" alt="Editor"/>
-                            </div>
-                        </div>
-                        <div className="row max-width-l reverse-order">
-                            <div className="col-one-half">
-                                <img className="rounded shadow-l" src="./Opalin HTML Template_files/sketch.png" srcSet="media/content/sketch.png 1x, media/content/sketch@2x.png 2x" alt="Sketch"/>
-                            </div>
-                            <div className="col-one-half middle">
-                                <h3>Designed In Sketch</h3>
-                                <p className="paragraph">100% of this HTML template, including all modules and components have been designed in Sketch.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <section className="bg-gradient-light -margin-bottom-2 overlay padding">
-                    <div className="center max-width-m">
-                        <h2>Present Your Product</h2>
-                        <p className="paragraph">Opalin helps you present your business in a wide variety of ways. Display full-width images, divide content in a single or multiple columns, anything to make your product or service stand out!</p>
+                        <div className="card card-content dark margin-bottom max-width-l">
+                            <form className="row reduce-spacing">
+                                <div className="col-two-thirds center-tablet middle">
+                                    <h3 className="space-none">Ready to get started?</h3>
+                                    
+                                </div>
+                                <div className="col-one-third middle">
+                                    <Link to="/"className="button button-primary" role="button">Start Today !</Link>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="row center-desktop max-width-l">
+                            <div className="col-two-fifths">
+                                <h6>SmartGuard ®</h6>
+                               
+                            </div>
+                            <div className="col-one-fifth">
+                                <h6>Info</h6>
+                                <ul className="blank">
+                                    <li><a href="#">Getting Started</a></li>
+                                    <li><a href="#">Resources</a></li>
+                                   
+                                </ul>
+                            </div>
+                            <div className="col-one-fifth">
+                                <h6>Support</h6>
+                                <ul className="blank">
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Requirements</a></li>
+                                    <li><a href="#">Updates</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                          
+                        </div>
                     </div>
-                    <div className="margin-top max-width-l">
-                        <img className="rounded shadow-l" src="./Opalin HTML Template_files/opalin-dashboard.png" srcSet="media/content/opalin-dashboard.png 1x, media/content/opalin-dashboard@2x.png 2x" alt="Opalin Dashboard"/>
-                    </div>
-                </section>
-            </main>
 
-            <footer className="footer-main bg-gradient-primary dark overlay-shape-06">
-                <div className="padding">
-                <div className="center margin-bottom max-width-m">
-                    <h3>Grow your startup the right way.</h3>
-                    <p className="paragraph">Our tools are packed with epic features. So you can focus on your most important work.</p>
-                </div>
-                <div className="center margin-bottom max-width-l">
-                    <div className="row margin-bottom min-two-columns">
-                    <div className="col-one-fourth">
-                        <i className="feature-icons material-icons bg-gradient-pink">format_shapes</i>
-                        <h6>Minimal Design</h6>
-                    </div>
-                    <div className="col-one-fourth">
-                        <i className="feature-icons material-icons bg-gradient-cyan">network_check</i>
-                        <h6>Rocket Fast</h6>
-                    </div>
-                    <div className="col-one-fourth">
-                        <i className="feature-icons material-icons bg-gradient-green">line_style</i>
-                        <h6>Framework</h6>
-                    </div>
-                    <div className="col-one-fourth">
-                        <i className="feature-icons material-icons bg-gradient-indigo">check</i>
-                        <h6>HTML5 Valid</h6>
-                    </div>
-                    </div>
-                </div>
-                <div className="card card-content dark margin-bottom max-width-l">
-                    <form className="row reduce-spacing">
-                    <div className="col-two-thirds center-tablet middle">
-                        <h3 className="space-none">Ready to get started?</h3>
-                        <p className="paragraph">Start your free 15-day trial today.</p>
-                    </div>
-                    <div className="col-one-third middle">
-                        <a href="https://preview.uiuxassets.com/opalin/signup.html" className="button button-primary" role="button">Create An Account</a>
-                    </div>
-                    </form>
-                </div>
-                <div className="row center-desktop max-width-l">
-                    <div className="col-two-fifths">
-                    <h6>Opalin ®</h6>
-                    <p>We're a completely remote company, working across twenty countries with over 20,000 customers.</p>
-                    </div>
-                    <div className="col-one-fifth">
-                    <h6>Info</h6>
-                    <ul className="blank">
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Getting Started</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Resources</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Design</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Tutorials</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Pricing</a></li>
-                    </ul>
-                    </div>
-                    <div className="col-one-fifth">
-                    <h6>Support</h6>
-                    <ul className="blank">
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Documentation</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Requirements</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">License</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Updates</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Contact</a></li>
-                    </ul>
-                    </div>
-                    <div className="col-one-fifth">
-                    <h6>Connect</h6>
-                    <ul className="blank">
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Twitter</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Facebook</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Instagram</a></li>
-                        <li><a href="https://preview.uiuxassets.com/opalin/?storefront=envato-elements#">Medium</a></li>
-                    </ul>
-                    </div>
-                </div>
-                </div>
-              
-            </footer>
+                </footer>
             </div>
         </>
     )
