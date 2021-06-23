@@ -3,6 +3,7 @@ import { logo } from './logo'
 import { logoNegative } from './logo-negative'
 
 import {
+  cilPlus,
   cibSkype,
   cibHubspot,
   cibPinboard,
@@ -39,6 +40,7 @@ import {
   cifPl,
 } from '@coreui/icons'
 import {
+  
   cilAlignCenter,
   cilGroup,
   cilAlignLeft,
@@ -139,6 +141,7 @@ export const icons = Object.assign({}, {
   logo,
   logoNegative
 }, {
+  cilPlus,
   cilAlignCenter,
   cilTag,cilMoney,
   cilAlignLeft,
