@@ -362,7 +362,9 @@ h1.hero {
   font-weight: 900;
   line-height: 3.75rem;
 }
-
+.second-text{
+  color: #05050b;
+}
 @media only screen and (max-width: 479px) {
   h1 {
     font-size: 3rem;
@@ -826,7 +828,7 @@ p:last-child {
 }
 
 .bg-primary {
-  background: #575bde;
+  background: #575bde !important;
 }
 
 .bg-white {
@@ -853,7 +855,7 @@ p:last-child {
 }
 
 .bg-gradient-primary {
-  background: #575bde;
+  background: #575bde !important;
   background: -webkit-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
   background: -moz-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
   background: -ms-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
@@ -1013,14 +1015,14 @@ p:last-child {
 
 .dark.overlay-shape-05:before {
   background: url(../media/bg/shape-dark-05.svg);
-}
+} */
 
 .overlay-shape-06:before {
-  background: url(../media/bg/shape-06.svg);
+  background-image: url(../../assets/icons/shape-hero.svg);
 }
 
 .dark.overlay-shape-06:before {
-  background: url(../media/bg/shape-dark-06.svg);
+  background-image: url(../../assets/icons/shape-dark-06.svg);
 }
 
 /* Images */
@@ -1073,8 +1075,8 @@ p:last-child {
     background: url(../media/bg/image-05.jpg);
   }
 }
-
-.bg-image-06:after {
+*/
+/* .bg-image-06:after {
   background: url(../media/bg/image-06@2x.jpg);
 }
 
@@ -1102,7 +1104,7 @@ p:last-child {
   .bg-image-08:after {
     background: url(../media/bg/image-08.jpg);
   }
-} */
+}  */
 
 .bg-image-hero:after {
   background: #05050b;
@@ -1374,7 +1376,7 @@ p:last-child {
 
 /* Negative spacing */
 .-margin-bottom {
-  margin-bottom: 10rem;
+  margin-bottom: -5rem;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -1689,11 +1691,14 @@ p:last-child {
 
 .card.dark {
   background: #1d1a3d;
+  color: #ffffff;
 }
 
 .card-content {
   padding: 2rem;
+  color: #110F24;
 }
+
 
 @media only screen and (max-width: 479px) {
   .card-content {
