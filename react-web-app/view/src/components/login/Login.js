@@ -20,6 +20,7 @@ import {TOKEN,PUBLIC_API,API} from '../../config'
 import swal from 'sweetalert'
 import { makeStyles } from '@material-ui/core/styles';
 import {LinearProgress} from '@material-ui/core';
+import './login.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -71,7 +72,7 @@ const Login = () => {
     return (
         <>
         {isLoggedIn() && <Redirect to="/dashboard"/>}
-        <div className="c-app c-default-layout flex-row align-items-center">
+        <div className="c-app c-default-layout overlay-hero flex-row align-items-center">
         <CContainer>
             <CRow className="justify-content-center">
             <CCol md="5">
@@ -99,7 +100,7 @@ const Login = () => {
                         </CInputGroup>
                         <CRow>
                         <CCol xs="12" md="12">
-                          {submitted ? <div className={classes.root}> <LinearProgress color="primary" /> </div>:<CButton color="primary" className="px-4" onClick={handleSubmit}>Login</CButton>}
+                          {submitted ? <div className={classes.root}> <LinearProgress color="primary" /> </div>:<CButton color="primary" className="px-4 custom-button" onClick={handleSubmit}>Login</CButton>}
                         </CCol>
                         {/* <CCol xs="6" className="text-right">
                             <CButton color="link" className="px-0">Forgot password?</CButton>

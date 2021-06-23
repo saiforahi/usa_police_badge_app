@@ -855,7 +855,7 @@ p:last-child {
 }
 
 .bg-gradient-primary {
-  background: #575bde !important;
+  background: #575bde ;
   background: -webkit-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
   background: -moz-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
   background: -ms-linear-gradient(140deg, #00d7af 25%, #575bde 100%);

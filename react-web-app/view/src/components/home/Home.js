@@ -142,7 +142,7 @@ const Home = () => {
                     </section>
                 </main>
 
-                <footer className="footer-main bg-gradient-primary dark overlay-shape-06">
+                <footer className="footer-main bg-gradient-cyan dark overlay-shape-06">
                     <div className="padding">
 
                         <div className="card card-content dark margin-bottom max-width-l">
