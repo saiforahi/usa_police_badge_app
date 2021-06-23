@@ -2586,4 +2586,7 @@ table td {
     height: 12rem;
     position: relative;
   }
+  .header-main{
+    background: #313fae;
+  }
 }

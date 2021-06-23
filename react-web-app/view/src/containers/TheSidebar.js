@@ -16,6 +16,7 @@ import { CIcon } from '@coreui/icons-react';
 import { API } from '../config'
 import { useHistory } from 'react-router'
 import '../assets/warehouse.svg'
+import './TheSidebar.css'
 const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()
@@ -28,7 +29,7 @@ const TheSidebar = () => {
       show={show}
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
-      <CSidebarBrand className="d-md-down-none" to="/">
+      <CSidebarBrand className="d-md-down-none text-center" to="/">
         {/* <CIcon
           className="c-sidebar-brand-full"
           name="logo-negative"
@@ -40,11 +41,12 @@ const TheSidebar = () => {
           height={35}
         /> */}
         <CIcon
-          className="c-sidebar-brand-minimized"
-          name="cilShieldAlt"
-          height={35}
+          
+          name="cil-shield-alt"
+          height={25}
         />
-        {/* <h4 id="logoText" style={{marginTop:"12px", marginLeft:"5px"}} class="display-6">Smart Guard</h4> */}
+      
+        <h4 id="logoText" style={{marginTop:"12px", marginLeft:"5px"}} className="display-8 c-sidebar-brand-full">SmartGuard</h4>
         
       </CSidebarBrand>
       <CSidebarNav>
