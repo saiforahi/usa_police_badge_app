@@ -282,13 +282,13 @@ html {
   line-height: 24px;
 }
 
-body {
+/* body {
   color: #110f24;
   font-family: "Lato", Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.5rem;
   overflow-x: hidden;
-}
+} */
 
 a {
   -webkit-transition: all 0.2s;
