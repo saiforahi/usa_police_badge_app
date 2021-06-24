@@ -16,10 +16,7 @@ import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 const Badges = () => {
     const useStyles = makeStyles((theme) => ({
-        formControl: {
-            // margin: theme.spacing(1),
-            minWidth: 120,
-        },
+
         selectEmpty: {
             marginTop: theme.spacing(2),
         },
@@ -55,13 +52,14 @@ const Badges = () => {
                             Badges
                         </CCardHeader>
                         <CCardBody>
+
                             <CDataTable
                                 items={badgeList}
                                 fields={[
                                     { key: '#', _style: { width: '5%' }, _classes: 'font-weight-bold' },
-                                    'Badge Number', 'Created Date', 'Assigned To', 'Scans', 'Global Scans', { key: 'Action', label: '', _style: { width: '12%' }, sorter: false, filter: false }
+                                    'Badge Number', 'Created Date', 'Assigned To', 'Scans', 'Global Scans', { key: 'Action', label: '', _style: { width: '12%' }, sorter: true, filter: false }
                                 ]}
-                                light
+                                primary
                                 hover
                                 striped
                                 bordered
@@ -95,10 +93,10 @@ const Badges = () => {
                     <CButton className="button-primary" type="button">Assign all unassigned</CButton>
                     <CButton type="button" className="button-primary float-right" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
 
-Add New <CIcon name="cil-plus" size="xl"></CIcon>
-</CButton>
+                        Add New <CIcon name="cil-plus" size="xl"></CIcon>
+                    </CButton>
                     <div class="dropdown">
-                       
+
                         <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenu2">
                             <button class="dropdown-item" type="button">Buy New</button>
                             <div class="dropdown-divider"></div>
@@ -108,33 +106,35 @@ Add New <CIcon name="cil-plus" size="xl"></CIcon>
                         </div>
                         {/* modal for form input */}
                         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" className="d-block">
-                            <DialogTitle id="form-dialog-title">Use Existing Badge</DialogTitle>
-                            <DialogContent>
-                                <form>
-                                    <TextField required id="standard-required" label="Card ID" defaultValue="Hello World" className="d-block"/>
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel id="demo-simple-select-label" className="d-block">Product Type</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={age}
-                                            onChange={handleChange}
-                                        >
-                                            <MenuItem value={10}>Product1</MenuItem>
-                                            <MenuItem value={20}>Product2</MenuItem>
-                                            <MenuItem value={30}>Product3</MenuItem>
-                                        </Select>
-                                    </FormControl>
+                            <div className=" modal-comp">
+                                <DialogTitle id="form-dialog-title">Use Existing Badge</DialogTitle>
+                                <DialogContent>
+                                    <form>
+                                        <TextField required id="standard-required" label="Card ID" defaultValue="Hello World" className="d-block" />
+                                        <FormControl className="w-100 mt-2">
+                                            <InputLabel id="demo-simple-select-label">Product Type</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={age}
+                                                onChange={handleChange}
+                                            >
+                                                <MenuItem value={10}>Product1</MenuItem>
+                                                <MenuItem value={20}>Product2</MenuItem>
+                                                <MenuItem value={30}>Product3</MenuItem>
+                                            </Select>
+                                        </FormControl>
 
-                                </form>
+                                    </form>
 
-                            </DialogContent>
-                            <DialogActions className="center">
-                                <CButton onClick={handleClose} color="primary" className="button-primary px-4 mt-2 align-center">
-                                    Submit
-                                </CButton>
+                                </DialogContent>
+                                <DialogActions className="justify-content-center">
+                                    <CButton onClick={handleClose} color="primary" className="button-primary px-4 mt-2">
+                                        Submit
+                                    </CButton>
 
-                            </DialogActions>
+                                </DialogActions>
+                            </div>
                         </Dialog>
                     </div>
                 </CCol>
