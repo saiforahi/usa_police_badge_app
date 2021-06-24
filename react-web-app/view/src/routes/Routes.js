@@ -7,7 +7,8 @@ const routes = [
   { path: '/dashboard/employees',exact: true, name: 'Employees', component: Employees },
   { path: '/dashboard/employees/details',exact:true, name: 'Employee Details', component: React.lazy(()=>import('../components/employees/EmployeeDetails'))},
   { path: '/dashboard/badges/',exact:true, name: 'Badges', component: React.lazy(()=>import('../components/badges/Badges'))},
-  { path: '/dashboard/sitecontrol/',exact:true, name: 'Site Control', component: React.lazy(()=>import('../components/sitecontrol/SiteControl'))}
+  { path: '/dashboard/sitecontrol/',exact:true, name: 'Site Control', component: React.lazy(()=>import('../components/sitecontrol/SiteControl'))},
+  {path:'/dashboard/contacts/',exact:true,name:'Contacts',component:React.lazy(()=> import ('../components/contacts/contacts'))}
 ];
 
 export default routes;

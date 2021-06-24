@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,700");
+
+.special:focus,.special.active{
+    background: -webkit-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: -moz-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: -ms-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: -o-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    color: white !important;
+    font-family: Lato, Helvetica, sans-serif;
+}
+.special{
+  
+    font-family: Lato, Helvetica, sans-serif;
+}

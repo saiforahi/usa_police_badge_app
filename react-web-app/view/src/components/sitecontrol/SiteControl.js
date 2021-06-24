@@ -37,7 +37,7 @@ const SiteControl = () => {
         <CTabPane data-tab="details">
           <CContainer>
           <CRow className="justify-content-center">
-            <CCol className="col-md-10 offset-md-1 col-sm-12 col-xs-12">
+            <CCol className="col-md-10 offset-md-1 col-sm-12 col-xs-12 col-12">
               <CCard className="custom-card">
 
                 <CRow>
@@ -60,14 +60,14 @@ const SiteControl = () => {
                       </CSelect>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12">
+                  <CCol className="col-md-10 offset-md-1 col-sm-12 col-12">
                     <CFormGroup>
                       <CLabel htmlFor="companyName" className="custom-label">Company Name</CLabel>
                       <CInput id="companyName" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-12">
+                  <CCol className="col-md-12 col-12">
                     <div className="text-center mt-2">
                       <img src={'avatars/3.jpg'} class="rounded-circle person-img" alt="..." />
                       <p className="all-text">Supervisor Profile Picture</p>
@@ -75,28 +75,28 @@ const SiteControl = () => {
 
 
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12">
+                  <CCol className="col-md-10 offset-md-1 col-sm-12 col-12">
                     <CFormGroup>
                       <CLabel htmlFor="supContactName" className="custom-label">Supervisor Contact Name</CLabel>
                       <CInput id="supContactName" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12">
+                  <CCol className="col-md-10 offset-md-1 col-sm-12 col-12">
                     <CFormGroup>
                       <CLabel htmlFor="address" className="custom-label">Address</CLabel>
                       <CInput id="address" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-5 offset-md-1 col-sm-12">
+                  <CCol className="col-md-5 offset-md-1 col-sm-12 col-12">
                     <CFormGroup>
                       <CLabel htmlFor="phone" className="custom-label">Phone</CLabel>
                       <CInput id="phone" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-5 col-sm-12">
+                  <CCol className="col-md-5 col-sm-12 col-12">
                     <CFormGroup>
                       <CLabel htmlFor="email" className="custom-label">Email</CLabel>
                       <CInput id="email" />

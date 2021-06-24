@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './badges.css'
 import { CIcon } from '@coreui/icons-react';
 import { CCard, CRow, CCol, CCardBody, CCardFooter, CCardHeader, CDataTable, CBadge, CButton } from '@coreui/react'
