@@ -3,5 +3,11 @@
 
 #logoText{
     font-family: Lato, Helvetica, sans-serif;
-    
+    font-size: 18px !important;
 } 
+.c-sidebar-brand{
+    font-size: 18px !important;
+}
+.c-sidebar-brand:hover{
+    color: white !important;
+}
