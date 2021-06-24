@@ -58,7 +58,7 @@ const TheSidebar = () => {
         <CSidebarNavItem to="/dashboard/badges" icon="cil-clock" name="Time"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/control/show" icon="cil-calculator" name="Account"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/control/show" icon="cil-money" name="Billing"></CSidebarNavItem>
-        <CSidebarNavItem to="/dashboard/control/show" icon="cil-people" name="Contacts"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/contacts" icon="cil-people" name="Contacts"></CSidebarNavItem>
       </CSidebarNav>
       <CSidebarMinimizer className="c-d-md-down-none"/>
     </CSidebar>
