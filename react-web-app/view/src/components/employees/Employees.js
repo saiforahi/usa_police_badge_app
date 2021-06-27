@@ -1,5 +1,5 @@
 import React from 'react'
-import { CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CDataTable,CBadge,CButton } from '@coreui/react'
+import { CDropdown,CDropdownToggle,CDropdownItem,CDropdownMenu,CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CDataTable,CBadge,CButton } from '@coreui/react'
 import { useHistory } from 'react-router-dom'
 const Employees=()=>{
     let history = useHistory()
@@ -13,7 +13,7 @@ const Employees=()=>{
             <CCol md="12">
                 <CCard>
                     <CCardHeader>
-                        Employees
+                        <h3>Employees</h3>
                     </CCardHeader>
                     <CCardBody>
                         <CDataTable
@@ -28,13 +28,13 @@ const Employees=()=>{
                         bordered
                         sorter
                         columnFilter
-                        clickableRows
-                        onRowClick={(row)=>{
-                            history.push({
-                                pathname: '/dashboard/employees/details',
-                                state: { employee: row }
-                            })
-                        }}
+                        // clickableRows
+                        // onRowClick={(row)=>{
+                        //     history.push({
+                        //         pathname: '/dashboard/employees/details',
+                        //         state: { employee: row }
+                        //     })
+                        // }}
                         size="sm"
                         itemsPerPage={10}
                         pagination
@@ -42,9 +42,9 @@ const Employees=()=>{
                             'Action':
                             (item)=>(
                                 <td>
-                                <CBadge>
-                                    <CButton onClick={()=>{}} type="button" size="sm" color="danger">Delete</CButton> <CButton size="sm" type="button" color="primary">View</CButton>
-                                </CBadge>
+                                    <CBadge>
+                                        <CButton onClick={() => { }} type="button" size="sm" color="danger">Delete</CButton> <CButton size="sm" type="button" color="primary">View</CButton>
+                                    </CBadge>
                                 </td>
                             )
                         }}

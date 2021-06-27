@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
 import {Redirect, useHistory} from "react-router"
 import {
   CButton,
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Login = () => {
-  let classes=useStyles()
+    let classes=useStyles()
     const [submitted,setSubmitted]=useState(false)
     const [email,setEmail]=useState("admin@mail.com");
     const [password,setPassword]=useState("123456");
@@ -73,58 +72,58 @@ const Login = () => {
         <>
         {isLoggedIn() && <Redirect to="/dashboard"/>}
         <div className="c-app c-default-layout overlay-hero flex-row align-items-center">
-        <CContainer>
+          <CContainer>
             <CRow className="justify-content-center">
-            <CCol md="5">
-                <CCardGroup>
-                <CCard className="p-4">
-                    <CCardBody>
-                    <CForm>
-                        <h1>Sign In</h1>
-                        <p className="text-muted">Sign In to your account</p>
-                        <CInputGroup className="mb-3">
-                        <CInputGroupPrepend>
-                            <CInputGroupText>
-                            <CIcon name="cil-user" />
-                            </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput value={email} onChange={(event)=>setEmail(event.target.value)} type="email" placeholder="Email" autoComplete="email" />
-                        </CInputGroup>
-                        <CInputGroup className="mb-4">
-                        <CInputGroupPrepend>
-                            <CInputGroupText>
-                            <CIcon name="cil-lock-locked" />
-                            </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput onKeyDown={handleKeypress} type="password" placeholder="Password" autoComplete="current-password" onChange={(event)=>setPassword(event.target.value)} value={password} />
-                        </CInputGroup>
-                        <CRow>
-                        <CCol xs="12" md="12">
-                          {submitted ? <div className={classes.root}> <LinearProgress color="primary" /> </div>:<CButton color="primary" className="px-4 custom-button" onClick={handleSubmit}>Login</CButton>}
-                        </CCol>
-                        {/* <CCol xs="6" className="text-right">
-                            <CButton color="link" className="px-0">Forgot password?</CButton>
-                        </CCol> */}
-                        </CRow>
-                    </CForm>
-                    </CCardBody>
-                </CCard>
-                {/* <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
-                    <CCardBody className="text-center">
-                    <div>
-                        <h2>Sign up</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                        <Link to="/register">
-                        <CButton color="primary" className="mt-3" active tabIndex={-1}>Register Now!</CButton>
-                        </Link>
-                    </div>
-                    </CCardBody>
-                </CCard> */}
-                </CCardGroup>
-            </CCol>
+              <CCol md="5">
+                  <CCardGroup>
+                  <CCard className="p-4">
+                      <CCardBody>
+                      <CForm>
+                          <h1>Sign In</h1>
+                          <p className="text-muted">Sign In to your account</p>
+                          <CInputGroup className="mb-3">
+                          <CInputGroupPrepend>
+                              <CInputGroupText>
+                              <CIcon name="cil-user" />
+                              </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput value={email} onChange={(event)=>setEmail(event.target.value)} type="email" placeholder="Email" autoComplete="email" />
+                          </CInputGroup>
+                          <CInputGroup className="mb-4">
+                          <CInputGroupPrepend>
+                              <CInputGroupText>
+                              <CIcon name="cil-lock-locked" />
+                              </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput onKeyDown={handleKeypress} type="password" placeholder="Password" autoComplete="current-password" onChange={(event)=>setPassword(event.target.value)} value={password} />
+                          </CInputGroup>
+                          <CRow>
+                          <CCol xs="12" md="12">
+                            {submitted ? <div className={classes.root}> <LinearProgress color="primary" /> </div>:<CButton color="primary" className="px-4 custom-button" onClick={handleSubmit}>Login</CButton>}
+                          </CCol>
+                          {/* <CCol xs="6" className="text-right">
+                              <CButton color="link" className="px-0">Forgot password?</CButton>
+                          </CCol> */}
+                          </CRow>
+                      </CForm>
+                      </CCardBody>
+                  </CCard>
+                  {/* <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
+                      <CCardBody className="text-center">
+                      <div>
+                          <h2>Sign up</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua.</p>
+                          <Link to="/register">
+                          <CButton color="primary" className="mt-3" active tabIndex={-1}>Register Now!</CButton>
+                          </Link>
+                      </div>
+                      </CCardBody>
+                  </CCard> */}
+                  </CCardGroup>
+                </CCol>
             </CRow>
-        </CContainer>
+          </CContainer>
         </div>
         </>
     )

@@ -71,35 +71,35 @@ const Home = () => {
                         </div>
                     </section>
 
-                    <section class="bg-gradient-dark center dark padding">
-                        <div class="margin-top max-width-l">
-                            <div class="margin-bottom max-width-m">
+                    <section className="bg-gradient-dark center dark padding">
+                        <div className="margin-top max-width-l">
+                            <div className="margin-bottom max-width-m">
                                 <h3>Over 100 PDs </h3>
-                                <p class="opacity-m paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p className="opacity-m paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
-                            <div class="row min-two-columns">
-                                <div class="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                            <div className="row min-two-columns">
+                                <div className="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
                                 </div>
-                                <div class="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                <div className="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
                                 </div>
-                                <div class="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                <div className="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
                                 </div>
-                                <div class="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcset="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
+                                <div className="col-one-fourth">
+                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
                                 </div>
                             </div>
-                            {/* <img class="margin-top rounded shadow-l" src="assets/images/PDs.jpg" srcset="assets/images/PDs.jpg 1x, assets/images/PDs@2x.jpg 2x" alt="Customers"/> */}
+                            {/* <img className="margin-top rounded shadow-l" src="assets/images/PDs.jpg" srcSet="assets/images/PDs.jpg 1x, assets/images/PDs@2x.jpg 2x" alt="Customers"/> */}
                         </div>
                     </section>
 
-                    <section class="bg-light center">
-                        <div class="row no-gutter">
-                            <div class="col-one-half middle padding padding-bottom padding-top">
-                                <div class="max-width-m">
-                                    <p class="paragraph second-text">Danielle Mayer, business owner, says:</p>
+                    <section className="bg-light center">
+                        <div className="row no-gutter">
+                            <div className="col-one-half middle padding padding-bottom padding-top">
+                                <div className="max-width-m">
+                                    <p className="paragraph second-text">Danielle Mayer, business owner, says:</p>
                                     <h3 className="second-text">"Officer X was really helpful !"</h3>
                                 </div>
                             </div>
@@ -109,35 +109,35 @@ const Home = () => {
                         </div>
                     </section>
 
-                    <section class="bg-gradient-light padding">
-                        <div class="center max-width-l">
+                    <section className="bg-gradient-light padding">
+                        <div className="center max-width-l">
                             <h2 className="second-text">Easy Setup</h2>
-                            <p class="paragraph second-text">At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
+                            <p className="paragraph second-text">At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
                         </div>
-                        <div class="row margin-top max-width-l">
-                            <div class="col-one-fourth card card-content">
-                                <p class="muted">Step 1</p>
+                        <div className="row margin-top max-width-l">
+                            <div className="col-one-fourth card card-content">
+                                <p className="muted">Step 1</p>
                                 <h4>Step 1</h4>
-                                <p class="paragraph">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p className="paragraph">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
-                            <div class="col-one-fourth card card-content">
-                                <p class="muted">Step 2</p>
+                            <div className="col-one-fourth card card-content">
+                                <p className="muted">Step 2</p>
                                 <h4>Step 2</h4>
-                                <p class="paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur mollit.</p>
+                                <p className="paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur mollit.</p>
                             </div>
-                            <div class="col-one-fourth card card-content">
-                                <p class="muted">Step 3</p>
+                            <div className="col-one-fourth card card-content">
+                                <p className="muted">Step 3</p>
                                 <h4>Step 3</h4>
-                                <p class="paragraph">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p className="paragraph">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             </div>
-                            <div class="col-one-fourth card card-content dark">
-                                <p class="muted">Step 4</p>
+                            <div className="col-one-fourth card card-content dark">
+                                <p className="muted">Step 4</p>
                                 <h4>Done!</h4>
-                                <p class="paragraph">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <p className="paragraph">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
                             </div>
                         </div>
-                        {/* <div class="center margin-top max-width-l">
-                            <span class="muted">If you need any help, make sure to </span><a href="signup.html">book a demo</a><span class="muted">.</span>
+                        {/* <div className="center margin-top max-width-l">
+                            <span className="muted">If you need any help, make sure to </span><a href="signup.html">book a demo</a><span className="muted">.</span>
                         </div> */}
                     </section>
                 </main>

@@ -27,7 +27,7 @@ const EmployeeDetails =()=>{
                                 <CImg className="mx-auto" style={{height:"100px"}} shape="rounded" src={'assets/images/avatar.png'}/>
                                 </CCol>
                             </CRow>
-                            <CInputGroup className="mb-3">
+                            {/* <CInputGroup className="mb-3">
                                 <CInputGroupPrepend>
                                     <CInputGroupText>
                                     <CIcon name="cil-user" />
@@ -42,16 +42,16 @@ const EmployeeDetails =()=>{
                                     </CInputGroupText>
                                 </CInputGroupPrepend>
                                 <CInput type="password" placeholder="Password" autoComplete="current-password"  />
-                            </CInputGroup>
-                            <CRow>
+                            </CInputGroup> */}
+                            {/* <CRow>
                                 <CCol xs="12" md="12">
-                                    <CButton color="primary" className="px-4">Login</CButton>
+                                    
                                 </CCol>
-                            </CRow>
+                            </CRow> */}
                         </CForm>
                     </CCardBody>
                     <CCardFooter>
-
+                        <CButton color="primary" className="px-4">Update</CButton>
                     </CCardFooter>
                 </CCard>
             </CCol>
