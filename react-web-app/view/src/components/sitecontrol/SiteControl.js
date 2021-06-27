@@ -16,8 +16,9 @@ import {
   CValidFeedback,
   CButton,
   CContainer
-} from '@coreui/react'
-import './SiteControl.css'
+} from '@coreui/react';
+import './SiteControl.css';
+
 const SiteControl = () => {
   return (
     <CTabs activeTab="details" >
@@ -37,11 +38,11 @@ const SiteControl = () => {
         <CTabPane data-tab="details">
           <CContainer>
           <CRow className="justify-content-center">
-            <CCol className="col-md-10 offset-md-1 col-sm-12 col-xs-12 col-12">
+           <CCol md="10" sm="12" xs="12">
               <CCard className="custom-card">
 
-                <CRow>
-                  <CCol className="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
+                <CRow className="justify-content-center">
+                  <CCol md="8" sm="12" xs="12">
                     <CFormGroup>
                       <CLabel htmlFor="ccmonth" className="custom-label">Select Department</CLabel>
                       <CSelect custom name="ccmonth" id="ccmonth">
@@ -60,14 +61,14 @@ const SiteControl = () => {
                       </CSelect>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12 col-12">
+                  <CCol md="10" sm="12" xs="12">
                     <CFormGroup>
                       <CLabel htmlFor="companyName" className="custom-label">Company Name</CLabel>
                       <CInput id="companyName" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-12 col-12">
+                  <CCol md="12" sm="12" xs="12">
                     <div className="text-center mt-2">
                       <img src={'avatars/3.jpg'} class="rounded-circle person-img" alt="..." />
                       <p className="all-text">Supervisor Profile Picture</p>
@@ -75,35 +76,35 @@ const SiteControl = () => {
 
 
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12 col-12">
+                  <CCol md="10" sm="12" xs="12">
                     <CFormGroup>
                       <CLabel htmlFor="supContactName" className="custom-label">Supervisor Contact Name</CLabel>
                       <CInput id="supContactName" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12 col-12">
+                  <CCol md="10" sm="12" xs="12">
                     <CFormGroup>
                       <CLabel htmlFor="address" className="custom-label">Address</CLabel>
                       <CInput id="address" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-5 offset-md-1 col-sm-12 col-12">
+                  <CCol md="5" sm="12" xs="12">
                     <CFormGroup>
                       <CLabel htmlFor="phone" className="custom-label">Phone</CLabel>
                       <CInput id="phone" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-5 col-sm-12 col-12">
+                  <CCol md="5" sm="12" xs="12">
                     <CFormGroup>
                       <CLabel htmlFor="email" className="custom-label">Email</CLabel>
                       <CInput id="email" />
                       <CValidFeedback>Cool! Input is valid</CValidFeedback>
                     </CFormGroup>
                   </CCol>
-                  <CCol className="col-md-10 offset-md-1 col-sm-12 text-center">
+                  <CCol  md="10" sm="12" xs="12" className="text-center">
                     <CButton color="primary" className="button-primary px-4 mt-3">
                       Submit
                     </CButton>
@@ -111,8 +112,8 @@ const SiteControl = () => {
                 </CRow>
 
               </CCard>
-            </CCol>
-          </CRow>
+              </CCol>
+       </CRow>
           </CContainer>
 
 
