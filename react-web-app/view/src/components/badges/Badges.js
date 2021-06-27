@@ -1,22 +1,23 @@
 import React from 'react'
 import './badges.css'
 import { CIcon } from '@coreui/icons-react';
-import { CCard, CRow, CCol, CCardBody, CCardFooter, CCardHeader, CDataTable, CBadge, CButton } from '@coreui/react'
+import { CCard, CRow, CCol, CCardBody, CCardHeader, CDataTable, CBadge, CButton } from '@coreui/react'
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 const Badges = () => {
     const useStyles = makeStyles((theme) => ({
-
+        formControl: {
+             margin: theme.spacing(1),
+            minWidth: 120,
+        },
         selectEmpty: {
             marginTop: theme.spacing(2),
         },
@@ -40,8 +41,6 @@ const Badges = () => {
     const badgeList = [
         { Number: '1245678', 'Created Date': '21-01-2021', 'Scans': '12', 'Global Scans': '19' }
     ]
-
-
 
     return (
         <>

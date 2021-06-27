@@ -4,12 +4,9 @@ import {
   CSidebar,
   CSidebarBrand,
   CSidebarNav,
-  CSidebarNavDivider,
   CSidebarNavTitle,
   CSidebarMinimizer,
-  CSidebarNavDropdown,
-  CSidebarNavItem,
-  CImg
+  CSidebarNavItem
 } from '@coreui/react'
 import { CIcon } from '@coreui/icons-react';
 // sidebar nav config
@@ -41,13 +38,10 @@ const TheSidebar = () => {
           height={35}
         /> */}
         <CIcon
-          
           name="cil-shield-alt"
           height={25}
         />
-      
-        <h4 id="logoText" style={{marginTop:"12px", marginLeft:"5px"}} className="display-8 c-sidebar-brand-full">SmartGuard</h4>
-        
+        <h4 id="logoText" style={{marginTop:"8px", marginLeft:"5px"}} className="display-8 c-sidebar-brand-full">SmartGuard</h4>
       </CSidebarBrand>
       <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
