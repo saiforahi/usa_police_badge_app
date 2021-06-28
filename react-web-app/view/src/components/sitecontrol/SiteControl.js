@@ -52,6 +52,7 @@ const SiteControl = () => {
                             Select Department
                           </CLabel>
                           <CSelect custom name="ccmonth" id="ccmonth">
+                            <option hidden>Select Department</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
