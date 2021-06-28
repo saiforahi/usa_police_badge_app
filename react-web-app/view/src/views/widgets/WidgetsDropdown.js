@@ -15,7 +15,7 @@ import ChartBarSimple from '../charts/ChartBarSimple'
 const WidgetsDropdown = () => {
   // render
   return (
-    <CRow>
+    <CRow className="mt-3">
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
