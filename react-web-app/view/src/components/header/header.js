@@ -9,7 +9,7 @@ const Header =()=>{
       <header className="header-main dark">
         <nav>
           <nav>
-            <Link to="/" name="Home"><CIcon name="cil-shield-alt" size="2xl"/><span className="logo-imp">SmartGuard</span></Link> 
+            <Link to="/" name="Home"><img src={'assets/images/web-logo-2.png'}/><span className="logo-imp">The Accountibility Badge</span></Link> 
             <div className="nav-toggle"></div>
               <ul className="inline right" id="toggled-menu">
                 <li><Link to= "/login" className="button button-secondary button-m">Log In</Link></li>

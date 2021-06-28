@@ -29,13 +29,13 @@ const Home = () => {
                             <div className="row max-width-l">
                                 <div className="col-one-half middle">
                                     <div>
-                                        <h1 className="hero">SmartGuard</h1>
+                                        <h1 className="hero">The Accountibility Badge</h1>
                                         <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                         <Link to="/login" className="button button-primary space-top" role="button" >Get Started</Link>
                                     </div>
                                 </div>
                                 <div className="col-one-half middle">
-                                    <img src={'assets/images/police-cap.jpg'} srcSet="assets/images/police-cap.jpg 1x,assets/images/police-cap@2x.jpg 2x" alt="Hero Illustration" />
+                                    <img src={'assets/images/home-4.jpg'} srcSet="assets/images/home-4.jpg 1x,assets/images/home-4@2x.jpg 2x" alt="Hero Illustration" />
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@ const Home = () => {
                             </div>
                             <div className="row max-width-l reverse-order">
                                 <div className="col-one-half">
-                                    <img className="rounded shadow-l" src={'assets/images/cusomer-review.jpg'} srcSet="assets/images/cusomer-review.jpg 1x, assets/images/cusomer-review@2x.jpg 2x" alt="Sketch" />
+                                    <img className="rounded shadow-l" src={'assets/images/transparent-review.jpg'} srcSet="assets/images/transparent-review.jpg 1x, assets/images/transparent-review@2x.jpg 2x" alt="Sketch" />
                                 </div>
                                 <div className="col-one-half middle">
                                     <h3>Civilian Review</h3>

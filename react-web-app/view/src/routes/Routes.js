@@ -7,8 +7,11 @@ const routes = [
   { path: '/dashboard/employees',exact: true, name: 'Employees', component: Employees },
   { path: '/dashboard/employees/details',exact:true, name: 'Employee Details', component: React.lazy(()=>import('../components/employees/EmployeeDetails'))},
   { path: '/dashboard/badges/',exact:true, name: 'Badges', component: React.lazy(()=>import('../components/badges/Badges'))},
-  { path: '/dashboard/sitecontrol/',exact:true, name: 'Site Control', component: React.lazy(()=>import('../components/sitecontrol/SiteControl'))},
-  {path:'/dashboard/contacts/',exact:true,name:'Contacts',component:React.lazy(()=> import ('../components/contacts/contacts'))}
+  { path: '/dashboard/account/',exact:true, name: 'Account', component: React.lazy(()=>import('../components/account/Account'))},
+  {path:'/dashboard/contacts/',exact:true,name:'Contacts',component:React.lazy(()=> import ('../components/contacts/contacts'))},
+  {path:'/dashboard/billing/',exact:true,name:'Billing',component:React.lazy(()=> import ('../components/billing/Billing'))},
+  {path:'/dashboard/time',exact:true,name:'Time',component:React.lazy(()=>import('../components/time/Time'))},
+  {path:'/dashboard/sitecontrol',exact:true,name:'Site Control',component:React.lazy(()=>import('../components/sitecontrol/SiteControl'))}
 ];
 
 export default routes;
