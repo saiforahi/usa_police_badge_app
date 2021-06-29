@@ -3,7 +3,7 @@
     background-image:url("../assets/The-Accountability-Badge-Corporation.jpg");
   
     /* Set a specific height */
-    height: 13%;
+    height: 100px !important;
   
     /* Position and center the image to scale nicely on all screens */
     background-position: center;

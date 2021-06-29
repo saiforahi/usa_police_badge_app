@@ -5,7 +5,7 @@ import {
   Switch
 } from 'react-router-dom';
 import { CContainer, CFade } from '@coreui/react';
-
+import './TheHeader.css'
 // routes config
 import routes from '../routes/Routes';
   
@@ -18,7 +18,11 @@ const loading = (
 const TheContent = () => {
   return (
     <main className="c-main">
+            <div class="hero-image">
+
+</div>
       <CContainer>
+
         <Suspense fallback={loading}>
           <Switch>
             {routes.map((route, idx) => {
