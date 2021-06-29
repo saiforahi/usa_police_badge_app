@@ -7,6 +7,7 @@ import {
 } from './index'
 import {TOKEN,API} from '../config'
 import {Redirect, useHistory} from "react-router"
+
 const TheLayout = () => {
   const history=useHistory()
   const isLoggedIn=()=>{
@@ -25,7 +26,9 @@ const TheLayout = () => {
       <TheSidebar/>
       <div className="c-wrapper">
         <TheHeader/>
+
         <div className="c-body">
+
           <TheContent/>
         </div>
         <TheFooter/>
