@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-const status = 'dev'
-export const API_URL = status === 'prod' ? 'https://api.hootel.com.bd/' : 'http://localhost:8000/'
-//export const API_URL = 'http://phplaravel-500747-1741594.cloudwaysapps.com/api/';
-//export const API_URL= 'http://localhost:8000/api/';
-export const faker_url = "http://202.164.212.238:9050"
+const status = 'prod'
+export const API_URL = status === 'prod' ? 'http://103.123.8.52:8075/api/' : 'http://localhost:8000/'
 export const TOKEN = "access_token"
 
 export const credentials = {

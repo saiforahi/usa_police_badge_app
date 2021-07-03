@@ -43,7 +43,7 @@ const Employees=()=>{
                             (item)=>(
                                 <td>
                                     <CBadge>
-                                        <CButton onClick={() => { }} type="button" size="sm" color="danger">Delete</CButton> <CButton size="sm" type="button" color="primary">View</CButton>
+                                        <CButton onClick={() => { }} type="button" size="sm" color="danger">Delete</CButton> <CButton onClick={()=>{history.push({pathname: '/dashboard/employees/details',state: { employee: item }})}} size="sm" type="button" color="primary">Edit</CButton>
                                     </CBadge>
                                 </td>
                             )

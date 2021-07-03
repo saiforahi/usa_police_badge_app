@@ -8,23 +8,27 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-// import { API } from 'src/config'
+import { API } from 'src/config'
 import { useHistory } from 'react-router'
+import { WebSocketBridge } from 'django-channels'
 
 const TheHeaderDropdown = () => {
   let history=useHistory()
+  let web_socket=new WebSocketBridge()
   const handle_logout=()=>{
-    // API.post('/logout').then(response=>{
-    //   if(response.data.status===true){
-    //     localStorage.clear()
-    //     history.push('/login')
-    //   }
-    // })
-    localStorage.clear()
-    history.push('/login')
+    API.get('logout/'+localStorage.getItem('user_id')+'/').then(response=>{
+      if(response.data.status===true){
+        localStorage.clear()
+        history.push('/login')
+      }
+    })
   }
   useEffect(()=>{
-    // console.log(user.email)
+    web_socket.connect('ws://103.123.8.52:8075/nfc/notifications')
+    web_socket.addEventListener("message", function(event) {
+      
+      console.log(event.data);
+    });
   },[])
   return (
     <CDropdown

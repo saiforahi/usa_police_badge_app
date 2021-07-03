@@ -17,9 +17,9 @@ import {
   CBadge,
   CDataTable
 } from "@coreui/react";
-import React from "react";
+import React, { useState } from "react";
 import CIcon from "@coreui/icons-react";
-import { API } from "../../config";
+import { API, PUBLIC_API } from "../../config";
 
 import MainChartExample from "../../views/charts/ChartBarSimple";
 import './Dashboard.css'
@@ -31,12 +31,17 @@ const WidgetsBrand = React.lazy(() =>
 );
 const Dashboard = () => {
   const [count, setCount] = React.useState(0);
+  const [data,setData]=useState({})
   const reviewList =[
     {id:1,Name:'Mr X',Email:'x@mail.com'},
     {id:2,Name: 'Mr Y',Email:'y@mail.com'}
 ]
   React.useEffect(() => {
     console.log("dashboard mounted");
+    PUBLIC_API.get("dashboard/info/").then((res)=>{
+      console.log(res.data)
+      setData(res.data.data)
+    })
   }, [count]);
   return (
     <>
@@ -56,9 +61,7 @@ const Dashboard = () => {
         </CNav>
         <CTabContent>
         <CTabPane data-tab="quick">
-          <WidgetsDropdown/>
-         
-      
+          <WidgetsDropdown data={data}/>
           <CCard>
             <CCardBody>
               <CRow>
@@ -111,29 +114,29 @@ const Dashboard = () => {
             <CCard className="mt-2">
             <CCardBody>
             <CDataTable
-                        items={reviewList}
-                        fields={[
-                            { key: '#',_style: { width: '5%' }, _classes: 'font-weight-bold' },
-                            'Employee Name','Badge Number','Rating','Feedback','Date'
-                        ]}
-                        light
-                        hover
-                        striped
-                        bordered
-                        sorter
-                        columnFilter
-                        // clickableRows
-                        // onRowClick={(row)=>{
-                        //     history.push({
-                        //         pathname: '/dashboard/employees/details',
-                        //         state: { employee: row }
-                        //     })
-                        // }}
-                        size="sm"
-                        itemsPerPage={10}
-                        pagination
-                      
-                        /> 
+                items={reviewList}
+                fields={[
+                    { key: '#',_style: { width: '5%' }, _classes: 'font-weight-bold' },
+                    'Employee Name','Badge Number','Rating','Feedback','Date'
+                ]}
+                light
+                hover
+                striped
+                bordered
+                sorter
+                columnFilter
+                // clickableRows
+                // onRowClick={(row)=>{
+                //     history.push({
+                //         pathname: '/dashboard/employees/details',
+                //         state: { employee: row }
+                //     })
+                // }}
+                size="sm"
+                itemsPerPage={10}
+                pagination
+              
+              /> 
               </CCardBody>    
             </CCard>
           </CTabPane>

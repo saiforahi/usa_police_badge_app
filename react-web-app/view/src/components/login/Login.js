@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
     let classes=useStyles()
     const [submitted,setSubmitted]=useState(false)
-    const [email,setEmail]=useState("admin@mail.com");
-    const [password,setPassword]=useState("123456");
+    const [email,setEmail]=useState("admin");
+    const [password,setPassword]=useState("12345678!");
     const [loginError,setLoginError]=useState("");
     const history=useHistory();
     const isLoggedIn=()=>{
@@ -50,23 +50,21 @@ const Login = () => {
       const handleSubmit=()=>{
         setSubmitted(true)
         console.log(JSON.stringify({email:email,password:password}))
-        // PUBLIC_API.post('/login',JSON.stringify({email:email,password:password})).then((response1)=>{
-        //   if(response1.data.status===true){
-        //     console.log(response1.data);
-        //     history.push({pathname:'/dashboard',user:{email:email,password:password}})
-        //     // history.push({pathname:'/otp-verification',user:{email:email,password:password}})
-        //     swal('OTP sent',response1.data.message,'success')
-        //   }
-        // }).catch(error=>{
-        //   setLoginError("Please provide correct credentials");
-        //   console.log(error)
-        //   setSubmitted(false)
-        //   swal("Error!",error.message,"error");
-        // })
-        setTimeout(()=>{
+        PUBLIC_API.post('login/',JSON.stringify({username:email,password:password,group:"admin"})).then((response1)=>{
+          console.log(response1.data);
+          if(response1.data.success==="True"){
+            console.log(response1.data);
+            localStorage.setItem(TOKEN,response1.data.token)
+            localStorage.setItem("user_id",response1.data.user_id)
+            history.push({pathname:'/dashboard',user:{email:email,password:password}})
+            // swal('OTP sent',response1.data.message,'success')
+          }
+        }).catch(error=>{
+          setLoginError("Please provide correct credentials");
+          console.log(error)
           setSubmitted(false)
-          history.push({pathname:'/dashboard',user:{email:email,password:password}})
-        },4000)
+          swal("Error!",error.message,"error");
+        })
       }
     return (
         <>
