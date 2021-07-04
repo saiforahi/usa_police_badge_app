@@ -12,7 +12,7 @@ const Header =()=>{
             <Link to="/" name="Home"><img src={'assets/images/web-logo-2.png'}/><span className="logo-imp">The Accountibility Badge</span></Link> 
             <div className="nav-toggle"></div>
               <ul className="inline right" id="toggled-menu">
-                <li><Link to= "/login" className="button button-secondary button-m">Log In</Link></li>
+                <li><Link to= "/login" className="button button-secondary button-m">{localStorage.getItem('access_token')? 'Dashboard':'Login'}</Link></li>
               </ul>
             </nav> 
           </nav>

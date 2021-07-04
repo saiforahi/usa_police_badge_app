@@ -46,26 +46,14 @@ const TheLayout = () => {
         content:(<CardSwipped data={event.data}/>),
         buttons:['Close']
       })
-      // PUBLIC_API.get("profile/details/"+event.data.user_id+"/").then((res)=>{
-      //   switch(event.data.mood){
-      //     case "Dangerous":
-      //     
-      //     case "Emergency":
-      //       
-      //     case "Most dangerous":
-      //       
-      //     case "Much more dangerous":
-      //       
-      //   }
-      // })
     });
   },[])
   return (
     <>
-    {/* {
+    {
         isLoggedIn()===false &&
         <Redirect to="/login"/>
-    } */}
+    }
     <div className="c-app c-default-layout">
       <TheSidebar/>
       <div className="c-wrapper">

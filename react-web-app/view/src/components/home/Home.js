@@ -21,7 +21,6 @@ const Home = () => {
     return (
         <>
             <div>
-
                 <Header></Header>
                 <main>
                     <section className="bg-image-hero center-tablet dark overlay-hero">

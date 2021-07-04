@@ -1,8 +1,8 @@
-import React, { useState,Component } from 'react'
+import React, { useState } from 'react'
 import {
   CCardHeader,
   CCardBody,
-  CCard,CRow,CCol,CImg,CInputGroup,CInputGroupPrepend,CInputGroupText,CLabel,CFormGroup,CValidFeedback,CInput,CForm,CInputGroupAppend
+  CCard,CRow,CCol,CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import GoogleMapReact from 'google-map-react'
@@ -34,11 +34,32 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const CardSwipped = (data)=>{
   const [user_data,setUserData] = useState({})
   const [lat_lng,setLatLng]=useState([])
+  const [border,setBorder] = useState({borderColor:'',borderStyle:''})
+  const [mood,setMood] = useState()
   const handleApiLoaded = (map, maps) => {
     // use map and maps objects
   };
   React.useEffect(()=>{
     console.log('props data --- ',data.data)
+    document.getElementById('wrapper').style.borderStyle="solid"
+    switch(data.data.mood){
+      case 'Emergency':
+        setMood('Emergency Level 1')
+        setBorder({borderColor:'yellow',borderStyle:'solid'})
+        break
+      case "Dangerous":
+        setMood('Emergency Level 2')
+        setBorder({borderColor:'red',borderStyle:'solid'})
+        break
+      case "Most dangerous":
+        setMood('Emergency Level 3')
+        setBorder({borderColor:'#8b0000',borderStyle:'solid'})
+        break
+      case "Much more dangerous":
+        setMood('Emergency Level 4')
+        setBorder({borderColor:'black',borderStyle:'solid'})
+        break
+    }
       PUBLIC_API.get("profile/details/"+data.data.user_id+"/").then(async(res)=>{
         console.log('lat from res --- ',res.data.data)
         setUserData(res.data.data)
@@ -47,7 +68,8 @@ const CardSwipped = (data)=>{
   },[])
     return(
       <>
-      <div>
+      <div id="wrapper" style={border}>
+        Status: {mood}
         <CCard>
           <CCardHeader>
             <h3>Details of Card Owner</h3>
@@ -58,7 +80,18 @@ const CardSwipped = (data)=>{
                     <CImg className="mx-auto rounded-circle" style={{height:"100px",width:"100px"}} shape="rounded" src={BASE_URL+user_data.profile_pic}/>
                 </CCol>
             </CRow>
-            <CRow className="justify-content-left">
+            <CRow>
+              <CCol>
+                <p className="text-left">
+                <strong>Name :</strong> {user_data.first_name + ' '+ user_data.last_name}<br/>
+                <strong>Email :</strong> {user_data.email}<br/>
+                <strong>Phone :</strong> {user_data.phone}<br/>
+                <strong>Registration :</strong> {user_data.registration}<br/>
+                <strong>Address :</strong> {user_data.address}<br/>
+                </p>
+              </CCol>
+            </CRow>
+            {/* <CRow className="justify-content-left">
               <CForm className="form-horizontal">
                 <CFormGroup>
                   <div className="controls">
@@ -90,8 +123,28 @@ const CardSwipped = (data)=>{
                     </CInputGroup>
                   </div>
                 </CFormGroup>
+                <CFormGroup>
+                  <div className="controls">
+                    <CInputGroup className="input-prepend">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>Registration</CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput value={user_data.registration} id="prependedInput" size="16" type="text" readOnly style={{background:'white',border:'none'}}/>
+                    </CInputGroup>
+                  </div>
+                </CFormGroup>
+                <CFormGroup>
+                  <div className="controls">
+                    <CInputGroup className="input-prepend">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>Address</CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput value={user_data.address} id="prependedInput" size="16" type="text" readOnly style={{background:'white',border:'none'}}/>
+                    </CInputGroup>
+                  </div>
+                </CFormGroup>
               </CForm>
-            </CRow>
+            </CRow> */}
             <CRow>
               <div style={{ height: '250px', width: '100%' }}>
                 <div className="mb-2">Lat : {user_data.lat} & Lng: {user_data.lng} </div>
@@ -105,12 +158,12 @@ const CardSwipped = (data)=>{
                 </MapWithAMarker> */}
                 <GoogleMapReact
                     bootstrapURLKeys={{key:'AIzaSyCbynC4V9qRGyQTR5-ssW8qb0yX4oNNnKc'}}
-                    defaultCenter={{lat:22.019,lng:92.092}}
+                    defaultCenter={{lat:23.7104,lng:90.4074}}
                     defaultZoom={11}
                     yesIWantToUseGoogleMapApiInternals
                     onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
                 >
-                  <AnyReactComponent lat={23.012} lng={93.022}/>
+                  <AnyReactComponent lat={23.7104} lng={90.4074}/>
                 </GoogleMapReact>
                 
               </div>
