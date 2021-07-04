@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   CWidgetDropdown,
   CRow,
@@ -12,14 +12,17 @@ import CIcon from '@coreui/icons-react'
 import ChartLineSimple from '../charts/ChartLineSimple'
 import ChartBarSimple from '../charts/ChartBarSimple'
 
-const WidgetsDropdown = () => {
+const WidgetsDropdown = (data) => {
   // render
+  useEffect(()=>{
+    console.log(data)
+  },[])
   return (
     <CRow className="mt-3">
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
-          header="0"
+          header={String(data.data.total_scan)}
           text="Total Scans"
           footerSlot={
             <ChartLineSimple
@@ -50,7 +53,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="0"
+          header={String(data.data.total_user)}
           text="Registered Officers"
           footerSlot={
             <ChartLineSimple
@@ -82,7 +85,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="0"
+          header={String(data.data.total_badge)}
           text="Total Badges"
           footerSlot={
             <ChartLineSimple

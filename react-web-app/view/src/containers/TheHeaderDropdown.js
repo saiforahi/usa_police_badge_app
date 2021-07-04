@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import {
-  CBadge,
   CDropdown,
   CDropdownItem,
   CDropdownMenu,
@@ -8,24 +7,29 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-// import { API } from 'src/config'
+import { API } from 'src/config'
 import { useHistory } from 'react-router'
 
 const TheHeaderDropdown = () => {
   let history=useHistory()
   const handle_logout=()=>{
-    // API.post('/logout').then(response=>{
-    //   if(response.data.status===true){
-    //     localStorage.clear()
-    //     history.push('/login')
-    //   }
-    // })
-    localStorage.clear()
-    history.push('/login')
+    API.get('logout/'+localStorage.getItem('user_id')+'/').then(response=>{
+      console.log(response.status)
+      if(response.data.success===true){
+        localStorage.clear()
+        history.push('/login')
+      }
+      else if(response.status == 401){
+        localStorage.clear()
+        history.push('/login')
+      }
+    }).catch(err=>{
+      if(err.response.status == "401"){
+        localStorage.clear()
+        history.push('/login')
+      }
+    })
   }
-  useEffect(()=>{
-    // console.log(user.email)
-  },[])
   return (
     <CDropdown
       inNav
@@ -35,7 +39,7 @@ const TheHeaderDropdown = () => {
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div className="c-avatar">
           <CImg
-            src={'avatars/6.jpg'}
+            src={'assets/images/avatar.png'}
             className="c-avatar-img"
             alt=''
           />

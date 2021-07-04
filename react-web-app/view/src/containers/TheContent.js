@@ -21,7 +21,7 @@ const TheContent = () => {
             <div class="hero-image">
 
 </div>
-      <CContainer>
+      <CContainer className="mt-4">
 
         <Suspense fallback={loading}>
           <Switch>

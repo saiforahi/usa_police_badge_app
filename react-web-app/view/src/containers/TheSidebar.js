@@ -17,7 +17,7 @@ import './TheSidebar.css'
 const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()
-  const show = useSelector(state => state.sidebarShow)
+  const show = useSelector(state => state.sidebar.sidebarShow)
   useEffect(()=>{
     API.get()
   },[])
