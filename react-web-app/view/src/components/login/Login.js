@@ -63,7 +63,7 @@ const Login = () => {
           setLoginError("Please provide correct credentials");
           console.log(error)
           setSubmitted(false)
-          swal("Error!",error.message,"error");
+          //swal("Error!",error.message,"error");
         })
       }
     return (
@@ -80,12 +80,12 @@ const Login = () => {
                           <h1>Sign In</h1>
                           <p className="text-muted">Sign In to your account</p>
                           <CInputGroup className="mb-3">
-                          <CInputGroupPrepend>
-                              <CInputGroupText>
-                              <CIcon name="cil-user" />
-                              </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput value={email} onChange={(event)=>setEmail(event.target.value)} type="email" placeholder="Email" autoComplete="email" />
+                            <CInputGroupPrepend>
+                                <CInputGroupText>
+                                <CIcon name="cil-user" />
+                                </CInputGroupText>
+                            </CInputGroupPrepend>
+                            <CInput value={email} onChange={(event)=>setEmail(event.target.value)} type="email" placeholder="Email" autoComplete="email" />
                           </CInputGroup>
                           <CInputGroup className="mb-4">
                           <CInputGroupPrepend>

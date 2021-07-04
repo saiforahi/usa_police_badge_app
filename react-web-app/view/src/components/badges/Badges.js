@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./badges.css";
 import { CIcon } from "@coreui/icons-react";
 import {
@@ -10,7 +10,7 @@ import {
   CCardBody,
   CCardHeader,
   CDataTable,
-  CBadge,
+  CContainer,
   CButton,
 } from "@coreui/react";
 import TextField from "@material-ui/core/TextField";
@@ -23,6 +23,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
+import { PUBLIC_API } from "src/config";
+import axios from 'axios'
+import swal from "@sweetalert/with-react";
 const Badges = () => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -43,19 +46,27 @@ const Badges = () => {
   };
   const classes = useStyles();
   const [age, setAge] = React.useState("");
-
+  const [badgeList,setBadgeList] = useState([])
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-
-  const badgeList = [
-    {
-      Number: "1245678",
-      "Created Date": "21-01-2021",
-      Scans: "12",
-      "Global Scans": "19",
-    },
-  ];
+ function showAssignModal(){
+   swal('Warning','This section is not available now','warning')
+   
+ }
+  React.useEffect(()=>{
+    PUBLIC_API.get('employee/badge/info/').then((res)=>{
+      if(res.data.success == "True"){
+        var data=[];
+        for (let index = 0; index < res.data.data.length; index++) {
+            const element = res.data.data[index];
+            data.push({'#':index+1,id:element.id,"Badge Number":element.nfc_number,"Created Date":element.created_at,"Assigned To":element.user.first_name,"Scans":'',"Global Scans":""});
+        }
+        setBadgeList(data);
+    }
+    })
+    
+  },[])
 
   return (
     <>
@@ -69,7 +80,7 @@ const Badges = () => {
               <div class="custom-header">
                 <CForm className="d-flex custom-form mt-2 mb-2">
                   <CInput type="search" className="me-2" placeholder="Search" />
-                  <CButton type="submit" color="primary" variant="outline">
+                  <CButton type="button" color="primary" variant="outline">
                     Search
                   </CButton>
                 </CForm>
@@ -130,11 +141,9 @@ const Badges = () => {
                         type="button"
                         color="primary"
                         id="dropdownMenu"
-                        data-toggle="dropdown"
-                        aria-expanded="false"
-                        className="dropdown-toggle"
+                        onClick={()=>showAssignModal()}
                       >
-                        View
+                        Assign
                       </CButton>
                     </td>
                   ),

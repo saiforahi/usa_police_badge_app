@@ -6,6 +6,7 @@ const routes = [
   { path: '/dashboard', exact: true, name: 'Dashboard', component:Dashboard },
   { path: '/dashboard/employees',exact: true, name: 'Employees', component: Employees },
   { path: '/dashboard/employees/details',exact:true, name: 'Employee Details', component: React.lazy(()=>import('../components/employees/EmployeeDetails'))},
+  { path: '/dashboard/employees/create',exact:true, name: 'Create Employee', component: React.lazy(()=>import('../components/employees/Create'))},
   { path: '/dashboard/badges/',exact:true, name: 'Badges', component: React.lazy(()=>import('../components/badges/Badges'))},
   { path: '/dashboard/account/',exact:true, name: 'Account', component: React.lazy(()=>import('../components/account/Account'))},
   {path:'/dashboard/contacts/',exact:true,name:'Contacts',component:React.lazy(()=> import ('../components/contacts/contacts'))},

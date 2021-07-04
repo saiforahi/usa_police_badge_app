@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import {
-  CBadge,
   CDropdown,
   CDropdownItem,
   CDropdownMenu,
@@ -10,26 +9,27 @@ import {
 import CIcon from '@coreui/icons-react'
 import { API } from 'src/config'
 import { useHistory } from 'react-router'
-import { WebSocketBridge } from 'django-channels'
 
 const TheHeaderDropdown = () => {
   let history=useHistory()
-  let web_socket=new WebSocketBridge()
   const handle_logout=()=>{
     API.get('logout/'+localStorage.getItem('user_id')+'/').then(response=>{
-      if(response.data.status===true){
+      console.log(response.status)
+      if(response.data.success===true){
+        localStorage.clear()
+        history.push('/login')
+      }
+      else if(response.status == 401){
+        localStorage.clear()
+        history.push('/login')
+      }
+    }).catch(err=>{
+      if(err.response.status == "401"){
         localStorage.clear()
         history.push('/login')
       }
     })
   }
-  useEffect(()=>{
-    web_socket.connect('ws://103.123.8.52:8075/nfc/notifications')
-    web_socket.addEventListener("message", function(event) {
-      
-      console.log(event.data);
-    });
-  },[])
   return (
     <CDropdown
       inNav
@@ -39,7 +39,7 @@ const TheHeaderDropdown = () => {
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div className="c-avatar">
           <CImg
-            src={'avatars/6.jpg'}
+            src={'assets/images/avatar.png'}
             className="c-avatar-img"
             alt=''
           />
