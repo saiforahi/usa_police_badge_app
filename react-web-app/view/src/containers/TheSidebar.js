@@ -14,17 +14,18 @@ import { API } from '../config'
 import { useHistory } from 'react-router'
 import '../assets/warehouse.svg'
 import './TheSidebar.css'
+import { changeState } from 'src/store/SideBarSlice';
 const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()
   const show = useSelector(state => state.sidebar.sidebarShow)
   useEffect(()=>{
-    API.get()
+    //API.get()
   },[])
   return (
     <CSidebar
       show={show}
-      onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
+      onShowChange={(val) => dispatch(changeState(val))}
     >
       <CSidebarBrand className="d-md-down-none text-center" to="/">
 

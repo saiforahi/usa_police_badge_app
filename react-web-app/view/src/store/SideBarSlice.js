@@ -7,18 +7,21 @@ export const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState,
   reducers: {
-    changeState: (state = initialState, { type, ...rest }) => {
-        switch (type) {
-            case 'set':
-              return {...state, ...rest }
-            default:
-              return state
-        }
+    changeState: (state,val) => {
+      console.log('dispatching ----- ',val)
+      state.sidebarShow = val.payload
+      
+        // switch (type) {
+        //     case 'set':
+        //       return {...state, ...rest }
+        //     default:
+        //       return state
+        // }
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { change} = sidebarSlice.actions
+export const { changeState} = sidebarSlice.actions
 
 export default sidebarSlice.reducer

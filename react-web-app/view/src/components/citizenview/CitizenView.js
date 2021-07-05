@@ -8,7 +8,6 @@ const CitizenView = (props) => {
     },[props.match.params.id])
     return(
         <>
-        <div>{props.match.params.id}</div>
         <Officer officer_id={props.match.params.id}/>
         </>
     )

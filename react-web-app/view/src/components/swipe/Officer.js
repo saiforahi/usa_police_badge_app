@@ -22,7 +22,6 @@ const Officer = (data)=>{
     return(
       <>
       <div id="wrapper" >
-        Status: 
         <CCard>
           <CCardHeader>
             <h3>Details of Card Owner</h3>

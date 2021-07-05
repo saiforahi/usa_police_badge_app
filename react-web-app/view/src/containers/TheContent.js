@@ -18,9 +18,9 @@ const loading = (
 const TheContent = () => {
   return (
     <main className="c-main">
-            <div class="hero-image">
+      <div class="hero-image">
 
-</div>
+      </div>
       <CContainer className="mt-4">
 
         <Suspense fallback={loading}>

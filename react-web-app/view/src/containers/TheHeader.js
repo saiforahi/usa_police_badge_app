@@ -21,21 +21,26 @@ import {
   TheHeaderDropdownNotif
  
 }  from './index'
+import { changeState } from 'src/store/SideBarSlice'
 
 const TheHeader = () => {
   const dispatch = useDispatch()
-  const sidebarShow = useSelector(state => state.sidebarShow)
+  const sidebarShow = useSelector(state => state.sidebar.sidebarShow)
 
   const toggleSidebar = () => {
     const val = [true, 'responsive'].includes(sidebarShow) ? false : 'responsive'
-    dispatch({type: 'set', sidebarShow: val})
+    dispatch(changeState(val))
+    //dispatch({type: 'set', sidebarShow: val})
   }
 
   const toggleSidebarMobile = () => {
     const val = [false, 'responsive'].includes(sidebarShow) ? true : 'responsive'
-    dispatch({type: 'set', sidebarShow: val})
+    dispatch(changeState(val))
+    //dispatch({type: 'set', sidebarShow: val})
   }
-
+  React.useEffect(()=>{
+    console.log('sidebar --- ',sidebarShow)
+  },[])
   return (
     <CHeader withSubheader>
       <CToggler
