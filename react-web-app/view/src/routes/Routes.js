@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReactReduxContext } from 'react-redux';
 
 const Dashboard = React.lazy(() => import('../components/dashboard/Dashboard'));
 const Employees = React.lazy(()=> import('../components/employees/Employees'))
@@ -12,7 +13,8 @@ const routes = [
   {path:'/dashboard/contacts/',exact:true,name:'Contacts',component:React.lazy(()=> import ('../components/contacts/contacts'))},
   {path:'/dashboard/billing/',exact:true,name:'Billing',component:React.lazy(()=> import ('../components/billing/Billing'))},
   {path:'/dashboard/time',exact:true,name:'Time',component:React.lazy(()=>import('../components/time/Time'))},
-  {path:'/dashboard/sitecontrol',exact:true,name:'Site Control',component:React.lazy(()=>import('../components/sitecontrol/SiteControl'))}
+  {path:'/dashboard/sitecontrol',exact:true,name:'Site Control',component:React.lazy(()=>import('../components/sitecontrol/SiteControl'))},
+  {path:'/dashboard/scan-history',exact:true,name:'Scan History',component:React.lazy(() => import ('../components/scan-history/ScanHistory'))}
 ];
 
 export default routes;

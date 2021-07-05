@@ -10,9 +10,11 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import ChartLineSimple from '../charts/ChartLineSimple'
-import ChartBarSimple from '../charts/ChartBarSimple'
+import { useHistory } from 'react-router-dom';
 
 const WidgetsDropdown = (data) => {
+  const history = useHistory();
+  const handleClick = () => history.push('/dashboard/scan-history');
   // render
   useEffect(()=>{
     console.log(data)
@@ -20,23 +22,23 @@ const WidgetsDropdown = (data) => {
   return (
     <CRow className="mt-3">
       <CCol sm="6" lg="3">
-        <CWidgetDropdown
+        <CWidgetDropdown className="pb-4"
           color="gradient-primary"
           header={String(data.data.total_scan)}
-          text="Total Scans"
-          footerSlot={
-            <ChartLineSimple
-              pointed
-              className="c-chart-wrapper mt-3 mx-3"
-              style={{height: '70px'}}
-              dataPoints={[65, 59, 84, 84, 51, 55, 40]}
-              pointHoverBackgroundColor="primary"
-              label="Members"
-              labels="months"
-            />
-          }
+          text="Total Scans" onClick={handleClick}
+          // footerSlot={
+          //   <ChartLineSimple
+          //     pointed
+          //     className="c-chart-wrapper mt-3 mx-3"
+          //     style={{height: '70px'}}
+          //     dataPoints={[65, 59, 84, 84, 51, 55, 40]}
+          //     pointHoverBackgroundColor="primary"
+          //     label="Members"
+          //     labels="months"
+          //   />
+          // }
         >
-          <CDropdown>
+          {/* <CDropdown>
             <CDropdownToggle color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
@@ -46,29 +48,29 @@ const WidgetsDropdown = (data) => {
               <CDropdownItem>Something else here...</CDropdownItem>
               <CDropdownItem disabled>Disabled action</CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
+          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
       <CCol sm="6" lg="3">
-        <CWidgetDropdown
+        <CWidgetDropdown className="pb-4"
           color="gradient-info"
           header={String(data.data.total_user)}
           text="Registered Officers"
-          footerSlot={
-            <ChartLineSimple
-              pointed
-              className="mt-3 mx-3"
-              style={{height: '70px'}}
-              dataPoints={[1, 18, 9, 17, 34, 22, 11]}
-              pointHoverBackgroundColor="info"
-              options={{ elements: { line: { tension: 0.00001 }}}}
-              label="Members"
-              labels="months"
-            />
-          }
+          // footerSlot={
+          //   <ChartLineSimple
+          //     pointed
+          //     className="mt-3 mx-3"
+          //     style={{height: '70px'}}
+          //     dataPoints={[1, 18, 9, 17, 34, 22, 11]}
+          //     pointHoverBackgroundColor="info"
+          //     options={{ elements: { line: { tension: 0.00001 }}}}
+          //     label="Members"
+          //     labels="months"
+          //   />
+          // }
         >
-          <CDropdown>
+          {/* <CDropdown>
             <CDropdownToggle caret={false} color="transparent">
               <CIcon name="cil-location-pin"/>
             </CDropdownToggle>
@@ -78,29 +80,29 @@ const WidgetsDropdown = (data) => {
               <CDropdownItem>Something else here...</CDropdownItem>
               <CDropdownItem disabled>Disabled action</CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
+          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
 
       <CCol sm="6" lg="3">
-        <CWidgetDropdown
+        <CWidgetDropdown className="pb-4"
           color="gradient-warning"
           header={String(data.data.total_badge)}
           text="Total Badges"
-          footerSlot={
-            <ChartLineSimple
-              className="mt-3"
-              style={{height: '70px'}}
-              backgroundColor="rgba(255,255,255,.2)"
-              dataPoints={[78, 81, 80, 45, 34, 12, 40]}
-              options={{ elements: { line: { borderWidth: 2.5 }}}}
-              pointHoverBackgroundColor="warning"
-              label="Members"
-              labels="months"
-            />
-          }
+          // footerSlot={
+          //   <ChartLineSimple
+          //     className="mt-3"
+          //     style={{height: '70px'}}
+          //     backgroundColor="rgba(255,255,255,.2)"
+          //     dataPoints={[78, 81, 80, 45, 34, 12, 40]}
+          //     options={{ elements: { line: { borderWidth: 2.5 }}}}
+          //     pointHoverBackgroundColor="warning"
+          //     label="Members"
+          //     labels="months"
+          //   />
+          // }
         >
-          <CDropdown>
+          {/* <CDropdown>
             <CDropdownToggle color="transparent">
               <CIcon name="cil-settings"/>
             </CDropdownToggle>
@@ -110,7 +112,7 @@ const WidgetsDropdown = (data) => {
               <CDropdownItem>Something else here...</CDropdownItem>
               <CDropdownItem disabled>Disabled action</CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
+          </CDropdown> */}
         </CWidgetDropdown>
       </CCol>
     </CRow>

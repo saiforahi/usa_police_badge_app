@@ -12,7 +12,7 @@ const MainChartExample = attributes => {
   }
 
   const defaultDatasets = (()=>{
-    let elements = 27
+    let elements = 1000
     const data1 = []
     const data2 = []
     const data3 = []
@@ -32,7 +32,7 @@ const MainChartExample = attributes => {
       },
       {
         label: 'My Second dataset',
-        backgroundColor: 'transparent',
+        backgroundColor: hexToRgba(brandSuccess,10),
         borderColor: brandSuccess,
         pointHoverBackgroundColor: brandSuccess,
         borderWidth: 2,
@@ -92,7 +92,7 @@ const MainChartExample = attributes => {
       {...attributes}
       datasets={defaultDatasets}
       options={defaultOptions}
-      labels={['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']}
+      labels={['5 stars','4 stars','3 stars','2 stars','1 star']}
     />
   )
 }
