@@ -67,10 +67,11 @@ CCardGroup{
     border-radius: 10rem;
 }
 .overlay-hero{
-    background: #04b2db;
-    background: -webkit-linear-gradient(#1ac8e2 0%, #04b2db 100%);
-    background: -moz-linear-gradient(#1ac8e2 0%, #04b2db 100%);
-    background: -ms-linear-gradient(#1ac8e2 0%, #04b2db 100%);
-    background: -o-linear-gradient(#1ac8e2 0%, #04b2db 100%);
-    background: linear-gradient(#1ac8e2 0%, #04b2db 100%);
+    /* background: #04b2db; */
+    background: #575bde ;
+    background: -webkit-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
+    background: -moz-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
+    background: -ms-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
+    background: -o-linear-gradient(140deg, #00d7af 25%, #575bde 100%);
+    background: linear-gradient(140deg, #00d7af 25%, #575bde 100%);
 }

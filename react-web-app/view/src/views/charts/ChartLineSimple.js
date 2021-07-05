@@ -145,8 +145,8 @@ ChartLineSimple.propTypes = {
 ChartLineSimple.defaultProps = {
   borderColor: 'rgba(255,255,255,.55)',
   backgroundColor: 'transparent',
-  dataPoints: [10, 22, 34, 46, 58, 70, 46, 23, 45, 78, 34, 12],
-  label: 'Sales'
+  dataPoints: [10, 22, 34, 46, 89],
+  label: 'Count'
 };
 
 export default ChartLineSimple

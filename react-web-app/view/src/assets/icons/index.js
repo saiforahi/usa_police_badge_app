@@ -3,6 +3,7 @@ import { logo } from './logo'
 import { logoNegative } from './logo-negative'
 
 import {
+  cilAccountLogout,
   cilPlus,
   cibSkype,
   cibHubspot,
@@ -29,7 +30,7 @@ import {
   cibStripe,
   cibPaypal,
   cibGooglePay,
-  cibCcAmex,cilBadge,cilControl,cilClock
+  cibCcAmex,cilBadge,cilControl
 } from '@coreui/icons'
 import {
   cifUs,
@@ -40,7 +41,7 @@ import {
   cifPl,
 } from '@coreui/icons'
 import {
-  
+  cilClock,
   cilAlignCenter,
   cilGroup,
   cilAlignLeft,
@@ -134,6 +135,7 @@ import {
   cilXCircle,
   cilWarning,
   cilTag
+ 
 } from '@coreui/icons'
 
 export const icons = Object.assign({}, {
@@ -141,6 +143,9 @@ export const icons = Object.assign({}, {
   logo,
   logoNegative
 }, {
+
+  cilClock,
+  cilAccountLogout,
   cilPlus,
   cilAlignCenter,
   cilTag,cilMoney,
@@ -235,7 +240,7 @@ export const icons = Object.assign({}, {
   cilXCircle,
   cilWarning,
   cilGroup,
-  cilBasket,cilClock
+  cilBasket
 }, {
   cifUs,
   cifBr,

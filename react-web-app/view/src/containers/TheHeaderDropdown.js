@@ -43,7 +43,9 @@ const TheHeaderDropdown = () => {
             className="c-avatar-img"
             alt=''
           />
+         
         </div>
+        <span>Admin User</span>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownItem
@@ -54,24 +56,14 @@ const TheHeaderDropdown = () => {
         >
           <strong>Account</strong>
         </CDropdownItem>
-        <CDropdownItem>
+        {/* <CDropdownItem>
           <CIcon name="cil-user" className="mfe-2" />Profile
-        </CDropdownItem>
-        <CDropdownItem
-          header
-          tag="div"
-          color="light"
-          className="text-center"
-        >
-          <strong>Settings</strong>
-        </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-settings" className="mfe-2" />
-          Settings
-        </CDropdownItem>
-        <CDropdownItem divider />
+        </CDropdownItem> */}
+    
+     
+        {/* <CDropdownItem divider /> */}
         <CDropdownItem onClick={handle_logout}>
-          <CIcon name="cil-settings" className="mfe-2" />
+          <CIcon name="cil-account-logout" className="mfe-2" />
           Logout
         </CDropdownItem>
       </CDropdownMenu>
