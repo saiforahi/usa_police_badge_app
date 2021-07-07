@@ -41,7 +41,7 @@ const CardSwipped = (data)=>{
   };
   React.useEffect(()=>{
     console.log('props data --- ',data.data)
-    document.getElementById('wrapper').style.borderStyle="solid"
+    
     switch(data.data.mood){
       case 'Emergency':
         setMood('Emergency Level 1')
@@ -68,7 +68,7 @@ const CardSwipped = (data)=>{
   },[])
     return(
       <>
-      <div id="wrapper" style={border}>
+      <div id="wrapper">
         Status: {mood}
         <CCard>
           <CCardHeader>

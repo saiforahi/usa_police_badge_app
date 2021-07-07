@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   CCardHeader,
   CCardBody,
-  CCard,CRow,CCol,CImg
+  CCard,CRow,CCol,CImg,CContainer,CCardGroup
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -21,31 +21,44 @@ const Officer = (data)=>{
   },[])
     return(
       <>
-      <div id="wrapper" >
-        <CCard>
-          <CCardHeader>
-            <h3>Details of Card Owner</h3>
-          </CCardHeader>
-          <CCardBody>
-            <CRow className="justify-content-center mb-3">
-                <CCol>
-                    <CImg className="mx-auto rounded-circle" style={{height:"100px",width:"100px"}} shape="rounded" src={BASE_URL+user_data.profile_pic}/>
+      <div className="c-app c-default-layout overlay-hero flex-row align-items-center">
+          <CContainer>
+            <CRow className="justify-content-center">
+              <CCol lg="4" sm="8" md="6">
+                  <div id="wrapper" >
+                    <CCard>
+                      <CCardHeader>
+                        <h3>Details of Card Owner</h3>
+                      </CCardHeader>
+                      <CCardBody>
+                        <CRow className="justify-content-center mb-3">
+                            <CCol>
+                                <CImg className="mx-auto rounded-circle" style={{height:"100px",width:"100px"}} shape="rounded" src={BASE_URL+user_data.profile_pic}/>
+                            </CCol>
+                        </CRow>
+                        <CRow>
+                          <CCol>
+                            <p className="text-left">
+                            <strong>Name :</strong> {user_data.first_name + ' '+ user_data.last_name}<br/>
+                            <strong>Email :</strong> {user_data.email}<br/>
+                            <strong>Phone :</strong> {user_data.phone}<br/>
+                            <strong>Registration :</strong> {user_data.registration}<br/>
+                            <strong>Address :</strong> {user_data.address}<br/>
+                            <strong>Hired :</strong> {user_data.hired!=null?user_data.hired:''}<br/>
+                            <strong>Eyes :</strong> {user_data.eyes!=null?user_data.eyes:''}<br/>
+                            <strong>Retired :</strong> {user_data.retired!=null?user_data.retired:''}<br/>
+                            </p>
+                          </CCol>
+                        </CRow>
+                      </CCardBody>
+                    </CCard>
+                  </div>
+                  
                 </CCol>
             </CRow>
-            <CRow>
-              <CCol>
-                <p className="text-left">
-                <strong>Name :</strong> {user_data.first_name + ' '+ user_data.last_name}<br/>
-                <strong>Email :</strong> {user_data.email}<br/>
-                <strong>Phone :</strong> {user_data.phone}<br/>
-                <strong>Registration :</strong> {user_data.registration}<br/>
-                <strong>Address :</strong> {user_data.address}<br/>
-                </p>
-              </CCol>
-            </CRow>
-          </CCardBody>
-        </CCard>
-      </div>
+          </CContainer>
+        </div>
+      
       </>
     )
 }

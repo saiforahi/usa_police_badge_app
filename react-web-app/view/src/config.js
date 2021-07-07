@@ -53,3 +53,43 @@ export const isLoggedIn=()=>{
   return true;
 }
 
+// A tiny wrapper around fetch(), borrowed from
+// https://kentcdodds.com/blog/replace-axios-with-a-simple-custom-fetch-wrapper
+
+export async function JsonClient(endpoint, { body, ...customConfig } = {}) {
+  const headers = { 'Content-Type': 'application/json' }
+  const config = {
+    method: body ? 'POST' : 'GET',
+    ...customConfig,
+    headers: {
+      ...headers,
+      ...customConfig.headers,
+    },
+  }
+
+  if (body) {
+    config.body = JSON.stringify(body)
+  }
+
+  let data
+  try {
+    const response = await window.fetch(API_URL+endpoint, config)
+    data = await response.json()
+    if (response.ok) {
+      return data
+    }
+    throw new Error(response.statusText)
+  } catch (err) {
+    return Promise.reject(err.message ? err.message : data)
+  }
+}
+
+JsonClient.get = function (endpoint, customConfig = {}) {
+  return JsonClient(endpoint, { ...customConfig, method: 'GET' })
+}
+
+JsonClient.post = function (endpoint, body, customConfig = {}) {
+  return JsonClient(endpoint, { ...customConfig, body })
+}
+
+

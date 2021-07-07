@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { TOKEN } from '../../config'
 import './Home.css'
 import Header from '../header/header'
@@ -20,6 +20,7 @@ const Home = () => {
     }, [count])
     return (
         <>
+        <Redirect to="/login"/>
             <div>
                 <Header></Header>
                 <main>
