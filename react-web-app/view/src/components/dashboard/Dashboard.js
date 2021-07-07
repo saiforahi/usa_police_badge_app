@@ -7,7 +7,6 @@ import {
   CNavItem,
   CTabContent,
   CTabPane,
-  CProgress,
   CInput,
   CCardBody,
   CForm,
@@ -19,30 +18,25 @@ import {
 } from "@coreui/react";
 import React, { useState } from "react";
 import CIcon from "@coreui/icons-react";
-import { API, PUBLIC_API } from "../../config";
-
+import { PUBLIC_API } from "../../config";
+import { fetchDashboardData } from "src/store/DashboardSlice";
 import MainChartExample from "../../views/charts/ChartBarSimple";
 import "./Dashboard.css";
+import { useDispatch,useSelector } from "react-redux";
 const WidgetsDropdown = React.lazy(() =>
   import("../../views/widgets/WidgetsDropdown.js")
 );
-const WidgetsBrand = React.lazy(() =>
-  import("../../views/widgets/WidgetsBrand.js")
-);
+
 const Dashboard = () => {
-  const [count, setCount] = React.useState(0);
-  const [data, setData] = useState({});
+  const data = useSelector(state => state.dashboard);
+  const dispatch = useDispatch()
   const reviewList = [
     { id: 1, Name: "Mr X", Email: "x@mail.com" },
     { id: 2, Name: "Mr Y", Email: "y@mail.com" },
   ];
   React.useEffect(() => {
-    console.log("dashboard mounted");
-    PUBLIC_API.get("dashboard/info/").then((res) => {
-      console.log(res.data);
-      setData(res.data.data);
-    });
-  }, [count]);
+    dispatch(fetchDashboardData())
+  }, [data.status]);
   return (
     <>
       {/**tab panes */}
@@ -61,38 +55,27 @@ const Dashboard = () => {
         </CNav>
         <CTabContent>
           <CTabPane data-tab="quick">
-            <WidgetsDropdown data={data} />
+            <WidgetsDropdown data={data.data} />
             <CRow>
               {/**show ratings */}
               <CCol sm="12" md="7" lg="8">
-              <h4 id="traffic" className="card-title mb-0">
-                         Recent Ratings (Live Feed)
-                        </h4>
-                      
-                        <div class="rating-holder mt-4">
-                        <CRow>
-                          <CCol sm="12" md="6" lg="4">
-                        <CCard className="review-cards">
+                <h4 id="traffic" className="card-title mb-0">Recent Ratings (Live Feed)</h4>   
+                <div class="rating-holder mt-4">
+                  <CRow>
+                    <CCol sm="12" md="6" lg="4">
+                      <CCard className="review-cards">
                         <CCardBody>
-                        <p className="time">
-                            <CIcon name="cil-clock" />{" "}
-                            <span> A moment ago </span>
-                          </p>
+                          <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
                           <p className="person-name">Tim Miller</p>
-                         
-                          <p class="feedback">
+                          <p class="feedback"></p>
                           <p class="review">4 stars for Santiago Vasquez</p>
-                         <p className="review-text"> Santiago was great ! </p>
-                          </p>
-                         
+                          <p className="review-text"> Santiago was great ! </p>
                         </CCardBody>
                       </CCard>
-                      </CCol>
-                      </CRow>
-                        </div>
-                       
+                    </CCol>
+                  </CRow>
+                </div>       
               </CCol>
-
               {/**latest scans show */}
               <CCol sm="12" md="5" lg="4">
                 <CCard className="noti-holder">
@@ -147,7 +130,7 @@ const Dashboard = () => {
               </CCol>
             </CRow>
             <CRow>
-            <CCol sm="12" md="7" lg="8">
+            <CCol sm="12" md="12" lg="12">
                 <CCard>
                   <CCardBody>
                     <CRow>
