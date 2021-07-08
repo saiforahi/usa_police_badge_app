@@ -16,27 +16,29 @@ import {
   CBadge,
   CDataTable,
 } from "@coreui/react";
-import React, { useState } from "react";
+import React from "react";
 import CIcon from "@coreui/icons-react";
-import { PUBLIC_API } from "../../config";
-import { fetchDashboardData } from "src/store/DashboardSlice";
+import { fetchDashboardData } from "src/store/slices/DashboardSlice";
 import MainChartExample from "../../views/charts/ChartBarSimple";
 import "./Dashboard.css";
 import { useDispatch,useSelector } from "react-redux";
+import { fetchNotificationsThunk } from "src/store/slices/NotificationSlice";
+import { fetchRatingsThunk } from "src/store/slices/RatingSlice";
 const WidgetsDropdown = React.lazy(() =>
   import("../../views/widgets/WidgetsDropdown.js")
 );
 
 const Dashboard = () => {
   const data = useSelector(state => state.dashboard);
+  const notifications = useSelector(state => state.notifications.data.slice(0,10))
+  const ratings = useSelector(state => state.ratings.data)
   const dispatch = useDispatch()
-  const reviewList = [
-    { id: 1, Name: "Mr X", Email: "x@mail.com" },
-    { id: 2, Name: "Mr Y", Email: "y@mail.com" },
-  ];
+  
   React.useEffect(() => {
     dispatch(fetchDashboardData())
-  }, [data.status]);
+    dispatch(fetchNotificationsThunk())
+    dispatch(fetchRatingsThunk())
+  }, []);
   return (
     <>
       {/**tab panes */}
@@ -62,17 +64,19 @@ const Dashboard = () => {
                 <h4 id="traffic" className="card-title mb-0">Recent Ratings (Live Feed)</h4>   
                 <div class="rating-holder mt-4">
                   <CRow>
-                    <CCol sm="12" md="6" lg="4">
-                      <CCard className="review-cards">
-                        <CCardBody>
-                          <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
-                          <p className="person-name">Tim Miller</p>
-                          <p class="feedback"></p>
-                          <p class="review">4 stars for Santiago Vasquez</p>
-                          <p className="review-text"> Santiago was great ! </p>
-                        </CCardBody>
-                      </CCard>
-                    </CCol>
+                    {ratings!=undefined && Array.from(ratings.slice(0,10)).map((rating)=>(
+                      <CCol sm="12" md="6" lg="4">
+                        <CCard className="review-cards">
+                          <CCardBody>
+                            <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
+                            <p className="person-name">{rating.officer.first_name}</p>
+                            <p class="feedback"></p>
+                            <p class="review">4 stars by {rating.name}</p>
+                            <p className="review-text">{'"'+rating.comment+'"'}</p>
+                          </CCardBody>
+                        </CCard>
+                      </CCol>
+                    ))}
                   </CRow>
                 </div>       
               </CCol>
@@ -88,42 +92,20 @@ const Dashboard = () => {
                       </CButton>
                     </div>
                     <div class="card-div mt-2 pb-1 pr-3">
-                      <CCard className="show-scans">
-                        <CCardBody>
-                          <p>
-                            Badge No: CCN 10389 of Sergant Santiago Vasquez was
-                            scanned near Broward
-                          </p>
-                          <p>
-                            <CIcon name="cil-clock" />{" "}
-                            <span> A moment ago </span>
-                          </p>
-                        </CCardBody>
-                      </CCard>
-                      <CCard className="show-scans grey-border">
-                        <CCardBody>
-                          <p>
-                            Badge No: CCN 10389 of Sergant Santiago Vasquez was
-                            scanned near Broward
-                          </p>
-                          <p>
-                            <CIcon name="cil-clock" />{" "}
-                            <span> A moment ago </span>
-                          </p>
-                        </CCardBody>
-                      </CCard>
-                      <CCard className="show-scans grey-border">
-                        <CCardBody>
-                          <p>
-                            Badge No: CCN 10389 of Sergant Santiago Vasquez was
-                            scanned near Broward
-                          </p>
-                          <p>
-                            <CIcon name="cil-clock" />{" "}
-                            <span> A moment ago </span>
-                          </p>
-                        </CCardBody>
-                      </CCard>
+                      {notifications!= undefined && Array.from(notifications).map((notification)=>(
+                        <CCard className="show-scans">
+                          <CCardBody>
+                            <p>
+                              Badge No: {notification.nfc.nfc_number} of {notification.nfc.user.first_name+' '+notification.nfc.user.last_name} was
+                              scanned near Broward
+                            </p>
+                            {/* <p>
+                              <CIcon name="cil-clock" />{" "}
+                              <span> A moment ago </span>
+                            </p> */}
+                          </CCardBody>
+                        </CCard>
+                      ))}
                     </div>
                   </CCardBody>
                 </CCard>
@@ -168,7 +150,7 @@ const Dashboard = () => {
             <CCard className="mt-2">
               <CCardBody>
                 <CDataTable
-                  items={reviewList}
+                  items={ratings}
                   fields={[
                     {
                       key: "#",

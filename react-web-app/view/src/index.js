@@ -11,12 +11,15 @@ import { icons } from './assets/icons'
 
 import { Provider } from 'react-redux'
 import store from './store/Store'
+import { SnackbarProvider } from 'notistack';
 
 React.icons = icons
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <SnackbarProvider maxSnack={3} anchorOrigin={{vertical: 'bottom',horizontal: 'right'}}>
+      <App/>
+    </SnackbarProvider>
   </Provider>,
   document.getElementById('root')
 );

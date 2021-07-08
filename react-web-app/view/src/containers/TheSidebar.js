@@ -14,7 +14,7 @@ import { API } from '../config'
 import { useHistory } from 'react-router'
 import '../assets/warehouse.svg'
 import './TheSidebar.css'
-import { changeState } from 'src/store/SideBarSlice';
+import { changeState } from 'src/store/slices/SideBarSlice';
 const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()

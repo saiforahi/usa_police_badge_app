@@ -20,7 +20,7 @@ const Home = () => {
     }, [count])
     return (
         <>
-        <Redirect to="/login"/>
+        {/* <Redirect to="/login"/> */}
             <div>
                 <Header></Header>
                 <main>
