@@ -26,6 +26,7 @@
     "google-map-react": "^2.1.10",
     "leaflet": "^1.7.1",
     "node-sass": "^4.14.1",
+    "notistack": "^1.0.9",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",

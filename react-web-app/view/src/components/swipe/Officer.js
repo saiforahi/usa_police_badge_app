@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   CCardHeader,
   CCardBody,
-  CCard,CRow,CCol,CImg,CContainer,CCardGroup
+  CCard,CRow,CCol,CImg,CContainer,CCardFooter,CButton
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -51,6 +51,9 @@ const Officer = (data)=>{
                           </CCol>
                         </CRow>
                       </CCardBody>
+                      <CCardFooter>
+                        <CButton className="btn btn-outline-primary" type="button" variant="outlined">Rate this officer</CButton>
+                      </CCardFooter>
                     </CCard>
                   </div>
                   
