@@ -1,190 +1,251 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { TOKEN } from '../../config'
-import './Home.css'
-import Header from '../header/header'
-
+import React, { useEffect, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { TOKEN } from "../../config";
+import "./Home.css";
+import Header from "../header/header";
+import Footer from "../footer/Footer";
+import StarRatingComponent from "react-star-rating-component";
+import ReactDOM from "react-dom";
+import { ProgressBar } from "react-bootstrap";
 
 // import { from } from 'core-js/core/array'
 const isLoggedIn = () => {
-    if (localStorage.getItem(TOKEN) === null) {
-        return false;
-    }
-    return true;
-}
+  if (localStorage.getItem(TOKEN) === null) {
+    return false;
+  }
+  return true;
+};
 const Home = () => {
-    // let history=useHistory()
-    const [count, setCount] = useState(0)
-    useEffect(() => {
-        console.log('home mounted')
-    }, [count])
-    return (
-        <>
-        {/* <Redirect to="/login"/> */}
-            <div>
-                <Header></Header>
-                <main>
-                    <section className="bg-image-hero center-tablet dark overlay-hero">
-                        <div className="full-screen -margin-bottom middle padding padding-top-tablet">
-                            <div className="row max-width-l">
-                                <div className="col-one-half middle">
-                                    <div>
-                                        <h1 className="hero">The Accountibility Badge</h1>
-                                        <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <Link to="/login" className="button button-primary space-top" role="button" >Get Started</Link>
-                                    </div>
-                                </div>
-                                <div className="col-one-half middle">
-                                    <img src={'assets/images/home-4.jpg'} srcSet="assets/images/home-4.jpg 1x,assets/images/home-4@2x.jpg 2x" alt="Hero Illustration" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="padding">
-                            <div className="row margin-bottom max-width-l">
-                                <div className="col-one-half middle">
-                                    <h3>Emergency Contact One Scan Away</h3>
-                                    <p className="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                                <div className="col-one-half">
-                                    <img className="rounded shadow-l" src={'assets/images/KINEGRAM-Officer-ID.jpg'} srcSet="assets/images/KINEGRAM-Officer-ID.jpg 1x,assets/images/KINEGRAM-Officer-ID@2x.jpg 2x" alt="Keep Track" />
-                                </div>
-                            </div>
-                            <div className="row max-width-l reverse-order">
-                                <div className="col-one-half">
-                                    <img className="rounded shadow-l" src={'assets/images/transparent-review.jpg'} srcSet="assets/images/transparent-review.jpg 1x, assets/images/transparent-review@2x.jpg 2x" alt="Sketch" />
-                                </div>
-                                <div className="col-one-half middle">
-                                    <h3>Civilian Review</h3>
-                                    <p className="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="bg-gradient-light -margin-bottom-2 overlay padding">
-                        <div className="center max-width-m">
-                            <h2 className="second-text">Better Service Experience</h2>
-                            <p className="paragraph second-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                        </div>
-                        <div className="margin-top max-width-l center">
-                            <img className="rounded shadow-l " src={'assets/images/better-service.jpg'} srcSet="assets/images/better-service.jpg 1x, assets/images/better-service@2x.jpg 2x" alt="Opalin Dashboard" />
-                        </div>
-                    </section>
-
-                    <section className="bg-gradient-dark center dark padding">
-                        <div className="margin-top max-width-l">
-                            <div className="margin-bottom max-width-m">
-                                <h3>Over 100 PDs </h3>
-                                <p className="opacity-m paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                            <div className="row min-two-columns">
-                                <div className="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
-                                </div>
-                                <div className="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
-                                </div>
-                                <div className="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
-                                </div>
-                                <div className="col-one-fourth">
-                                    <img src="assets/images/trusted-company-dark.png" srcSet="assets/images/trusted-company-dark.png 1x, assets/images/trusted-company-dark@2x.png 2x" alt="Trusted Company" />
-                                </div>
-                            </div>
-                            {/* <img className="margin-top rounded shadow-l" src="assets/images/PDs.jpg" srcSet="assets/images/PDs.jpg 1x, assets/images/PDs@2x.jpg 2x" alt="Customers"/> */}
-                        </div>
-                    </section>
-
-                    <section className="bg-light center">
-                        <div className="row no-gutter">
-                            <div className="col-one-half middle padding padding-bottom padding-top">
-                                <div className="max-width-m">
-                                    <p className="paragraph second-text">Danielle Mayer, business owner, says:</p>
-                                    <h3 className="second-text">"Officer X was really helpful !"</h3>
-                                </div>
-                            </div>
-                            <img className="col-one-half padding-bottom padding-top" src={'assets/images/bg/image-03@2x.jpg'} />
-
-
-                        </div>
-                    </section>
-
-                    <section className="bg-gradient-light padding">
-                        <div className="center max-width-l">
-                            <h2 className="second-text">Easy Setup</h2>
-                            <p className="paragraph second-text">At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
-                        </div>
-                        <div className="row margin-top max-width-l">
-                            <div className="col-one-fourth card card-content">
-                                <p className="muted">Step 1</p>
-                                <h4>Step 1</h4>
-                                <p className="paragraph">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                            <div className="col-one-fourth card card-content">
-                                <p className="muted">Step 2</p>
-                                <h4>Step 2</h4>
-                                <p className="paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur mollit.</p>
-                            </div>
-                            <div className="col-one-fourth card card-content">
-                                <p className="muted">Step 3</p>
-                                <h4>Step 3</h4>
-                                <p className="paragraph">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>
-                            <div className="col-one-fourth card card-content dark">
-                                <p className="muted">Step 4</p>
-                                <h4>Done!</h4>
-                                <p className="paragraph">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                            </div>
-                        </div>
-                        {/* <div className="center margin-top max-width-l">
-                            <span className="muted">If you need any help, make sure to </span><a href="signup.html">book a demo</a><span className="muted">.</span>
-                        </div> */}
-                    </section>
-                </main>
-
-                <footer className="footer-main bg-gradient-cyan dark overlay-shape-06">
-                    <div className="padding">
-
-                        <div className="card card-content dark margin-bottom max-width-l">
-                            <form className="row reduce-spacing">
-                                <div className="col-two-thirds center-tablet middle">
-                                    <h3 className="space-none">Ready to get started?</h3>
-                                    
-                                </div>
-                                <div className="col-one-third middle">
-                                    <Link to="/"className="button button-primary" role="button">Start Today !</Link>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="row center-desktop max-width-l">
-                            <div className="col-two-fifths">
-                                <h6>SmartGuard ®</h6>
-                               
-                            </div>
-                            <div className="col-one-fifth">
-                                <h6>Info</h6>
-                                <ul className="blank">
-                                    <li><a href="#">Getting Started</a></li>
-                                    <li><a href="#">Resources</a></li>
-                                   
-                                </ul>
-                            </div>
-                            <div className="col-one-fifth">
-                                <h6>Support</h6>
-                                <ul className="blank">
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Requirements</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-                          
-                        </div>
-                    </div>
-
-                </footer>
+  // let history=useHistory()
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    console.log("home mounted");
+  }, [count]);
+  return (
+    <>
+      <div className="content-holder pt-3">
+        <Header></Header>
+        <section class="main-content container">
+          <div className="row">
+            <div className="col-md-6  desktop-gap">
+              <h1 className="large-title">
+                National Suicide Prevention Lifeline
+              </h1>
+              <h4 className="small-title">Call Now 1-800-273-TALK (8255)</h4>
+              <div>
+                <button
+                  className="contact-button btn add-margin"
+                  onClick={() =>
+                    window.open(
+                      "https://suicidepreventionlifeline.org/",
+                      "_blank"
+                    )
+                  }
+                >
+                  Contact Us
+                </button>
+              </div>
             </div>
-        </>
-    )
-}
+
+            <div className="col-md-6 desktop-gap">
+              <img
+                src="https://static.wixstatic.com/media/27d832_3bfce60b882b4fd585d46915d6d13bfb~mv2.png/v1/fill/w_596,h_224,al_c,lg_1,q_85/hotline.webp"
+                className="img-fluid align-center"
+              />
+            </div>
+          </div>
+          {/*VASQUEX GAP*/}
+          <div className="row">
+            <div className="col-md-5 desktop-gap2">
+              <div className="left-div">
+                <img
+                  src={"assets/images/Santiago Vaquez_PNG.webp"}
+                  className="img-fluid mx-auto"
+                />
+              </div>
+            </div>
+            <div className="col-md-7 desktop-gap2">
+              <div className="row">
+                <div className="col-md-6">
+                  <h3 className="name-title">Santiago Vazquez</h3>
+                  <h5 className="creden-number">Position: Sergeant</h5>
+                  <h5 className="creden-number">Badge ID: #10389</h5>
+                  <Link to="/login" className="btn btn-success rate-btn">
+                    Rate Santiago !
+                  </Link>
+                </div>
+                <div className="rating-section col-md-6">
+                  <span className="star-count">5 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={80}
+                    className="height-progress"
+                  />
+                  <span className="star-count">4 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={60}
+                    className="height-progress"
+                  />
+                  <span className="star-count">3 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={50}
+                    className="height-progress"
+                  />
+                  <span className="star-count">2 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={40}
+                    className="height-progress"
+                  />
+                  <span className="star-count">1 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={20}
+                    className="height-progress"
+                  />
+                  <h2 className="rating-total mt-1">4.3</h2>
+                  <StarRatingComponent
+                    name="rate2"
+                    editing={false}
+                    emptyStarColor={"#6d706e"}
+                    starCount={5}
+                    value={4}
+                  />
+                  <h5 class="total-ratings">123 ratings</h5>
+                </div>
+                {/**OFFICe details */}
+                <div className="col-md-12">
+                  <p className="officer-details">
+                    Santiago is a United States Army Veteran and a Retired
+                    Sergeant with the Broward County Sheriff's Office. He holds
+                    one of the highest awards for Bravery- The Gold Cross. He
+                    brings his Law Enforcement, Military and Nova Southeastern
+                    University Executive leadership skills to Global
+                    Accountability Corporation. He is also the Broward County
+                    Florida Hispanic American Chambers President and the Broward
+                    County American Bangladesh Political Affairs Committee
+                    President. Santiago was unanimously chosen to be the
+                    president of Global Accountability Corporation because of
+                    his skills and great personality that brings people
+                    together.{" "}
+                  </p>
+                  <div class="action-buttons">
+                    <button class="dwnld-business-button btn">
+                      Download Business Card
+                    </button>
+                    <button className="btn btn-outline-success assistance-btn">
+                      Victim Rights & Assistance
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/*_____THEO GAP_________*/}
+          <div className="row">
+            {/*_______DETAILS FIRST NOW*/}
+            <div class="col-md-7 desktop-gap2">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 className="name-title">Theo Gibbs</h3>
+                  <h5 className="creden-number">Position: CEO</h5>
+                  <h5 className="creden-number">Badge ID: #10250</h5>
+                  <Link to="/login" className="btn btn-success rate-btn">
+                    Rate Theo!
+                  </Link>
+                </div>
+                <div className="rating-section col-md-6">
+                  <span className="star-count">5 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={80}
+                    className="height-progress"
+                  />
+                  <span className="star-count">4 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={60}
+                    className="height-progress"
+                  />
+                  <span className="star-count">3 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={50}
+                    className="height-progress"
+                  />
+                  <span className="star-count">2 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={40}
+                    className="height-progress"
+                  />
+                  <span className="star-count">1 stars</span>{" "}
+                  <ProgressBar
+                    variant="warning"
+                    now={20}
+                    className="height-progress"
+                  />
+                  <h2 className="rating-total mt-1">4.3</h2>
+                  <StarRatingComponent
+                    name="rate2"
+                    editing={false}
+                    emptyStarColor={"#6d706e"}
+                    starCount={5}
+                    value={4}
+                  />
+                  <h5 class="total-ratings">123 ratings</h5>
+                </div>
+                {/**OFFICe details */}
+                <div class="col-md-12">
+                  <p class="officer-details">
+                    Theo Gibbs; Founder and CEO of Global Accountability Corp.
+                    Theo is an inventor of the applied use of NFC technology in
+                    order to generate a previously untapped or created market.
+                    This work centers around focused engagement that includes
+                    the implementation and production of the aforementioned
+                    technology.
+                  </p>
+                  <div class="action-buttons">
+                    <button class="dwnld-business-button btn">
+                      Download Business Card
+                    </button>
+                    <button className="btn btn-outline-success assistance-btn">
+                      Victim Rights & Assistance
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/*____________PICTURE TIME_____________*/}
+            <div class="col-md-5 desktop-gap2">
+              <div class="right-div">
+                <img
+                  src={"assets/images/theo-demowebp.webp"}
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+       {/**_____________SPACE FOR BADGE RELEASE COUNTDOWN___________ */}
+       <div className="row pb-4">
+           <div className="col-md-12 desktop-gap2">
+               <div class="img-div text-center">
+                   <img src="assets/images/acountibility-corp.webp" class="img-fluid"></img>
+               </div>
+               <h3 className="only-head text-center">Less than 60 days from the official release of: <a className="go-to-class" href="https://theaccountabilitybadge.com/">The Accountability Badge</a></h3>
+           </div>
+       </div>
+       {/**_________________SPACE FOR TWITTER FEED___________ */}
+
+       {/**______FOOTER_____ */}
+       <Footer></Footer>
+        </section>
+      </div>
+    </>
+  );
+};
 export default Home;

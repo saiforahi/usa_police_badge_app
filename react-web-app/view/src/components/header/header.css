@@ -1,4 +1,35 @@
-.logo-imp{
-    margin-left: 10px;
-    font-size: 18px;
+@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Montserrat&display=swap');
+.sign-btn{
+    
+    padding:10px 25px;
+    font-family: 'Archivo', sans-serif;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 16px;
+    line-height: 17px;
+
+}
+.navbar{
+    background-color: #E5E5E5;
+}
+Nav,a.nav-link{
+    font-family: 'Archivo', sans-serif;
+font-style: normal;
+font-weight: 500 !important;
+font-size: 16px;
+line-height: 17px;
+color: rgba(19, 17, 12, 1)!important;
+
+}
+ .navbar-light .navbar-nav .nav-link:hover{
+    color: rgba(70, 174, 51, 1) !important;
+}
+.selected{
+    color: rgba(70, 174, 51, 1) !important;
+}
+
+@media all and (min-width:992px){
+    .padding-desktop{
+        margin-left: 100px;
+    }
 }
