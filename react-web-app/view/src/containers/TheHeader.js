@@ -21,7 +21,7 @@ import {
   TheHeaderDropdownNotif
  
 }  from './index'
-import { changeState } from 'src/store/SideBarSlice'
+import { changeState } from 'src/store/slices/SideBarSlice'
 
 const TheHeader = () => {
   const dispatch = useDispatch()
