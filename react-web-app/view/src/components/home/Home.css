@@ -102,7 +102,7 @@ font-weight: 500;
 font-size: 18px;
 line-height: 20px;
 color: #13110C;
-padding: 18px 40px;
+padding: 18px 35px;
 }
 .assistance-btn:hover{
   color:#F7F7F7;
@@ -117,7 +117,7 @@ line-height: 20px;
 background: #46AE33;
 border-radius: 10px;
 color: #F7F7F7;
-padding: 19px 40px;
+padding: 19px 35px;
 }
 .img-div img{
   height: 300px;
@@ -135,6 +135,76 @@ color: #13110C;
   text-decoration: solid underline;
 }
 /*________MEDIA QUERIES _____*/
+@media all and (max-width:488px){
+  .dwnld-business-button{
+    margin-bottom: 10px;
+  }
+}
+@media all and (min-width:488px) and (max-width:992px){
+  .dwnld-business-button{
+    margin-right: 10px;
+  }
+}
+@media all and (max-width:992px){
+  .large-title{
+    font-size:52px;
+    line-height:74px;
+  }
+  .contact-button{
+    font-size: 16px;
+    line-height: 23px;
+    padding: 14px 28px;
+    margin-bottom: 15px;
+  }
+  .small-title{
+    font-size: 22px;
+    line-height: 35px;
+  }
+  .left-div,.right-div{
+   clear: both;
+   float: unset;
+  text-align: center;
+  margin-top: 15px;
+
+  }
+  .name-title{
+    font-size: 24px;
+    line-height: 36px;
+    margin-top: 10px;
+  }
+  .creden-number{
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .officer-details{
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .assistance-btn{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px 30px;
+    
+  }
+  .dwnld-business-button{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px 30px;
+    
+   
+  }
+  .action-buttons{
+    text-align: center !important;
+  }
+  .img-div img{
+    height: 180px;
+    margin-top: 20px;
+  }
+  .only-head{
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
 @media all and (min-width:992px){
   .desktop-gap{
     padding-top:50px;
@@ -154,5 +224,16 @@ line-height: 81px;
   }
   .right-div{
     float: right;
+  }
+}
+@media all and (min-width:992px) and (max-width:1200px){
+  .assistance-btn{
+    padding: 12px 30px;
+  }
+  .dwnld-business-button{
+    padding: 12px 30px;
+  }
+  .action-buttons{
+    display: flex;
   }
 }
