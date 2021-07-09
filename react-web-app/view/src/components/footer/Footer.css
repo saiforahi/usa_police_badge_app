@@ -35,3 +35,30 @@ color: #13110C;
 margin-top: 80px;
 text-align: center;
 }
+
+/**_____MEDIA QUERY________*/
+@media all and (max-width:992px){
+    .footer-header{
+        font-size: 35px;
+        line-height: 50px;
+    }
+    .footer-images{
+        height: 180px;
+    }
+    .footer-minor-details{
+        font-size: 18px;
+        line-height: 29px;
+    }
+    .copyright-info{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .footer-gap{
+        padding-top: 50px;
+    }
+}
+@media all and (max-width:768px){
+    .mobile-view{
+        display: none !important;
+    }
+}

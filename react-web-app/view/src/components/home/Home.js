@@ -27,7 +27,7 @@ const Home = () => {
         <Header></Header>
         <section class="main-content container">
           <div className="row">
-            <div className="col-md-6  desktop-gap">
+            <div className="col-lg-6  desktop-gap">
               <h1 className="large-title">
                 National Suicide Prevention Lifeline
               </h1>
@@ -47,7 +47,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-md-6 desktop-gap">
+            <div className="col-lg-6 desktop-gap">
               <img
                 src="https://static.wixstatic.com/media/27d832_3bfce60b882b4fd585d46915d6d13bfb~mv2.png/v1/fill/w_596,h_224,al_c,lg_1,q_85/hotline.webp"
                 className="img-fluid align-center"
@@ -56,7 +56,7 @@ const Home = () => {
           </div>
           {/*VASQUEX GAP*/}
           <div className="row">
-            <div className="col-md-5 desktop-gap2">
+            <div className="col-lg-5 desktop-gap2">
               <div className="left-div">
                 <img
                   src={"assets/images/Santiago Vaquez_PNG.webp"}
@@ -64,9 +64,9 @@ const Home = () => {
                 />
               </div>
             </div>
-            <div className="col-md-7 desktop-gap2">
+            <div className="col-lg-7 desktop-gap2">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-lg-6 details-view">
                   <h3 className="name-title">Santiago Vazquez</h3>
                   <h5 className="creden-number">Position: Sergeant</h5>
                   <h5 className="creden-number">Badge ID: #10389</h5>
@@ -74,7 +74,7 @@ const Home = () => {
                     Rate Santiago !
                   </Link>
                 </div>
-                <div className="rating-section col-md-6">
+                <div className="rating-section col-lg-6">
                   <span className="star-count">5 stars</span>{" "}
                   <ProgressBar
                     variant="warning"
@@ -116,7 +116,7 @@ const Home = () => {
                   <h5 class="total-ratings">123 ratings</h5>
                 </div>
                 {/**OFFICe details */}
-                <div className="col-md-12">
+                <div className="col-lg-12">
                   <p className="officer-details">
                     Santiago is a United States Army Veteran and a Retired
                     Sergeant with the Broward County Sheriff's Office. He holds
@@ -145,11 +145,11 @@ const Home = () => {
           </div>
 
           {/*_____THEO GAP_________*/}
-          <div className="row">
+          <div className="row flex-column-reverse flex-lg-row">
             {/*_______DETAILS FIRST NOW*/}
-            <div class="col-md-7 desktop-gap2">
+            <div class="col-lg-7 desktop-gap2">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6 details-view">
                   <h3 className="name-title">Theo Gibbs</h3>
                   <h5 className="creden-number">Position: CEO</h5>
                   <h5 className="creden-number">Badge ID: #10250</h5>
@@ -157,7 +157,7 @@ const Home = () => {
                     Rate Theo!
                   </Link>
                 </div>
-                <div className="rating-section col-md-6">
+                <div className="rating-section col-lg-6">
                   <span className="star-count">5 stars</span>{" "}
                   <ProgressBar
                     variant="warning"
@@ -199,7 +199,7 @@ const Home = () => {
                   <h5 class="total-ratings">123 ratings</h5>
                 </div>
                 {/**OFFICe details */}
-                <div class="col-md-12">
+                <div class="col-lg-12">
                   <p class="officer-details">
                     Theo Gibbs; Founder and CEO of Global Accountability Corp.
                     Theo is an inventor of the applied use of NFC technology in
@@ -221,7 +221,7 @@ const Home = () => {
             </div>
 
             {/*____________PICTURE TIME_____________*/}
-            <div class="col-md-5 desktop-gap2">
+            <div class="col-lg-5 desktop-gap2">
               <div class="right-div">
                 <img
                   src={"assets/images/theo-demowebp.webp"}
@@ -232,7 +232,7 @@ const Home = () => {
           </div>
        {/**_____________SPACE FOR BADGE RELEASE COUNTDOWN___________ */}
        <div className="row pb-4">
-           <div className="col-md-12 desktop-gap2">
+           <div className="col-lg-12 desktop-gap2">
                <div class="img-div text-center">
                    <img src="assets/images/acountibility-corp.webp" class="img-fluid"></img>
                </div>
