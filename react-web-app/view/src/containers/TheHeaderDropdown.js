@@ -7,16 +7,22 @@ import {
   CImg
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { API } from 'src/config'
+import { API, BASE_URL } from 'src/config'
 import { useHistory } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { resetUser } from 'src/store/slices/UserSlice'
 
 const TheHeaderDropdown = () => {
+  const full_name = useSelector(state=>state.user.data.first_name?state.user.data.first_name+' '+state.user.data.last_name:'loading...')
+  const profile_pic = useSelector(state => state.user.data.profile_pic)
   let history=useHistory()
+  const dispatch = useDispatch()
   const handle_logout=()=>{
     API.get('logout/'+localStorage.getItem('user_id')+'/').then(response=>{
       console.log(response.status)
       if(response.data.success===true){
         localStorage.clear()
+        dispatch(resetUser())
         history.push('/login')
       }
       else if(response.status == 401){
@@ -39,13 +45,12 @@ const TheHeaderDropdown = () => {
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div className="c-avatar">
           <CImg
-            src={'assets/images/avatar.png'}
+            src={profile_pic!=null?BASE_URL+profile_pic:'assets/images/avatar.png'}
             className="c-avatar-img"
             alt=''
           />
-         
         </div>
-        <span>Admin User</span>
+        <span style={{marginLeft:"8px"}}>{full_name}</span>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownItem

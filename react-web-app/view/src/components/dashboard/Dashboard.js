@@ -12,7 +12,6 @@ import {
   CForm,
   CCard,
   CButton,
-  CButtonGroup,
   CBadge,
   CDataTable,
 } from "@coreui/react";
@@ -30,8 +29,15 @@ const WidgetsDropdown = React.lazy(() =>
 
 const Dashboard = () => {
   const data = useSelector(state => state.dashboard);
-  const notifications = useSelector(state => state.notifications.data.slice(0,10))
+  const notifications = useSelector(state => state.notifications)
   const ratings = useSelector(state => state.ratings.data)
+  const ratingsTableData=useSelector(state=>{
+    let data = []
+    state.ratings.data.forEach((rate,index)=>{
+      data.push({'#':index+1,'Employee Name': rate.officer.first_name+' '+rate.officer.last_name, 'Badge Number':rate.officer.user_id[0].nfc_number,'Rating':Number(rate.star),'Feedback':rate.comment,'Date':new Date(rate.created_at).toLocaleDateString()})
+    })
+    return data
+  })
   const dispatch = useDispatch()
   
   React.useEffect(() => {
@@ -64,7 +70,7 @@ const Dashboard = () => {
                 <h4 id="traffic" className="card-title mb-0">Recent Ratings (Live Feed)</h4>   
                 <div class="rating-holder mt-4">
                   <CRow>
-                    {ratings!=undefined && Array.from(ratings.slice(0,10)).map((rating)=>(
+                    {ratings!=undefined && Array.from(ratings.slice(0,9)).map((rating)=>(
                       <CCol sm="12" md="6" lg="4">
                         <CCard className="review-cards">
                           <CCardBody>
@@ -87,12 +93,12 @@ const Dashboard = () => {
                     <div class="scan-header">
                       <h5 className="angle-left">Recent Scans</h5>
                       <CButton color="primary" className="angle-right">
-                        New <CBadge color="info">9</CBadge>
+                        {notifications.status=='succeeded'?'Total':'loading'} <CBadge color="info">{notifications.data.length}</CBadge>
                         <span className="visually-hidden">unread messages</span>
                       </CButton>
                     </div>
                     <div class="card-div mt-2 pb-1 pr-3">
-                      {notifications!= undefined && Array.from(notifications).map((notification)=>(
+                      {notifications!= undefined && Array.from(notifications.data.slice(0,10)).map((notification)=>(
                         <CCard className="show-scans">
                           <CCardBody>
                             <p>
@@ -106,6 +112,7 @@ const Dashboard = () => {
                           </CCardBody>
                         </CCard>
                       ))}
+                      <CButton className="ml-2" type="button" variant="outline" color="primary">View all</CButton>
                     </div>
                   </CCardBody>
                 </CCard>
@@ -150,7 +157,7 @@ const Dashboard = () => {
             <CCard className="mt-2">
               <CCardBody>
                 <CDataTable
-                  items={ratings}
+                  items={ratingsTableData}
                   fields={[
                     {
                       key: "#",
