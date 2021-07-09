@@ -122,7 +122,7 @@ const CreateEmployee =()=>{
                             </CRow> */}
                     </CCardBody>
                     <CCardFooter>
-                        <CButton color="primary" className="px-4" type="button" onClick={()=>update_profile()}>Update</CButton>
+                        <CButton color="primary" className="px-4" type="button" onClick={()=>update_profile()}>Create</CButton>
                     </CCardFooter>
                 </CCard>
             </CCol>

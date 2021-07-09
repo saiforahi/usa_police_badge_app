@@ -32,40 +32,47 @@ const Login = () => {
     let classes=useStyles()
     const [submitted,setSubmitted]=useState(false)
     const [email,setEmail]=useState("admin");
+    const [group,setGroup] = useState('')
     const [password,setPassword]=useState("12345678!");
     const [loginError,setLoginError]=useState("");
     const history=useHistory();
     const isLoggedIn=()=>{
-        if(localStorage.getItem(TOKEN)===null){
-          return false;
-        }
-        return true;
+      if(localStorage.getItem(TOKEN)===null){
+        return false;
+      }
+      return true;
     }
     const handleKeypress = e => {
-        //it triggers by pressing the enter key
-        if (e.keyCode === 13) {
-          handleSubmit();
-        }
-      };
-      const handleSubmit=()=>{
-        setSubmitted(true)
-        console.log(JSON.stringify({email:email,password:password}))
-        PUBLIC_API.post('login/',JSON.stringify({username:email,password:password,group:"admin"})).then((response1)=>{
-          console.log(response1.data);
-          if(response1.data.success==="True"){
-            console.log(response1.data);
-            localStorage.setItem(TOKEN,response1.data.token)
-            localStorage.setItem("user_id",response1.data.user_id)
-            history.push({pathname:'/dashboard',user:{email:email,password:password}})
-            // swal('OTP sent',response1.data.message,'success')
-          }
-        }).catch(error=>{
-          setLoginError("Please provide correct credentials");
-          console.log(error)
-          setSubmitted(false)
-          //swal("Error!",error.message,"error");
-        })
+      //it triggers by pressing the enter key
+      if (e.keyCode === 13) {
+        handleSubmit();
       }
+    };
+    const handleSubmit=()=>{
+      setSubmitted(true)
+      PUBLIC_API.post('user/group/check/',JSON.stringify({username:email})).then((res)=>{
+        if(res.data.success == 'True'){
+          setGroup(res.data.group)
+          console.log(JSON.stringify({email:email,password:password,group:res.data.group}))
+          PUBLIC_API.post('login/',JSON.stringify({username:email,password:password,group:res.data.group})).then((response1)=>{
+            console.log(response1.data);
+            if(response1.data.success==="True"){
+              console.log(response1.data);
+              localStorage.setItem(TOKEN,response1.data.token)
+              localStorage.setItem("user_id",response1.data.user_id)
+              history.push({pathname:'/dashboard',user:{email:email,password:password}})
+              // swal('OTP sent',response1.data.message,'success')
+            }
+          }).catch(error=>{
+            setLoginError("Please provide correct credentials");
+            console.log(error)
+            setSubmitted(false)
+            //swal("Error!",error.message,"error");
+          })
+        }
+      })
+      
+    }
     return (
         <>
         {isLoggedIn() && <Redirect to="/dashboard"/>}

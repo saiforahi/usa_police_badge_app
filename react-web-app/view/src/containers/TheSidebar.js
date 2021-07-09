@@ -19,6 +19,7 @@ const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()
   const show = useSelector(state => state.sidebar.sidebarShow)
+  const group = useSelector ( state => state.user.data.group)
   useEffect(()=>{
     //API.get()
   },[])
