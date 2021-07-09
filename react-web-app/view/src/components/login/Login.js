@@ -15,11 +15,13 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import {TOKEN,PUBLIC_API,API} from '../../config'
-import swal from 'sweetalert'
+import {TOKEN,PUBLIC_API} from '../../config'
+
 import { makeStyles } from '@material-ui/core/styles';
 import {LinearProgress} from '@material-ui/core';
 import './login.css'
+import { useDispatch } from 'react-redux'
+import { setGroupThunk } from 'src/store/slices/UserSlice'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -30,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Login = () => {
     let classes=useStyles()
+    const dispatch = useDispatch()
     const [submitted,setSubmitted]=useState(false)
     const [email,setEmail]=useState("admin");
     const [group,setGroup] = useState('')
@@ -60,6 +63,8 @@ const Login = () => {
               console.log(response1.data);
               localStorage.setItem(TOKEN,response1.data.token)
               localStorage.setItem("user_id",response1.data.user_id)
+              localStorage.setItem("group",res.data.group)
+              dispatch(setGroupThunk(res.data.group))
               history.push({pathname:'/dashboard',user:{email:email,password:password}})
               // swal('OTP sent',response1.data.message,'success')
             }

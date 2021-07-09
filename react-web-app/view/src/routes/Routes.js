@@ -14,7 +14,12 @@ const routes = [
   {path:'/dashboard/billing/',exact:true,name:'Billing',component:React.lazy(()=> import ('../components/billing/Billing'))},
   {path:'/dashboard/time',exact:true,name:'Time',component:React.lazy(()=>import('../components/time/Time'))},
   {path:'/dashboard/sitecontrol',exact:true,name:'Site Control',component:React.lazy(()=>import('../components/sitecontrol/SiteControl'))},
-  {path:'/dashboard/scan-history',exact:true,name:'Scan History',component:React.lazy(() => import ('../components/scan-history/ScanHistory'))}
+  {path:'/dashboard/scan-history',exact:true,name:'Scan History',component:React.lazy(() => import ('../components/scan-history/ScanHistory'))},
+  { path: '/dashboard/account/personal',exact:true, name: 'Officer Account', component: React.lazy(()=>import('../components/officerview/account/Account'))},
 ];
 
-export default routes;
+const officer_routes=[
+  
+]
+
+export default routes

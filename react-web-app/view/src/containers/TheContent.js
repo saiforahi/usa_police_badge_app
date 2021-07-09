@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import {
   Redirect,
   Route,
@@ -8,6 +8,7 @@ import { CContainer, CFade } from '@coreui/react';
 import './TheHeader.css'
 // routes config
 import routes from '../routes/Routes';
+import officer_routes from '../routes/OfficerRoutes'
   
 const loading = (
   <div className="pt-3 text-center">
@@ -16,6 +17,17 @@ const loading = (
 )
 
 const TheContent = () => {
+  const [approutes,setRoutes] = useState([])
+  React.useEffect(()=>{
+    switch(localStorage.getItem('group')){
+      case 'admin':
+        setRoutes(routes)
+        break
+      case 'officer':
+        setRoutes(officer_routes)
+        break
+    }
+  },[])
   return (
     <main className="c-main">
       <div class="hero-image">
@@ -25,7 +37,7 @@ const TheContent = () => {
 
         <Suspense fallback={loading}>
           <Switch>
-            {routes.map((route, idx) => {
+            {approutes.map((route, idx) => {
               return route.component && (
                 <Route
                   key={idx}

@@ -8,9 +8,8 @@ import {
   CSidebarMinimizer,
   CSidebarNavItem
 } from '@coreui/react'
-import { CIcon } from '@coreui/icons-react';
-// sidebar nav config
-import { API } from '../config'
+//import { CIcon } from '@coreui/icons-react';
+
 import { useHistory } from 'react-router'
 import '../assets/warehouse.svg'
 import './TheSidebar.css'
@@ -19,9 +18,9 @@ const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()
   const show = useSelector(state => state.sidebar.sidebarShow)
-  const group = useSelector ( state => state.user.data.group)
+  const [group,setGroup] = React.useState('')
   useEffect(()=>{
-    //API.get()
+    setGroup(localStorage.getItem('group'))
   },[])
   return (
     <CSidebar
@@ -37,7 +36,7 @@ const TheSidebar = () => {
         <img src={'assets/images/web-logo-2.png'}/>
         <h4 id="logoText" style={{marginTop:"8px", marginLeft:"5px"}} className="display-8 c-sidebar-brand-full">The Accountibility Badge</h4>
       </CSidebarBrand>
-      <CSidebarNav>
+      {group == 'admin' && <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
         <CSidebarNavTitle>Administration</CSidebarNavTitle>
         <CSidebarNavItem to="/dashboard/employees" onClick={()=>{history.push('/dashboard/users/show')}} icon="cil-group" name="Employees"></CSidebarNavItem>
@@ -47,7 +46,17 @@ const TheSidebar = () => {
         <CSidebarNavItem to="/dashboard/account" icon="cil-calculator" name="Account"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/billing" icon="cil-money" name="Billing"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/contacts" icon="cil-people" name="Contacts"></CSidebarNavItem>
-      </CSidebarNav>
+      </CSidebarNav>}
+
+      { /*officer side nav*/ }
+
+      {group == 'officer' && <CSidebarNav>
+        <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
+        <CSidebarNavTitle>Personnel Account</CSidebarNavTitle>
+        <CSidebarNavItem to="/dashboard/account/personal" onClick={()=>{history.push('/dashboard/account/personal')}} icon="cil-avatar" name="Account"></CSidebarNavItem>
+        
+      </CSidebarNav>}
+
       <CSidebarMinimizer className="c-d-md-down-none"/>
     </CSidebar>
   )
