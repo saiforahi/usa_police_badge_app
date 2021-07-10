@@ -25,11 +25,13 @@ import "./Dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNotificationsThunk } from "src/store/slices/NotificationSlice";
 import { fetchRatingsThunk } from "src/store/slices/RatingSlice";
+import { useHistory } from "react-router-dom";
 const WidgetsDropdown = React.lazy(() =>
   import("../../views/widgets/WidgetsDropdown.js")
 );
 
 const Dashboard = () => {
+  let history = useHistory()
   const data = useSelector(state => state.dashboard);
   const notifications = useSelector(state => state.notifications)
   const ratings = useSelector(state => {
@@ -157,7 +159,7 @@ const Dashboard = () => {
                   <CCardBody>
                     <div class="scan-header">
                       <h5 className="angle-left">Recent Scans</h5>
-                      <CButton color="primary" className="angle-right">
+                      <CButton color="primary" type="button" className="angle-right" onClick={()=>history.push('/dashboard/scan-history')}>
                         {notifications.status == 'succeeded' ? 'Total' : 'loading'} <CBadge color="info">{notifications.data.length}</CBadge>
                         <span className="visually-hidden">unread messages</span>
                       </CButton>
@@ -183,7 +185,7 @@ const Dashboard = () => {
                           </CCardBody>
                         </CCard>
                       ))}
-                      <CButton className="ml-2" type="button" variant="outline" color="primary">View all</CButton>
+                      <CButton onClick={()=>history.push('/dashboard/scan-history')} className="ml-2" type="button" variant="outline" color="primary">View all</CButton>
                     </div>
                   </CCardBody>
                 </CCard>
