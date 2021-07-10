@@ -14,7 +14,9 @@ import {
   CButton,
   CBadge,
   CDataTable,
+  CImg
 } from "@coreui/react";
+import StarRatingComponent from "react-star-rating-component";
 import React from "react";
 import CIcon from "@coreui/icons-react";
 import { fetchDashboardData } from "src/store/slices/DashboardSlice";
@@ -66,18 +68,29 @@ const Dashboard = () => {
             <WidgetsDropdown data={data.data} />
             <CRow>
               {/**show ratings */}
-              <CCol sm="12" md="7" lg="8">
+              <CCol sm="12" md="4" lg="4">
                 <h4 id="traffic" className="card-title mb-0">Recent Ratings (Live Feed)</h4>   
                 <div class="rating-holder mt-4">
                   <CRow>
                     {ratings!=undefined && Array.from(ratings.slice(0,9)).map((rating)=>(
-                      <CCol sm="12" md="6" lg="4">
+                      <CCol xs="12" sm="6" md="12" lg="10">
                         <CCard className="review-cards">
                           <CCardBody>
                             <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
-                            <p className="person-name">{rating.officer.first_name}</p>
-                            <p class="feedback"></p>
-                            <p class="review">4 stars by {rating.name}</p>
+                            <p className="person-name"> <CImg
+            src={'assets/images/avatar.png'}
+            className="c-avatar-img officer-img mr-1 ml-0"
+            alt=''
+          />{rating.officer.first_name},<span class="officer-designation">Sergant</span></p>
+                            {/* <p class="feedback"></p> */}
+                            <StarRatingComponent
+                    name="rate2"
+                    editing={false}
+                    emptyStarColor={"#6d706e"}
+                    starCount={5}
+                    value={3.5}
+                  />
+                            <p class="review mt-none">by {rating.name} </p>
                             <p className="review-text">{'"'+rating.comment+'"'}</p>
                           </CCardBody>
                         </CCard>
@@ -86,8 +99,43 @@ const Dashboard = () => {
                   </CRow>
                 </div>       
               </CCol>
+              {/**___NEGATIVE REVIEW SHOW */}
+              <CCol sm="12" md="4" lg="4">
+              
+              <h4 id="traffic" className="card-title negative-heading mb-0">Negative Ratings (Live Feed)</h4>   
+              <div class="rating-holder negative mt-4">
+              <CRow>
+              {ratings!=undefined && Array.from(ratings.slice(0,9)).map((rating)=>(
+              <CCol xs="12" sm="6" md="12" lg="10">
+                  <CCard className="review-cards border-danger">
+              <CCardBody>
+                            <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
+                            <p className="person-name"> <CImg
+            src={'assets/images/avatar.png'}
+            className="c-avatar-img officer-img mr-1 ml-0"
+            alt=''
+          />{rating.officer.first_name},<span class="officer-designation">Sergant</span></p>
+                            {/* <p class="feedback"></p> */}
+                            <StarRatingComponent
+                    name="rate2"
+                    editing={false}
+                    emptyStarColor={"#6d706e"}
+                    starCount={5}
+                    value={2}
+                  />
+                            <p class="review mt-none">by {rating.name} </p>
+                            <p className="review-text">{'"'+rating.comment+'"'}</p>
+                            <p><button className="btn-danger btn">Take Action !</button></p>
+                          </CCardBody>
+                          </CCard>
+              </CCol>
+               ))}
+              </CRow>
+              </div>
+              
+              </CCol>
               {/**latest scans show */}
-              <CCol sm="12" md="5" lg="4">
+              <CCol sm="12" md="4" lg="4">
                 <CCard className="noti-holder">
                   <CCardBody>
                     <div class="scan-header">
@@ -101,7 +149,13 @@ const Dashboard = () => {
                       {notifications!= undefined && Array.from(notifications.data.slice(0,10)).map((notification)=>(
                         <CCard className="show-scans">
                           <CCardBody>
+              
                             <p>
+                            <CImg
+            src={'assets/images/avatar.png'}
+            className="c-avatar-img officer-img mr-1 ml-0"
+            alt=''
+          />
                               Badge No: {notification.nfc.nfc_number} of {notification.nfc.user.first_name+' '+notification.nfc.user.last_name} was
                               scanned near Broward
                             </p>

@@ -26,7 +26,15 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
    
 }
-
+.officer-img{
+    height: 36px;
+    width: 36px;
+}
+.officer-designation{
+    font-size:.86rem;
+    color: #2b2924 !important;
+    font-weight: normal !important;
+}
 .grey-border{
     border-radius: 0.50rem; 
        border-left: 4px solid #9e9d9b;
@@ -58,6 +66,12 @@
 .person-name{
     font-weight: bold;
     color: #575bde;
+}
+.negative-heading{
+    color: #de232d;
+}
+.review{
+    margin-top: 0 !important;
 }
 .review-text{
     color: #2b2924;
