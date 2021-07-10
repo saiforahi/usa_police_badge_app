@@ -2,18 +2,27 @@ import React, { useState } from 'react'
 import {
   CCardHeader,
   CCardBody,
-  CCard,CRow,CCol,CImg,CContainer,CCardFooter,CButton
+  CCard,CRow,CCol,CImg,CContainer,CCardFooter,CButton,CModal,
+  CModalHeader,
+  CModalBody,CModalFooter
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
+import Rating from '../citizenview/Rating'
 // import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import {  BASE_URL, PUBLIC_API } from 'src/config';
+import swal from '@sweetalert/with-react'
 
 const Officer = (data)=>{
   const [user_data,setUserData] = useState({})
-  
+  const [showRatingModal,setShowRatingModal] = useState(false)
+  function handle_rating_modal(){
+    console.log('setting view')
+    setShowRatingModal(true)
+  }
+  const toggle = ()=>{
+    setShowRatingModal(!showRatingModal);
+  }
   React.useEffect(()=>{
-    console.log('props data --- ',data.data)
     PUBLIC_API.get("profile/details/"+data.officer_id+"/").then(async(res)=>{
       console.log('lat from res --- ',res.data.data)
       setUserData(res.data.data)
@@ -52,13 +61,26 @@ const Officer = (data)=>{
                         </CRow>
                       </CCardBody>
                       <CCardFooter>
-                        <CButton className="btn btn-outline-primary" type="button" variant="outlined">Rate this officer</CButton>
+                        <CButton onClick={()=>handle_rating_modal()} className="btn btn-outline-primary" type="button" variant="outline">Rate this officer</CButton>
                       </CCardFooter>
                     </CCard>
                   </div>
                   
                 </CCol>
             </CRow>
+            <CModal show={showRatingModal} onClose={toggle} centered>
+              <CModalHeader closeButton>Modal title</CModalHeader>
+              <CModalBody>
+                Lorem ipsum dolor...
+              </CModalBody>
+              <CModalFooter>
+                <CButton color="primary">Do Something</CButton>{' '}
+                <CButton
+                  color="secondary"
+                  onClick={toggle}
+                >Cancel</CButton>
+              </CModalFooter>
+            </CModal>
           </CContainer>
         </div>
       
