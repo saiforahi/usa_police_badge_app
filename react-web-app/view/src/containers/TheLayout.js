@@ -20,40 +20,39 @@ import { fetchDetailsThunk } from 'src/store/slices/UserSlice'
 const TheLayout = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const dispatch = useDispatch()
+  let history = useHistory()
   let web_socket=new WebSocketBridge()
   const isLoggedIn=()=>{
-    if(localStorage.getItem(TOKEN)===null){
+    if(localStorage.getItem(TOKEN)===null || localStorage.getItem(TOKEN)===''){
       return false;
     }
     return true;
   }
   
   useEffect(()=>{
-    dispatch(fetchDetailsThunk(localStorage.getItem('user_id')))
-    web_socket.connect('ws://103.123.8.52:8075/nfc/notifications')
-    web_socket.addEventListener("message", function(event) {
-      console.log(event.data);
-      if(event.data.type == 'review.notification'){
-        enqueueSnackbar(event.data.officer_name+' got rated by '+event.data.name,{variant: 'info'})
-        dispatch(fetchRatingsThunk())  
-      }
-      else{
-        dispatch(fetchDashboardData())
-        dispatch(fetchNotificationsThunk())
-        
-        swal({
-          content:(<CardSwipped data={event.data}/>),
-          buttons:['Close']
-        })
-      }
-      // dispatch(fetchDashboardData())
-      // dispatch(fetchNotificationsThunk())
-      
-      // swal({
-      //   content:(<CardSwipped data={event.data}/>),
-      //   buttons:['Close']
-      // })
-    });
+    if(isLoggedIn == true){
+      dispatch(fetchDetailsThunk(localStorage.getItem('user_id')))
+      web_socket.connect('ws://103.123.8.52:8075/nfc/notifications')
+      web_socket.addEventListener("message", function(event) {
+        console.log(event.data);
+        if(event.data.type == 'review.notification'){
+          enqueueSnackbar(event.data.officer_name+' got rated by '+event.data.name,{variant: 'info'})
+          dispatch(fetchRatingsThunk())  
+        }
+        else{
+          dispatch(fetchDashboardData())
+          dispatch(fetchNotificationsThunk())
+          
+          swal({
+            content:(<CardSwipped data={event.data}/>),
+            buttons:['Close']
+          })
+        }
+      });
+    }
+    else{
+      history.push('/login')
+    }
   },[])
   return (
     <>
