@@ -1,2 +1,0 @@
-(this["webpackJsonpusa-nfc-web-app"]=this["webpackJsonpusa-nfc-web-app"]||[]).push([[23],{854:function(e,n,s){"use strict";s.r(n);s(0);var t=s(731),c=s(15);n.default=function(){return Object(c.jsx)(c.Fragment,{children:Object(c.jsx)(t.m,{})})}}}]);
-//# sourceMappingURL=23.c6a6fb51.chunk.js.map
