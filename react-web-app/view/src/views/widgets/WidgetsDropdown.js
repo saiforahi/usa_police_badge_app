@@ -57,6 +57,7 @@ const WidgetsDropdown = (data) => {
           color="gradient-info"
           header={String(data.data.total_user)}
           text="Registered Officers"
+          onClick = {()=>{history.push('/dashboard/employees')}}
           // footerSlot={
           //   <ChartLineSimple
           //     pointed
@@ -89,6 +90,7 @@ const WidgetsDropdown = (data) => {
           color="gradient-warning"
           header={String(data.data.total_badge)}
           text="Total Badges"
+          onClick = {()=>{history.push('/dashboard/badges')}}
           // footerSlot={
           //   <ChartLineSimple
           //     className="mt-3"

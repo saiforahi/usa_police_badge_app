@@ -41,7 +41,7 @@ const TheLayout = () => {
         else{
           dispatch(fetchDashboardData())
           dispatch(fetchNotificationsThunk())
-          
+          enqueueSnackbar('A badge got scanned',{variant: 'info'})
           swal({
             content:(<CardSwipped data={event.data}/>),
             buttons:['Close']

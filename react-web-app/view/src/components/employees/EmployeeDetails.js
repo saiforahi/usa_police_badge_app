@@ -19,6 +19,7 @@ const EmployeeDetails =()=>{
     const [phone,setPhone] = useState('')
     const [registration,setRegistration] = useState('')
     const [address,setAddress] = useState('')
+    const [designation,setDesignation] = useState("")
     const checkProp =()=>{
         console.log(location.state)
         if(location.state.employee == undefined){
@@ -43,7 +44,7 @@ const EmployeeDetails =()=>{
         formData.append("email", email);
         formData.append("address", address);
         formData.append("registration", registration);
-        formData.append("first_name", first_name);
+        formData.append("designation", designation);
         // HTML file input, chosen by user
         if(image!=undefined){
             formData.append("profile_pic", image);
@@ -133,6 +134,14 @@ const EmployeeDetails =()=>{
                                     </CInputGroupText>
                                 </CInputGroupPrepend>
                                 <CInput type="text" placeholder="mac" autoComplete="mac" value={registration} onChange={(event)=>setRegistration(event.target.value)}  />
+                            </CInputGroup>
+                            <CInputGroup className="mb-4">
+                                <CInputGroupPrepend>
+                                    <CInputGroupText>
+                                    Designation
+                                    </CInputGroupText>
+                                </CInputGroupPrepend>
+                                <CInput type="text" placeholder="mac" autoComplete="mac" value={designation} onChange={(event)=>setDesignation(event.target.value)}  />
                             </CInputGroup>
                             <CInputGroup className="mb-4">
                                 <CInputGroupPrepend>

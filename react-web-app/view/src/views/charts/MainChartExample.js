@@ -59,7 +59,7 @@ const MainChartExample = attributes => {
         scales: {
           xAxes: [{
             gridLines: {
-              drawOnChartArea: false
+              drawOnChartArea: true
             }
           }],
           yAxes: [{
