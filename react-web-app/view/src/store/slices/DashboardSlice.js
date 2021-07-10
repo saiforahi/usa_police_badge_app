@@ -6,7 +6,6 @@ const initialState = {
     total_user: 0,
     total_badge : 0
   },
-  notifications:[],
   status:'idle',
   error:''
 }

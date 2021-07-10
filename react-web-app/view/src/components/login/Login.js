@@ -16,7 +16,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {TOKEN,PUBLIC_API} from '../../config'
-
+import swal from 'sweetalert'
 import { makeStyles } from '@material-ui/core/styles';
 import {LinearProgress} from '@material-ui/core';
 import './login.css'
@@ -54,6 +54,7 @@ const Login = () => {
     const handleSubmit=()=>{
       setSubmitted(true)
       PUBLIC_API.post('user/group/check/',JSON.stringify({username:email})).then((res)=>{
+        console.log(res.status)
         if(res.data.success == 'True'){
           setGroup(res.data.group)
           console.log(JSON.stringify({email:email,password:password,group:res.data.group}))
@@ -64,9 +65,13 @@ const Login = () => {
               localStorage.setItem(TOKEN,response1.data.token)
               localStorage.setItem("user_id",response1.data.user_id)
               localStorage.setItem("group",res.data.group)
-              //dispatch(setGroupThunk(res.data.group))
+              dispatch(setGroupThunk(res.data.group))
               history.push({pathname:'/dashboard',user:{email:email,password:password}})
               // swal('OTP sent',response1.data.message,'success')
+            }
+            else{
+              setSubmitted(false)
+              swal('Not Found','','error')
             }
           }).catch(error=>{
             setLoginError("Please provide correct credentials");
@@ -75,6 +80,9 @@ const Login = () => {
             //swal("Error!",error.message,"error");
           })
         }
+      }).catch(error=>{
+        setSubmitted(false)
+        swal('Not Found','','error')
       })
       
     }

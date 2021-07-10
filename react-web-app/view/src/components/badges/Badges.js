@@ -24,9 +24,19 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import { PUBLIC_API } from "src/config";
-import axios from 'axios'
-import swal from "@sweetalert/with-react";
+import Create from "./Create";
+import { useDispatch } from "react-redux";
+import { fetchEmployeesThunk } from "src/store/slices/EmployeesSlice";
+import swal from "sweetalert";
+
+
 const Badges = () => {
+  const dispatch = useDispatch()
+  const [showAssignModal,setShowAssignModal] = useState(false)
+  const [modalData,setModalData] = useState()
+  const [open, setOpen] = React.useState(false);
+  const [age, setAge] = React.useState("");
+  const [badgeList,setBadgeList] = useState([])
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -36,31 +46,37 @@ const Badges = () => {
       marginTop: theme.spacing(2),
     },
   }));
-  const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-  const classes = useStyles();
-  const [age, setAge] = React.useState("");
-  const [badgeList,setBadgeList] = useState([])
+  
   const handleChange = (event) => {
     setAge(event.target.value);
   };
- function showAssignModal(){
-   swal('Warning','This section is not available now','warning')
-   
- }
+  function handleCallback  (childData) {
+    setShowAssignModal(childData)
+  }
+  function fire_assign_modal(){
+    setModalData(null)
+    setShowAssignModal(true)
+  }
+  function fire_reassign_modal(data){
+    // setModalData(data)
+    // setShowAssignModal(true)
+    swal('Sorry!','This service is not available now','warning')
+  }
   React.useEffect(()=>{
+    dispatch(fetchEmployeesThunk())
     PUBLIC_API.get('employee/badge/info/').then((res)=>{
       if(res.data.success == "True"){
+        console.log(res.data.data)
         var data=[];
         for (let index = 0; index < res.data.data.length; index++) {
             const element = res.data.data[index];
-            data.push({'#':index+1,id:element.id,"Badge Number":element.nfc_number,"Created Date":element.created_at,"Assigned To":element.user.first_name,"Scans":'',"Global Scans":""});
+            data.push({'#':index+1,id:element.id,"Badge Number":element.nfc_number,"Created Date":new Date(element.created_at).toLocaleDateString(),"Assigned To":element.user.first_name,"Scans":'',"Global Scans":""});
         }
         setBadgeList(data);
     }
@@ -116,12 +132,6 @@ const Badges = () => {
                 bordered
                 sorter
                 columnFilter
-                // onRowClick={(row)=>{
-                //     history.push({
-                //         pathname: '/dashboard/employees/details',
-                //         state: { employee: row }
-                //     })
-                // }}
                 size="sm"
                 itemsPerPage={10}
                 pagination
@@ -133,6 +143,7 @@ const Badges = () => {
                         type="button"
                         size="sm"
                         color="danger"
+                        onClick={()=>fire_reassign_modal(item)}
                       >
                         Delete
                       </CButton>{" "}
@@ -141,7 +152,7 @@ const Badges = () => {
                         type="button"
                         color="primary"
                         id="dropdownMenu"
-                        onClick={()=>showAssignModal()}
+                        onClick={()=>fire_reassign_modal(item)}
                       >
                         Assign
                       </CButton>
@@ -154,7 +165,7 @@ const Badges = () => {
         </CCol>
 
         <CCol md="12" class="button-holder">
-          <CButton className="button-primary assign-align" type="button">
+          <CButton onClick={()=>fire_reassign_modal({})} className="button-primary assign-align" type="button">
             Assign all unassigned
           </CButton>
           <CButton
@@ -163,9 +174,11 @@ const Badges = () => {
             id="dropdownMenu2"
             data-toggle="dropdown"
             aria-expanded="false"
+            onClick={()=>{fire_assign_modal()}}
           >
             Add New <CIcon name="cil-plus" size="xl"></CIcon>
           </CButton>
+          {showAssignModal && <Create parentCallback={()=>handleCallback()} data={modalData}/>}
           <div class="dropdown">
             <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenu2">
               <button class="dropdown-item" type="button">
