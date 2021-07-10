@@ -17,7 +17,8 @@ const Header =()=>{
             <Nav.Link to="/">Facebook Feed</Nav.Link>
             <Nav.Link to="/">Contact</Nav.Link>
           </Nav>
-          {localStorage.getItem('access_token')? <Link to="/dashboard" className="btn btn-outline-success ml-auto sign-btn d-md-none">Dashboard</Link>:<Link to="/login" className="btn btn-outline-success ml-auto sign-btn d-md-none">Login</Link>}
+            {/* <Link to="/login" className="btn btn-outline-success ml-auto sign-btn">{localStorage.getItem('access_token')? 'Dashboard':'Sign In'}</Link> */}
+          {localStorage.getItem('access_token')? <Link to="/dashboard" className="btn btn-outline-success ml-auto sign-btn">Dashboard</Link>:<Link to="/login" className="btn btn-outline-success ml-auto sign-btn">Login</Link>}
         </Navbar.Collapse>
       </Navbar>
       </>
