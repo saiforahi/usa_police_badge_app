@@ -64,7 +64,7 @@ const Login = () => {
               localStorage.setItem(TOKEN,response1.data.token)
               localStorage.setItem("user_id",response1.data.user_id)
               localStorage.setItem("group",res.data.group)
-              dispatch(setGroupThunk(res.data.group))
+              //dispatch(setGroupThunk(res.data.group))
               history.push({pathname:'/dashboard',user:{email:email,password:password}})
               // swal('OTP sent',response1.data.message,'success')
             }

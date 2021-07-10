@@ -30,8 +30,7 @@ const TheLayout = () => {
   }
   
   useEffect(()=>{
-    if(isLoggedIn == true){
-      dispatch(fetchDetailsThunk(localStorage.getItem('user_id')))
+    dispatch(fetchDetailsThunk(localStorage.getItem('user_id')))
       web_socket.connect('ws://103.123.8.52:8075/nfc/notifications')
       web_socket.addEventListener("message", function(event) {
         console.log(event.data);
@@ -49,10 +48,6 @@ const TheLayout = () => {
           })
         }
       });
-    }
-    else{
-      history.push('/login')
-    }
   },[])
   return (
     <>
