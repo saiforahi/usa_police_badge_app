@@ -42,10 +42,10 @@ const TheLayout = () => {
           dispatch(fetchDashboardData())
           dispatch(fetchNotificationsThunk())
           enqueueSnackbar(event.data.officer_name+"'s badge ("+event.data.badge_number+") got scanned",{variant: 'info'})
-          // swal({
-          //   content:(<CardSwipped data={event.data}/>),
-          //   buttons:['Close']
-          // })
+          swal({
+            content:(<CardSwipped data={event.data}/>),
+            buttons:['Close']
+          })
         }
       });
   },[])
