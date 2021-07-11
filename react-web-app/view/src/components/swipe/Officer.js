@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
+import ReactDOM from 'react-dom';
 import {
-  CCardHeader,
-  CCardBody,
-  CCard,CRow,CCol,CImg,CContainer,CCardFooter,CButton,CModal,
-  CModalHeader,
-  CModalBody,CModalFooter
+CButton,CModal,
+  CModalHeader,CForm,CFormText,CLabel,CInputRadio,
+  CModalBody,CModalFooter,CInput,CLabelBASE_URL, CTextarea,CSelect,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import Rating from '../citizenview/Rating'
@@ -19,7 +18,10 @@ import { Link, Redirect } from "react-router-dom";
 import './Officer.css'
 import vCardJS  from 'vcards-js'
 
+
 const Officer = (data)=>{
+ 
+
   const [user_data,setUserData] = useState({})
   const [showRatingModal,setShowRatingModal] = useState(false)
   
@@ -43,6 +45,12 @@ const Officer = (data)=>{
     console.log('setting view')
     setShowRatingModal(true)
   }
+
+  function onStarClick(nextValue, prevValue) {
+    this.setState({rating: nextValue});
+  };
+
+  // const { rating } = this.state;
   const toggle = ()=>{
     setShowRatingModal(!showRatingModal);
   }
@@ -92,21 +100,85 @@ const Officer = (data)=>{
                   
                 </CCol>
             </CRow>
+ </CContainer>
+    </div> */}
             <CModal show={showRatingModal} onClose={toggle} centered>
-              <CModalHeader closeButton>Modal title</CModalHeader>
+              <CModalHeader closeButton>Rate Officer</CModalHeader>
               <CModalBody>
-                Lorem ipsum dolor...
+              <CForm>
+                        {/**Rating */}
+              <div className="mb-3">
+               
+               <StarRatingComponent 
+           name="rate1" 
+           starCount={5}
+           value={4}
+           // onStarClick={this.onStarClick.bind(this)}
+         />
+               </div>
+                {/**Rating type */}
+                <div className="mb-3">
+                  <CLabel htmlFor="rating-type">Rating Type</CLabel>
+                  <CSelect custom name="rating-type" id="rating-type">
+                            <option hidden>Rating Type</option>
+                            <option value="1">Positive</option>
+                            <option value="2">Negative</option>
+                            <option value="3">Neutral</option>
+                          </CSelect>
+                          <CFormText id="emailHelp">
+      * Required Field
+    </CFormText>
+                </div>
+        
+              <div className="mb-3">
+    <CLabel htmlFor="userName">FeedBack</CLabel>
+    <CTextarea
+      type="text"
+      id="userFeedBack"
+      aria-describedby="feedHelp"
+    />
+    {/* <CFormText id="feedHelp">
+      * Required Field
+    </CFormText> */}
+  </div> 
+                <hr/>
+                {/**email */}
+                <h5>Reviewer Info</h5>
+              <div className="mb-3">
+    <CLabel htmlFor="exampleInputEmail1">Email address</CLabel>
+    <CInput
+      type="email"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+    />
+    <CFormText id="emailHelp">
+      * Required Field
+    </CFormText>
+  </div>
+  {/**User name */}
+  <div className="mb-3">
+    <CLabel htmlFor="userName">Reviewer Name</CLabel>
+    <CInput
+      type="text"
+      id="userName"
+      aria-describedby="nameHelp"
+    />
+    <CFormText id="nameHelp">
+      * Required Field
+    </CFormText>
+  </div>
+  {/**phone number */}
+              </CForm>
               </CModalBody>
               <CModalFooter>
-                <CButton color="primary">Do Something</CButton>{' '}
+                <CButton color="primary">Submit</CButton>{' '}
                 <CButton
                   color="secondary"
                   onClick={toggle}
                 >Cancel</CButton>
               </CModalFooter>
             </CModal>
-          </CContainer>
-        </div> */}
+         
         <div className="content-holder pt-3">
         <Header></Header>
         <section class="main-content container">
@@ -154,7 +226,7 @@ const Officer = (data)=>{
                   <h3 className="name-title">{user_data.first_name+' '+user_data.last_name}</h3>
                   <h5 className="creden-number">Position: {user_data.designation}</h5>
                   <h5 className="creden-number">Badge ID: {user_data.badge_number}</h5>
-                  <CButton type="button" className="btn btn-success rate-btn">Rate {user_data.first_name}!</CButton>
+                  <CButton type="button" className="btn btn-success rate-btn" onClick={()=>handle_rating_modal()}>Rate {user_data.first_name}!</CButton>
                   {/* <Link to="/login" className="btn btn-success rate-btn">
                     Rate {user_data.first_name}!
                   </Link> */}

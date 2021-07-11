@@ -9,7 +9,7 @@ const Header =()=>{
     return(
       <>
       <Navbar  expand="lg" className="pt-6">
-        <Navbar.Brand onClick={()=>{history.push('/')}} className="brand"><img src={'assets/images/logo-home-demo.svg'}></img></Navbar.Brand>
+        <Navbar.Brand onClick={()=>{history.push('/')}} className="brand"><img src={'assets/images/web-logo-2.png'}></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="pb-2"/>
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="mr-auto padding-desktop">
