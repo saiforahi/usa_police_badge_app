@@ -54,8 +54,10 @@ const TheSidebar = () => {
       {group == 'officer' && <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
         <CSidebarNavTitle>Personnel Account</CSidebarNavTitle>
-        <CSidebarNavItem to="/dashboard/account/personal" onClick={()=>{history.push('/dashboard/account/personal')}} icon="cil-avatar" name="Account"></CSidebarNavItem>
-        
+        <CSidebarNavItem to="/dashboard/account/personal" onClick={()=>{history.push('/dashboard/account/personal')}} icon="cil-notes" name="Account"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/account/time" onClick={()=>{history.push('/dashboard/account/time')}} icon="cil-clock" name="Time"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/account/badge" onClick={()=>{history.push('/dashboard/account/badge')}} icon="cil-credit-card" name="My Badge"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/account/contacts" onClick={()=>{history.push('/dashboard/account/contacts')}} icon="cil-people" name="Contacts"></CSidebarNavItem>
       </CSidebarNav>}
 
       <CSidebarMinimizer className="c-d-md-down-none"/>
