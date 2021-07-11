@@ -26,6 +26,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNotificationsThunk } from "src/store/slices/NotificationSlice";
 import { fetchRatingsThunk } from "src/store/slices/RatingSlice";
 import { useHistory } from "react-router-dom";
+import { BASE_URL } from "src/config";
 const WidgetsDropdown = React.lazy(() =>
   import("../../views/widgets/WidgetsDropdown.js")
 );
@@ -97,7 +98,7 @@ const Dashboard = () => {
                           <CCardBody>
                             <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
                             <p className="person-name"> <CImg
-                              src={'assets/images/avatar.png'}
+                              src={BASE_URL+rating.officer.profile_pic}
                               className="c-avatar-img officer-img mr-1 ml-0"
                               alt=''
                             />{rating.officer.first_name},<span class="officer-designation">Sergant</span></p>
@@ -130,7 +131,7 @@ const Dashboard = () => {
                           <CCardBody>
                             <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
                             <p className="person-name"> <CImg
-                              src={'assets/images/avatar.png'}
+                              src={BASE_URL+rating.officer.profile_pic}
                               className="c-avatar-img officer-img mr-1 ml-0"
                               alt=''
                             />{rating.officer.first_name},<span class="officer-designation">Sergant</span></p>
@@ -144,7 +145,7 @@ const Dashboard = () => {
                             />
                             <p class="review mt-none">by {rating.name} </p>
                             <p className="review-text">{'"' + rating.comment + '"'}</p>
-                            <p><button className="btn-danger btn">Take Action !</button></p>
+                            {/* <p><button className="btn-danger btn">Take Action !</button></p> */}
                           </CCardBody>
                         </CCard>
                       </CCol>
@@ -168,16 +169,20 @@ const Dashboard = () => {
                       {notifications != undefined && Array.from(notifications.data.slice(0, 10)).map((notification) => (
                         <CCard className="show-scans">
                           <CCardBody>
-
-                            <p>
-                              <CImg
-                                src={'assets/images/avatar.png'}
-                                className="c-avatar-img officer-img mr-1 ml-0"
-                                alt=''
-                              />
-                              Badge No: {notification.nfc.nfc_number} of {notification.nfc.user.first_name + ' ' + notification.nfc.user.last_name} was
-                              scanned near Broward
+                            <CRow>
+                              <CCol sm="2">
+                                <CImg
+                                  src={BASE_URL+notification.nfc.user.profile_pic}
+                                  className="c-avatar-img officer-img mr-1 ml-0"
+                                  alt=''
+                                />
+                              </CCol>
+                              <CCol sm="10">
+                              <p>Badge No: {notification.nfc.nfc_number} of {notification.nfc.user.first_name + ' ' + notification.nfc.user.last_name} was scanned at {new Date(notification.created_at).toLocaleTimeString()} on {new Date(notification.created_at).toLocaleDateString()}
                             </p>
+                              </CCol>
+                            </CRow>
+                            
                             {/* <p>
                               <CIcon name="cil-clock" />{" "}
                               <span> A moment ago </span>

@@ -11,7 +11,7 @@ const ScanHistory =()=>{
     const scans = useSelector(state => {
         let data =[]
         Array.from(state.notifications.data).forEach((item,index)=>{
-            data.push({"#":index+1,"Name":item.nfc.user.first_name+' '+item.nfc.user.last_name,"Badge Number":item.nfc.nfc_number,'Date':new Date(item.created_at).toLocaleDateString()+' '+new Date(item.created_at).toLocaleTimeString()})
+            data.push({"#":index+1,"Badge Number":item.nfc.nfc_number,"Assigned To":item.nfc.user.first_name+' '+item.nfc.user.last_name,"Assigned Date":new Date(item.nfc.created_at).toLocaleDateString(),'Time & Date':new Date(item.created_at).toLocaleTimeString()+' - '+new Date(item.created_at).toLocaleDateString()})
         })
         return data
     })
@@ -29,7 +29,7 @@ const ScanHistory =()=>{
                         items={scans}
                         fields={[
                             { key: '#',_style: { width: '5%' }, _classes: 'font-weight-bold' },
-                            'Name','Email','Badge Number','Assigned To','Assigned Date','Scans','Global Scans','Date',{key:'Action',label:'',_style: { width: '12%' },sorter:false,filter:false}
+                            'Badge Number','Assigned To','Assigned Date','Scans','Global Scans',{ key: 'Time & Date',_style: { width: '25%' }},{key:'Action',label:'',_style: { width: '12%' },sorter:false,filter:false}
                         ]}
                         light
                         hover
