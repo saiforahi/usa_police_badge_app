@@ -24,20 +24,20 @@ const Officer = (data)=>{
   const [showRatingModal,setShowRatingModal] = useState(false)
   
   function generate_and_download_vcard(){
-    let vCard = vCardJS()
-    vCard.firstName = user_data.first_name;
-    vCard.middleName = '';
-    vCard.lastName = user_data.last_name;
-    vCard.organization = 'The Accountability';
-    vCard.photo.attachFromUrl(BASE_URL+user_data.profile_pic, 'JPEG');
-    vCard.workPhone = user_data.phone;
-    vCard.birthday = new Date(1985, 0, 1);
-    vCard.title = user_data.designation;
-    vCard.url = '';
-    vCard.note = '';
+    // let vCard = vCardJS()
+    // vCard.firstName = user_data.first_name;
+    // vCard.middleName = '';
+    // vCard.lastName = user_data.last_name;
+    // vCard.organization = 'The Accountability';
+    // vCard.photo.attachFromUrl(BASE_URL+user_data.profile_pic, 'JPEG');
+    // vCard.workPhone = user_data.phone;
+    // vCard.birthday = new Date(1985, 0, 1);
+    // vCard.title = user_data.designation;
+    // vCard.url = '';
+    // vCard.note = '';
     
-    //save to file
-    vCard.saveToFile('./eric-nesser.vcf');
+    // //save to file
+    // vCard.saveToFile('./eric-nesser.vcf');
   }
   function handle_rating_modal(){
     console.log('setting view')

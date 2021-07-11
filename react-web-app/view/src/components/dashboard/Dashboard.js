@@ -96,19 +96,18 @@ const Dashboard = () => {
                       <CCol xs="12" sm="6" md="12" lg="10">
                         <CCard className="review-cards">
                           <CCardBody>
-                            <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
+                            <p className="time"><CIcon name="cil-clock" />{" "}<CIcon icon="cil-clock"/><span>{new Date(rating.created_at).toLocaleTimeString()+' - '+new Date(rating.created_at).toLocaleDateString()}</span></p>
                             <p className="person-name"> <CImg
                               src={BASE_URL+rating.officer.profile_pic}
                               className="c-avatar-img officer-img mr-1 ml-0"
                               alt=''
-                            />{rating.officer.first_name},<span class="officer-designation">Sergant</span></p>
-                            {/* <p class="feedback"></p> */}
+                            />{rating.officer.first_name} <span class="officer-designation">{rating.officer.designation}</span></p>
                             <StarRatingComponent
                               name="rate2"
                               editing={false}
                               emptyStarColor={"#6d706e"}
                               starCount={5}
-                              value={3.5}
+                              value={Number(rating.star)}
                             />
                             <p class="review mt-none">by {rating.name} </p>
                             <p className="review-text">{'"' + rating.comment + '"'}</p>
@@ -129,19 +128,19 @@ const Dashboard = () => {
                       <CCol xs="12" sm="6" md="12" lg="10">
                         <CCard className="review-cards border-danger">
                           <CCardBody>
-                            <p className="time"><CIcon name="cil-clock" />{" "}<span> A moment ago </span></p>
+                            <p className="time"><CIcon name="cil-clock" />{" "}<span>{new Date(rating.created_at).toLocaleTimeString()+' - '+new Date(rating.created_at).toLocaleDateString()}</span></p>
                             <p className="person-name"> <CImg
                               src={BASE_URL+rating.officer.profile_pic}
                               className="c-avatar-img officer-img mr-1 ml-0"
                               alt=''
-                            />{rating.officer.first_name},<span class="officer-designation">Sergant</span></p>
+                            />{rating.officer.first_name} <span class="officer-designation">{rating.officer.designation}</span></p>
                             {/* <p class="feedback"></p> */}
                             <StarRatingComponent
                               name="rate2"
                               editing={false}
                               emptyStarColor={"#6d706e"}
                               starCount={5}
-                              value={2}
+                              value={Number(rating.star)}
                             />
                             <p class="review mt-none">by {rating.name} </p>
                             <p className="review-text">{'"' + rating.comment + '"'}</p>
