@@ -53,7 +53,7 @@ const CreateEmployee =()=>{
         FILE_API.post('employee/registration/',formData).then((res)=>{
             console.log('update result ---- ',res.data)
             if(res.data.success=="True"){
-                swal('Updated','Profile updated successfully','success')
+                swal('Updated','Profile Created successfully','success')
             }
         }).catch((err)=>{
             console.log('err -- ',err.response)
