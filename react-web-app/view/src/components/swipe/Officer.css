@@ -17,6 +17,9 @@
   color: #13110C;
   
 }
+.avatar-img{
+  height: 90px !important;
+}
 .contact-button{
   background: #46AE33;
 border-radius: 10px;
@@ -40,6 +43,9 @@ font-size: 36px;
 line-height: 48px;
 
 color: #13110C;
+}
+.text-style{
+  font-family: 'Archivo Narrow', sans-serif;
 }
 .add-margin{
   margin-top: 20px;
@@ -128,6 +134,9 @@ font-style: normal;
 font-weight: 600;
 font-family: 'Archivo Narrow', sans-serif;
 color: #13110C;
+}
+.sub-attr{
+  margin-right: 9px;
 }
 .go-to-class{
   color: #13110C !important;

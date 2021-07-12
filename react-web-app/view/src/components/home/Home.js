@@ -1,4 +1,20 @@
 import React, { useEffect, useState } from "react";
+import {
+  CButton,
+  CModal,
+  CModalHeader,
+
+  CInputRadio,
+  CModalBody,
+  CModalFooter,
+  CInput,
+  CRow,
+  CContainer,
+  CCol,
+  CLabelBASE_URL,
+  CTextarea,
+  CSelect,
+} from "@coreui/react";
 import { Link, Redirect } from "react-router-dom";
 import { TOKEN } from "../../config";
 import "./Home.css";
@@ -15,7 +31,16 @@ const isLoggedIn = () => {
   }
   return true;
 };
+
 const Home = () => {
+  const [showDownloadCardModal, setShowDownloadCardModal] = useState(false);
+  const toggle1 = () => {
+    setShowDownloadCardModal(!showDownloadCardModal);
+  };
+  function download_contact() {
+    console.log("download card");
+    setShowDownloadCardModal(true);
+  }
   // let history=useHistory()
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -23,6 +48,45 @@ const Home = () => {
   }, [count]);
   return (
     <>
+      {/**_______________MODAL FOR BUSINESS CARD DOWNLOAD__________ */}
+      <CModal show={showDownloadCardModal} onClose={toggle1} centered>
+        <CModalHeader closeButton>Download Business Card</CModalHeader>
+        <CModalBody className="text-style">
+          <CContainer>
+            <CRow>
+              <CCol md="4" sm="12">
+                <img
+                  src={"assets/images/Santiago Vaquez_PNG.webp"}
+                  className="avatar-img"
+                />
+              </CCol>
+              <CCol md="8" sm="12">
+                <h3>Santiago Vasquez,JR</h3>
+                <h5>Sergeant-DL</h5>
+                <h6>Retired on 23/06/2021</h6>
+                <h5>CCN:10388</h5>
+              </CCol>
+              <CCol md="12 d-flex">
+                <h6 className="d-inline-block sub-attr">Hired : 11/12/2012</h6>
+                <h6 className="d-inline-block sub-attr">Height : 5'9''</h6>
+                <h6 className="d-inline-block sub-attr">Eyes : Hazel</h6>
+                <h6 className="d-inline-block sub-attr">Hair : Brown</h6>
+                <h6 className="d-inline-block sub-attr">DOB : 19/06/1984</h6>
+              </CCol>
+              <CCol md="12" className="text-center">
+                <h5>Contact Number : +1289354759349</h5>
+              </CCol>
+            </CRow>
+          </CContainer>
+        </CModalBody>
+        <CModalFooter>
+          <CButton color="success">Download Business Card</CButton>{" "}
+          <CButton color="secondary" onClick={toggle1}>
+            Cancel
+          </CButton>
+        </CModalFooter>
+      </CModal>
+
       <div className="content-holder pt-3">
         <Header></Header>
         <section class="main-content container">
@@ -132,7 +196,10 @@ const Home = () => {
                     together.{" "}
                   </p>
                   <div class="action-buttons">
-                    <button class="dwnld-business-button btn">
+                    <button
+                      class="dwnld-business-button btn"
+                      onClick={() => download_contact()}
+                    >
                       Download Business Card
                     </button>
                     <button className="btn btn-outline-success assistance-btn">
@@ -230,19 +297,30 @@ const Home = () => {
               </div>
             </div>
           </div>
-       {/**_____________SPACE FOR BADGE RELEASE COUNTDOWN___________ */}
-       <div className="row pb-4">
-           <div className="col-lg-12 desktop-gap2">
-               <div class="img-div text-center">
-                   <img src="assets/images/acountibility-corp.webp" class="img-fluid"></img>
-               </div>
-               <h3 className="only-head text-center">Less than 60 days from the official release of: <a className="go-to-class" href="https://theaccountabilitybadge.com/">The Accountability Badge</a></h3>
-           </div>
-       </div>
-       {/**_________________SPACE FOR TWITTER FEED___________ */}
+          {/**_____________SPACE FOR BADGE RELEASE COUNTDOWN___________ */}
+          <div className="row pb-4">
+            <div className="col-lg-12 desktop-gap2">
+              <div class="img-div text-center">
+                <img
+                  src="assets/images/acountibility-corp.webp"
+                  class="img-fluid"
+                ></img>
+              </div>
+              <h3 className="only-head text-center">
+                Less than 60 days from the official release of:{" "}
+                <a
+                  className="go-to-class"
+                  href="https://theaccountabilitybadge.com/"
+                >
+                  The Accountability Badge
+                </a>
+              </h3>
+            </div>
+          </div>
+          {/**_________________SPACE FOR TWITTER FEED___________ */}
 
-       {/**______FOOTER_____ */}
-       <Footer></Footer>
+          {/**______FOOTER_____ */}
+          <Footer></Footer>
         </section>
       </div>
     </>

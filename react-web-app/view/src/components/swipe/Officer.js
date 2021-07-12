@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {
 CButton,CModal,
   CModalHeader,CForm,CFormText,CLabel,CInputRadio,
-  CModalBody,CModalFooter,CInput,CLabelBASE_URL, CTextarea,CSelect,
+  CModalBody,CModalFooter,CInput,CRow,CContainer,CCol,CLabelBASE_URL, CTextarea,CSelect,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import Rating from '../citizenview/Rating'
@@ -24,6 +24,7 @@ const Officer = (data)=>{
 
   const [user_data,setUserData] = useState({})
   const [showRatingModal,setShowRatingModal] = useState(false)
+  const[showDownloadCardModal,setShowDownloadCardModal]=useState(false)
   
   function generate_and_download_vcard(){
     // let vCard = vCardJS()
@@ -53,6 +54,13 @@ const Officer = (data)=>{
   // const { rating } = this.state;
   const toggle = ()=>{
     setShowRatingModal(!showRatingModal);
+  }
+  const toggle1=()=>{
+setShowDownloadCardModal(!showDownloadCardModal);
+  }
+  function download_contact(){
+    console.log("download card");
+    setShowDownloadCardModal(true);
   }
   React.useEffect(()=>{
     PUBLIC_API.get("profile/details/"+data.officer_id+"/").then(async(res)=>{
@@ -102,6 +110,46 @@ const Officer = (data)=>{
             </CRow>
  </CContainer>
     </div> */}
+{/**_______________MODAL FOR BUSINESS CARD DOWNLOAD__________ */}
+<CModal show={showDownloadCardModal} onClose={toggle1} centered>
+<CModalHeader closeButton>Download Business Card</CModalHeader>
+<CModalBody className="text-style">
+ <CContainer>
+   <CRow>
+     <CCol md="4" sm="12">
+       <img src={'http://103.123.8.52:8075/media/uploads/users/images/8_K285K2J.jpg'} className="avatar-img"/>
+     </CCol>
+     <CCol  md="8" sm="12">
+<h3>Alaimo Judith</h3>
+<h5>Sergeant</h5>
+<h6>Retired on 23/06/2021</h6>
+<h5>CCN:10388</h5>
+
+     </CCol>
+     <CCol md="12 d-flex">
+<h6 className="d-inline-block sub-attr">Hired : 11/12/2012</h6>
+<h6 className="d-inline-block sub-attr">Height : 5'9''</h6>
+<h6 className="d-inline-block sub-attr">Eyes : Hazel</h6>
+<h6 className="d-inline-block sub-attr">Hair : Brown</h6>
+<h6 className="d-inline-block sub-attr">DOB : 19/06/1984</h6>
+     </CCol>
+     <CCol md="12" className="text-center">
+<h5>Contact Number : +1289354759349</h5>
+     </CCol>
+   </CRow>
+ </CContainer>
+</CModalBody>
+<CModalFooter>
+                <CButton color="success">Download Business Card</CButton>{' '}
+                <CButton
+                  color="secondary"
+                  onClick={toggle1}
+                >Cancel</CButton>
+                </CModalFooter>
+</CModal>
+{/**_______________MODAL FOR BUSINESS CARD ENDS__________ */}
+
+
             <CModal show={showRatingModal} onClose={toggle} centered>
               <CModalHeader closeButton>Rate Officer</CModalHeader>
               <CModalBody>
@@ -137,10 +185,17 @@ const Officer = (data)=>{
       id="userFeedBack"
       aria-describedby="feedHelp"
     />
+
     {/* <CFormText id="feedHelp">
       * Required Field
     </CFormText> */}
   </div> 
+  <div className="mb-3">
+  <CLabel htmlFor="formFileMultiple">
+    Attachment(s)
+  </CLabel>
+  <CInput type="file" id="formFileMultiple" multiple />
+  </div>
                 <hr/>
                 {/**email */}
                 <h5>Reviewer Info</h5>
@@ -289,7 +344,7 @@ const Officer = (data)=>{
                     together.{" "}
                   </p>
                   <div class="action-buttons">
-                    <button type="button" onClick={()=>generate_and_download_vcard()} class="dwnld-business-button btn">
+                    <button type="button" onClick={()=>download_contact()} class="dwnld-business-button btn">
                       Download Business Card
                     </button>
                     <button className="btn btn-outline-success assistance-btn">
