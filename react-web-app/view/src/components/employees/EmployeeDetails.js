@@ -1,9 +1,10 @@
 import React,{useState,useRef} from 'react'
-import { CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CForm,CTextarea,CInputGroupText,CInput,CInputGroup,CInputGroupPrepend,CButton,CImg } from '@coreui/react'
+import { CSelect,CCard, CRow,CCol,CCardBody,CCardFooter,CCardHeader,CForm,CTextarea,CInputGroupText,CInput,CInputGroup,CInputGroupPrepend,CButton,CImg } from '@coreui/react'
 import { useHistory, useLocation } from 'react-router-dom'
 import CIcon from "@coreui/icons-react"
 import { BASE_URL, FILE_API, PUBLIC_API } from 'src/config'
-import swal from 'sweetalert'
+import swal from 'sweetalert' 
+import "../employees/Create.css";
 const EmployeeDetails =()=>{
     let location = useLocation()
     let history = useHistory()
@@ -88,7 +89,13 @@ const EmployeeDetails =()=>{
                     </CCardHeader>
                     <CCardBody>
                             <CRow className="justify-content-center">
-                                <CImg onClick={onButtonClick} className="mx-auto" style={{height:"100px",width:"116px",cursor:"pointer"}} shape="rounded" src={avatar} />
+                            <div class="seller-profile-pic-div text-center">
+                                <CImg onClick={onButtonClick} className="mx-auto rounded-circle update-img"  src={avatar} />
+                                <button onClick={onButtonClick} className="d-block mx-auto btn btn-primary mt-1">
+                    {" "}
+                    <CIcon name="cil-camera"></CIcon> Update Picture
+                  </button>
+                            </div>
                             </CRow>
                             <hr/>
                             <CRow className="justify-content-center">
@@ -150,6 +157,22 @@ const EmployeeDetails =()=>{
                                     </CInputGroupText>
                                 </CInputGroupPrepend>
                                 <CTextarea type="text" placeholder="Phone" value={address} onChange={(event)=>setAddress(event.target.value)} />
+                            </CInputGroup>
+                            {/**supervisor name */}
+                            <CInputGroup className="mb-4">
+                                <CInputGroupPrepend>
+                                    <CInputGroupText>
+                                    Supervisor Name
+                                    </CInputGroupText>
+                                </CInputGroupPrepend>
+                                <CSelect custom name="superName" id="superName">
+                              <option hidden>Supervisor Name</option>
+                              <option value="1">Imon Karim</option>
+                              <option value="2">Ratan Hassan</option>
+                              <option value="3">Santiago Vasquez</option>
+                              <option value="4">Hasibul Hassan</option>
+                              <option value="5">Saif Azad</option>
+                            </CSelect>
                             </CInputGroup>
                             {/* <CRow>
                                 <CCol xs="12" md="12">

@@ -3,6 +3,7 @@ import { logo } from './logo'
 import { logoNegative } from './logo-negative'
 
 import {
+  cilCamera,
   cilAccountLogout,
   cilPlus,
   cibSkype,
@@ -143,7 +144,7 @@ export const icons = Object.assign({}, {
   logo,
   logoNegative
 }, {
-
+cilCamera,
   cilClock,
   cilAccountLogout,
   cilPlus,
