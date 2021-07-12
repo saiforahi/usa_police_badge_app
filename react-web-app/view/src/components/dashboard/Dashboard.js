@@ -13,8 +13,8 @@ import {
   CCard,
   CButton,
   CBadge,
-  CDataTable, CModal,
-  CModalHeader, CModalBody,
+  CDataTable,
+  CModalHeader, CModalBody,CModal,
   CImg
 } from "@coreui/react";
 import StarRatingComponent from "react-star-rating-component";
@@ -28,6 +28,8 @@ import { fetchNotificationsThunk } from "src/store/slices/NotificationSlice";
 import { fetchRatingsThunk } from "src/store/slices/RatingSlice";
 import { useHistory } from "react-router-dom";
 import { BASE_URL } from "src/config";
+import CardSwipped from "../swipe/CardSwipped";
+import swal from '@sweetalert/with-react'
 const WidgetsDropdown = React.lazy(() =>
   import("../../views/widgets/WidgetsDropdown.js")
 );
@@ -65,6 +67,12 @@ const Dashboard = () => {
   })
   const dispatch = useDispatch()
   const [showPositiveRating, setShowPositiveRating] = useState(false)
+  function show_scan_modal(data){
+    swal({
+      content:(<CardSwipped data={data}/>),
+      buttons:[false,'Close']
+    })
+  }
   function handle_positive_modal(data) {
     console.log('pos rating  data',data)
     //new Promise(setPositiveRatingMOdalData(data)), resolve).then(() => { console.log('state:', this.state) })
@@ -109,7 +117,7 @@ const Dashboard = () => {
             starCount={5}
             value={Number(positiveRatingModalData?.star)}
           />
-          <p class="review mt-none">Rated by: {positiveRatingModalData?.name} </p>
+          <p class="review mt-none">Rated by:  {positiveRatingModalData?.name} </p>
           <p className="review-text">{positiveRatingModalData?.comment}</p>
           <div class="container-fluid">
             <h6>Attachments</h6>
@@ -148,7 +156,7 @@ const Dashboard = () => {
             starCount={5}
             value={Number(negativeRatingModalData?.star)}
           />
-          <p class="review mt-none">Rated by: {negativeRatingModalData?.name}</p>
+          <p class="review mt-none">Rated by:  {negativeRatingModalData?.name}</p>
           <p className="review-text">{negativeRatingModalData?.comment}</p>
           <div class="container">
             <h6>Attachments</h6>
@@ -266,7 +274,7 @@ const Dashboard = () => {
                     </div>
                     <div class="card-div mt-2 pb-1 pr-3">
                       {notifications != undefined && Array.from(notifications.data.slice(0, 10)).map((notification) => (
-                        <CCard className="show-scans">
+                        <CCard className="show-scans" onClick={()=>{show_scan_modal({user_id:notification.nfc.user.id})}}>
                           <CCardBody>
                             <CRow>
                               <CCol sm="2">
@@ -277,7 +285,7 @@ const Dashboard = () => {
                                 />
                               </CCol>
                               <CCol sm="10">
-                                <p>Badge No: {notification.nfc.nfc_number} of {notification.nfc.user.first_name + ' ' + notification.nfc.user.last_name} was scanned at {new Date(notification.created_at).toLocaleTimeString()} on {new Date(notification.created_at).toLocaleDateString()}
+                                <p>Badge No: {notification.nfc.nfc_number} of {notification.nfc.user.first_name + ' ' + notification.nfc.user.last_name} was scanned at {new Date(notification.created_at).toLocaleTimeString()} on {new Date(notification.created_at).toLocaleDateString()} near Lat: {notification.nfc.user.lat} and Lng: {notification.nfc.user.lng}
                                 </p>
                               </CCol>
                             </CRow>

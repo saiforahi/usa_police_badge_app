@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   CCardHeader,
   CCardBody,
-  CCard,CRow,CCol,CImg
+  CCard,CRow,CCol,CImg, CCardFooter,CButton
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import GoogleMapReact from 'google-map-react'
@@ -39,40 +39,49 @@ const CardSwipped = (data)=>{
   const handleApiLoaded = (map, maps) => {
     // use map and maps objects
   };
+  
   React.useEffect(()=>{
     console.log('props data --- ',data.data)
-    
-    switch(data.data.mood){
-      case 'Emergency':
-        setMood('Emergency Level 1')
-        setBorder({borderColor:'yellow',borderStyle:'solid'})
-        break
-      case "Dangerous":
-        setMood('Emergency Level 2')
-        setBorder({borderColor:'red',borderStyle:'solid'})
-        break
-      case "Most dangerous":
-        setMood('Emergency Level 3')
-        setBorder({borderColor:'#8b0000',borderStyle:'solid'})
-        break
-      case "Much more dangerous":
-        setMood('Emergency Level 4')
-        setBorder({borderColor:'black',borderStyle:'solid'})
-        break
-    }
+    // switch(data.data.mood){
+    //   case 'Emergency':
+    //     setMood('Emergency Level 1')
+    //     setBorder({borderColor:'yellow',borderStyle:'solid'})
+    //     break
+    //   case "Dangerous":
+    //     setMood('Emergency Level 2')
+    //     setBorder({borderColor:'red',borderStyle:'solid'})
+    //     break
+    //   case "Most dangerous":
+    //     setMood('Emergency Level 3')
+    //     setBorder({borderColor:'#8b0000',borderStyle:'solid'})
+    //     break
+    //   case "Much more dangerous":
+    //     setMood('Emergency Level 4')
+    //     setBorder({borderColor:'black',borderStyle:'solid'})
+    //     break
+    // }
+    if(data.data.user_id){
       PUBLIC_API.get("profile/details/"+data.data.user_id+"/").then(async(res)=>{
         console.log('lat from res --- ',res.data.data)
         setUserData(res.data.data)
         setLatLng([Number(res.data.data.lat),Number(res.data.data.lng)])
       })
+    }
+    else{
+      PUBLIC_API.get("profile/details/"+data.notification.user_id+"/").then(async(res)=>{
+        console.log('lat from res --- ',res.data.data)
+        setUserData(res.data.data)
+        setLatLng([Number(res.data.data.lat),Number(res.data.data.lng)])
+      })
+    }
+      
   },[])
     return(
       <>
       <div id="wrapper">
-        Status: {mood}
         <CCard>
           <CCardHeader>
-            <h3>Details of Card Owner</h3>
+          <h3>Details of Card Owner</h3>
           </CCardHeader>
           <CCardBody>
             <CRow className="justify-content-center mb-3">

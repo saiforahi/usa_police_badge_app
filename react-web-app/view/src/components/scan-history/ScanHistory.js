@@ -4,17 +4,24 @@ import {
     CCardHeader,CCardBody,CCard,CBadge,CButton,CCardFooter,CDataTable,CRow,CCol
   } from '@coreui/react'
 import { useSelector } from 'react-redux'
-import swal from 'sweetalert'
+import swal from '@sweetalert/with-react'
+import CardSwipped from '../swipe/CardSwipped'
 import { useHistory } from 'react-router'
 const ScanHistory =()=>{
     let history = useHistory()
     const scans = useSelector(state => {
         let data =[]
         Array.from(state.notifications.data).forEach((item,index)=>{
-            data.push({"#":index+1,"Badge Number":item.nfc.nfc_number,"Assigned To":item.nfc.user.first_name+' '+item.nfc.user.last_name,"Assigned Date":new Date(item.nfc.created_at).toLocaleDateString(),'Time & Date':new Date(item.created_at).toLocaleTimeString()+' - '+new Date(item.created_at).toLocaleDateString()})
+            data.push({"#":index+1,'user_id':item.nfc.user.id,"Badge Number":item.nfc.nfc_number,"Assigned To":item.nfc.user.first_name+' '+item.nfc.user.last_name,"Assigned Date":new Date(item.nfc.created_at).toLocaleDateString(),'Time & Date':new Date(item.created_at).toLocaleTimeString()+' - '+new Date(item.created_at).toLocaleDateString()})
         })
         return data
     })
+    function show_scan_modal(data){
+        swal({
+          content:(<CardSwipped data={data}/>),
+          buttons : [false,'Close']
+        })
+      }
     return(
         <>
         <CContainer>
@@ -52,7 +59,7 @@ const ScanHistory =()=>{
                             (item)=>(
                                 <td>
                                     <CBadge>
-                                        <CButton onClick={() => { swal('Warning','This service is not available right now','warning')}} type="button" size="sm" color="danger">Delete</CButton> <CButton onClick={()=>{history.push({pathname: '/dashboard/employees/details',state: { employee: item }})}} size="sm" type="button" color="primary">Edit</CButton>
+                                        <CButton onClick={()=>{show_scan_modal(item)}} size="sm" type="button" color="primary">View detail</CButton>
                                     </CBadge>
                                 </td>
                             )

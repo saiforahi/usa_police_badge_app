@@ -44,7 +44,7 @@ const TheLayout = () => {
           enqueueSnackbar(event.data.officer_name+"'s badge ("+event.data.badge_number+") got scanned",{variant: 'info'})
           swal({
             content:(<CardSwipped data={event.data}/>),
-            buttons:['Close']
+            buttons:[false,'Close']
           })
         }
       });

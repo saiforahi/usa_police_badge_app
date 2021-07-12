@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/employees/Create.css"],"names":[],"mappings":"AAAA,YACI,YAAa,CACb,WAAY,CACZ,wBAEJ","file":"25.762ed19a.chunk.css","sourcesContent":[".update-img{\r\n    height: 150px;\r\n    width: 150px;\r\n    border:2px solid #588acc;\r\n\r\n}"]}

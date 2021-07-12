@@ -7,6 +7,7 @@ const officer_routes = [
   { path: '/dashboard/account/time',exact:true, name: 'Officer Account', component: React.lazy(()=>import('../components/officerview/time/Time'))},
   { path: '/dashboard/account/contacts',exact:true, name: 'Officer Account', component: React.lazy(()=>import('../components/officerview/contacts/Contacts'))},
   { path: '/dashboard/officer/contacts/edit',exact:true, name: 'Edit Contact', component: React.lazy(()=>import('../components/officerview/contacts/Edit'))},
+  { path: '/dashboard/officer/scans/history',exact:true, name: 'Scan History', component: React.lazy(()=>import('../components/officerview/scans/Scans'))},
 ];
 
 export default officer_routes

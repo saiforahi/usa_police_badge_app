@@ -19,6 +19,7 @@ const TheSidebar = () => {
   const dispatch = useDispatch()
   let history=useHistory()
   const show = useSelector(state => state.sidebar.sidebarShow)
+  const badge = useSelector(state => state.user.data.badge_number)
   const [group,setGroup] = React.useState('')
   useEffect(()=>{
     setGroup(localStorage.getItem('group'))
@@ -36,6 +37,9 @@ const TheSidebar = () => {
         /> */}
         <img src={'assets/images/nypd.png'} className="sidebar-brand"/>
       </CSidebarBrand>
+      {group == 'officer' && <CSidebarBrand className="d-md-down-none text-center">
+        Badge : {badge}
+      </CSidebarBrand>}
       
       {group == 'admin' && <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
@@ -54,7 +58,7 @@ const TheSidebar = () => {
 
       {group == 'officer' && <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
-        <CSidebarNavTitle>Personnel Account</CSidebarNavTitle>
+        <CSidebarNavTitle>Personal Account</CSidebarNavTitle>
         <CSidebarNavItem to="/dashboard/account/personal" onClick={()=>{history.push('/dashboard/account/personal')}} icon="cil-notes" name="Account"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/account/time" onClick={()=>{history.push('/dashboard/account/time')}} icon="cil-clock" name="Time"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/account/badge" onClick={()=>{history.push('/dashboard/account/badge')}} icon="cil-credit-card" name="My Badge"></CSidebarNavItem>
