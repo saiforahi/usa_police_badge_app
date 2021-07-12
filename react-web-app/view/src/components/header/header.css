@@ -24,6 +24,9 @@ color: rgba(19, 17, 12, 1)!important;
  .navbar-light .navbar-nav .nav-link:hover{
     color: rgba(70, 174, 51, 1) !important;
 }
+span.navbar-brand img{
+    height: 60px !important;
+}
 .selected{
     color: rgba(70, 174, 51, 1) !important;
 }
