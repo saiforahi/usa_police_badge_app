@@ -13,11 +13,12 @@ import {
   CCard,
   CButton,
   CBadge,
-  CDataTable,
+  CDataTable,CModal,
+  CModalHeader,CModalBody,
   CImg
 } from "@coreui/react";
 import StarRatingComponent from "react-star-rating-component";
-import React from "react";
+import React, { useState } from "react";
 import CIcon from "@coreui/icons-react";
 import { fetchDashboardData } from "src/store/slices/DashboardSlice";
 import MainChartExample from "../../views/charts/ChartBarSimple";
@@ -61,7 +62,23 @@ const Dashboard = () => {
     return data
   })
   const dispatch = useDispatch()
+  const[showPositiveRating,setShowPositiveRating]=useState(false)
+  function handle_positive_modal(){
+    console.log('pos rating  view')
+    setShowPositiveRating(true)
+  }
+  const[showNegativeRating,setShowNegativeRating]=useState(false)
+  function handle_negative_modal(){
+    console.log('neg rating view')
+    setShowNegativeRating(true)
+  }
+  const toggle1 = ()=>{
+    setShowPositiveRating(!showPositiveRating);
 
+  }
+  const toggle2 =()=>{
+    setShowNegativeRating(!showNegativeRating);
+  }
   React.useEffect(() => {
     dispatch(fetchDashboardData())
     dispatch(fetchNotificationsThunk())
@@ -69,6 +86,84 @@ const Dashboard = () => {
   }, []);
   return (
     <>
+    {/**positive rating modal */}
+       <CModal show={showPositiveRating} onClose={toggle1} centered>
+
+         <CModalHeader closeButton>Rating Details</CModalHeader>
+         <CModalBody>
+         <p className="time"><CIcon name="cil-clock" />{" "}<CIcon icon="cil-clock"/><span>7:30 Pm Yesterday</span></p>
+                            <p className="person-name"> <CImg
+                              src={'avatars/2.jpg'}
+                              className="c-avatar-img officer-img mr-1 ml-0"
+                              alt=''
+                            />Santiago Vasquez </p>
+                            <p class="officer-designation">Position:Sargaent</p>
+                            <StarRatingComponent
+                              name="rate2"
+                              editing={false}
+                              emptyStarColor={"#6d706e"}
+                              starCount={5}
+                              value={3}
+                            />
+                            <p class="review mt-none">Rated by: Mr.marina </p>
+                            <p className="review-text">Its gonna be awful!</p>
+                            <div class="container-fluid">
+                              <h6>Attachments</h6>
+                            <div class="row mt-2">
+                              <div class="col-md-6 col-sm-3 mt-1">
+                                <img src={'assets/images/better-service.jpg'} className="attachment-img img-fluid"/>
+                              </div>
+                              <div class="col-md-6 col-sm-3 mt-1">
+                                <img src={'assets/images/PDs.jpg'} className="attachment-img img-fluid"/>
+                              </div>
+                              <div class="col-md-6 col-sm-3 mt-1">
+                                <img src={'assets/images/police-cap.jpg'} className="attachment-img img-fluid"/>
+                              </div>
+                             
+                            </div>
+                            </div>
+         </CModalBody>
+       </CModal>
+
+         {/**negative rating modal */}
+         <CModal show={showNegativeRating} onClose={toggle2} centered>
+
+<CModalHeader closeButton>Rating Details</CModalHeader>
+<CModalBody>
+<p className="time"><CIcon name="cil-clock" />{" "}<CIcon icon="cil-clock"/><span>7:30 Pm Yesterday</span></p>
+                   <p className="person-name"> <CImg
+                     src={'avatars/2.jpg'}
+                     className="c-avatar-img officer-img mr-1 ml-0"
+                     alt=''
+                   />Santiago Vasquez </p>
+                   <p class="officer-designation">Position:Sargaent</p>
+                   <StarRatingComponent
+                     name="rate2"
+                     editing={false}
+                     emptyStarColor={"#6d706e"}
+                     starCount={5}
+                     value={3}
+                   />
+                   <p class="review mt-none">Rated by: Mr.marina </p>
+                   <p className="review-text">Its gonna be awful!</p>
+                   <div class="container">
+                   <h6>Attachments</h6>
+                   <div class="row mt-2">
+                     <div class="col-md-6 col-sm-3 mt-1">
+                       <img src={'assets/images/better-service.jpg'} className="attachment-img img-fluid"/>
+                     </div>
+                     <div class="col-md-6 col-sm-3 mt-1">
+                       <img src={'assets/images/PDs.jpg'} className="attachment-img img-fluid"/>
+                     </div>
+                     <div class="col-md-6 col-sm-3 mt-1">
+                       <img src={'assets/images/police-cap.jpg'} className="attachment-img img-fluid"/>
+                     </div>
+                    
+                   </div>
+                   </div>
+</CModalBody>
+</CModal>
+
       {/**tab panes */}
       <CTabs activeTab="quick">
         <CNav variant="tabs" className="tab-style">
@@ -111,6 +206,7 @@ const Dashboard = () => {
                             />
                             <p class="review mt-none">by {rating.name} </p>
                             <p className="review-text">{'"' + rating.comment + '"'}</p>
+                            <p><button className="btn-info btn" onClick={()=>handle_positive_modal()}>View</button></p>
                           </CCardBody>
                         </CCard>
                       </CCol>
@@ -144,7 +240,7 @@ const Dashboard = () => {
                             />
                             <p class="review mt-none">by {rating.name} </p>
                             <p className="review-text">{'"' + rating.comment + '"'}</p>
-                            {/* <p><button className="btn-danger btn">Take Action !</button></p> */}
+                            <p><button className="btn-info btn" onClick={()=>handle_negative_modal()}>View</button></p>
                           </CCardBody>
                         </CCard>
                       </CCol>
@@ -208,11 +304,11 @@ const Dashboard = () => {
                           {new Date().toLocaleDateString()}
                         </div>
                       </CCol>
-                      <CCol sm="7" className="d-none d-md-block">
+                      {/* <CCol sm="7" className="d-none d-md-block">
                         <CButton color="primary" className="float-right">
                           <CIcon name="cil-cloud-download" />
                         </CButton>
-                      </CCol>
+                      </CCol> */}
                     </CRow>
 
                     <MainChartExample
@@ -253,6 +349,7 @@ const Dashboard = () => {
                   bordered
                   sorter
                   columnFilter
+                  
                   // clickableRows
                   // onRowClick={(row)=>{
                   //     history.push({

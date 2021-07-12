@@ -33,8 +33,8 @@ const TheSidebar = () => {
           name="cil-shield-alt"
           height={25}
         /> */}
-        <img src={'assets/images/web-logo-2.png'}/>
-        <h4 id="logoText" style={{marginTop:"8px", marginLeft:"5px"}} className="display-8 c-sidebar-brand-full">The Accountibility Badge</h4>
+        <img src={'assets/images/nypd.png'} className="sidebar-brand"/>
+      
       </CSidebarBrand>
       {group == 'admin' && <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>

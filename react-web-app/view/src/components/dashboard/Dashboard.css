@@ -76,6 +76,9 @@
 .review-text{
     color: #2b2924;
 }
+/* .attachment-img{
+    height: 80px;
+} */
 @media all and (min-width:992px){
     .custom-form{
         width:60%;
