@@ -18,12 +18,12 @@ const MyBadge = () => {
                 <CTabs activeTab="view">
                     <CNav variant="tabs">
                         <CNavItem>
-                            <CNavLink data-tab="view">
+                            <CNavLink data-tab="view"  className="special">
                                 View contacts
                             </CNavLink>
                         </CNavItem>
                         <CNavItem>
-                            <CNavLink data-tab="add">
+                            <CNavLink data-tab="add"  className="special">
                                 Add Contact
                             </CNavLink>
                         </CNavItem>

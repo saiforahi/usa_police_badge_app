@@ -320,11 +320,11 @@ const Dashboard = () => {
                                             {new Date().toLocaleDateString()}
                                         </div>
                                     </CCol>
-                                    <CCol sm="7" className="d-none d-md-block">
+                                    {/* <CCol sm="7" className="d-none d-md-block">
                                         <CButton color="primary" className="float-right">
                                             <CIcon name="cil-cloud-download" />
                                         </CButton>
-                                    </CCol>
+                                    </CCol> */}
                                 </CRow>
 
                                 <MainChartExample
