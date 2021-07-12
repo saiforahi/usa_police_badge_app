@@ -338,7 +338,7 @@ const Dashboard = () => {
                   fields={[
                     {
                       key: "#",
-                      _style: { width: "5%" },
+                      _style: { width: "3%" },
                       _classes: "font-weight-bold",
                     },
                     "Employee Name",
