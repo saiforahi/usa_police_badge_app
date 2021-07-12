@@ -93,6 +93,15 @@ font-size: 20px;
 line-height: 36px;
 color: #13110C;
 }
+.sub-attr{
+  margin-right: 9px;
+}
+.text-style{
+  font-family: 'Archivo Narrow', sans-serif;
+}
+.avatar-img{
+  height: 90px !important;
+}
 .assistance-btn{
 border: 2px solid #46AE33 !important;
 border-radius: 10px;
@@ -193,6 +202,7 @@ color: #13110C;
     
    
   }
+ 
   .action-buttons{
     text-align: center !important;
   }

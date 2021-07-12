@@ -86,7 +86,7 @@ import {
                         </CCol>
 
                         {/**contact type */}
-                        <CCol md="8" sm="12" xs="12">
+                        {/* <CCol md="8" sm="12" xs="12">
                           <CFormGroup>
                             <CLabel
                               htmlFor="contactType"
@@ -103,7 +103,7 @@ import {
                               <option value="5">Narcotics</option>
                             </CSelect>
                           </CFormGroup>
-                        </CCol>
+                        </CCol> */}
                         {/**submit button */}
                         <CCol md="10" sm="12" xs="12" className="text-center">
                           <CButton
