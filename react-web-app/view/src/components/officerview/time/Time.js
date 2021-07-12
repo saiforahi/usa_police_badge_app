@@ -4,7 +4,7 @@ import swal from 'sweetalert'
 
 const Time = ()=>{
     const time_history = useState([{'Event Type':'Clock in','Date':'6/7/2021','Time':'09:38 AM'},{'Event Type':'Clock Out','Date':'6/7/2021','Time':'06:38 AM'}])
-    const history = [{'Event Type':'Clock in','Date':'6/7/2021','Time':'09:38 AM'},{'Event Type':'Clock Out','Date':'6/7/2021','Time':'06:38 AM'}]
+    const history = [{'Event Type':'Clock in','Date':'6/7/2021','Time':'09:38 AM'},{'Event Type':'Clock Out','Date':'6/7/2021','Time':'06:38 PM'}]
     React.useEffect(()=>{
         // swal('Sorry!','This service is under development','warning')
     },[])

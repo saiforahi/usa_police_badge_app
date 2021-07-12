@@ -6,7 +6,8 @@ import {
   CSidebarNav,
   CSidebarNavTitle,
   CSidebarMinimizer,
-  CSidebarNavItem
+  CSidebarNavItem,
+  CLabel
 } from '@coreui/react'
 //import { CIcon } from '@coreui/icons-react';
 
@@ -34,8 +35,8 @@ const TheSidebar = () => {
           height={25}
         /> */}
         <img src={'assets/images/nypd.png'} className="sidebar-brand"/>
-      
       </CSidebarBrand>
+      
       {group == 'admin' && <CSidebarNav>
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
         <CSidebarNavTitle>Administration</CSidebarNavTitle>

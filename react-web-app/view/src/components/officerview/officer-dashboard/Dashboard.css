@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,700");
+.special:focus,.special.active{
+    background: -webkit-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: -moz-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: -ms-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: -o-linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    background: linear-gradient(140deg, #575bde 25%, #393ed8 100%);
+    color: white !important;
+    font-family: Lato, Helvetica, sans-serif;
+}
+.special,.table-header{
+  
+    font-family: Lato, Helvetica, sans-serif;
+}
+
+.custom-label,Formgroup,.tab-style{
+    font-family: Lato, Helvetica, sans-serif;
+    font-size:1rem !important;
+}
+.show-scans{
+    border-radius: 0.50rem;
+    border-left: 4px solid #4287f5;
+   /* border-left: 4px solid #9e9d9b; */
+    margin-top: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+   
+}
+.officer-img{
+    height: 36px;
+    width: 36px;
+}
+.officer-designation{
+    font-size:.86rem;
+    color: #2b2924 !important;
+    font-weight: normal !important;
+}
+.grey-border{
+    border-radius: 0.50rem; 
+       border-left: 4px solid #9e9d9b;
+       margin-top: 8px;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.custom-label{
+    font-family: Lato, Helvetica, sans-serif;
+ 
+}
+/* .show-scans:not(:first-child){
+    margin-top: 10px;
+} */
+.card-div{
+    min-height:calc(422px - 63px)  !important;
+    max-height: calc(422px - 63px) !important;
+    overflow-y: scroll;
+    
+}
+.time{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: .78rem;
+    color: #575bde;
+}
+.person-name,.feedback,.review{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: .86rem;
+}
+.person-name{
+    font-weight: bold;
+    color: #575bde;
+}
+.negative-heading{
+    color: #de232d;
+}
+.review{
+    margin-top: 0 !important;
+}
+.review-text{
+    color: #2b2924;
+}
+@media all and (min-width:992px){
+    .custom-form{
+        width:60%;
+        margin: 0 auto;
+
+        
+    }
+    .scan-header{
+        display: flex;
+        vertical-align: middle !important;
+    }
+    .angle-left{
+        float:left;
+    }
+    .angle-right{
+      margin-left: auto;
+    }
+}
