@@ -72,12 +72,11 @@ const MyBadge = () => {
           </CCard>
         </div>
       </CRow>
-      <h3 className="d-inline">Managed by company</h3>
-      <hr />
       <CRow>
         <div>
           <CCard>
             <CCardBody>
+            <h5>Managed by company</h5>
             <div className="form-check">
                 <input type="checkbox" className="form-check-input" id="exampleCheck1" checked disabled/>
                 <label className="form-check-label" for="exampleCheck1">Fisrt Name, Last Name</label>
