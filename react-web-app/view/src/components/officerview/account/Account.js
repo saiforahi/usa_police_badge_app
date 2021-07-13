@@ -179,6 +179,14 @@ const Account = () => {
                         </CFormGroup>
                         <CFormGroup row>
                           <CCol md="3">
+                            <CLabel htmlFor="date-input">Department</CLabel>
+                          </CCol>
+                          <CCol xs="12" md="9">
+                            <CInput type="date" id="date-input" name="date-input" />
+                          </CCol>
+                        </CFormGroup>
+                        <CFormGroup row>
+                          <CCol md="3">
                             <CLabel htmlFor="disabled-input">Color of Hairs</CLabel>
                           </CCol>
                           <CCol xs="12" md="9">
