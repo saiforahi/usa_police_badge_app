@@ -6,7 +6,9 @@ import { BASE_URL, FILE_API } from 'src/config'
 import swal from 'sweetalert'
 import './Account.css'
 import { fetchDetailsThunk } from 'src/store/slices/UserSlice'
+import { fetchDepartmentsThunk } from 'src/store/slices/DepartmentSlice';
 const Account = () => {
+  const departments = useSelector(state => state.departments.data)
   const data = useSelector(state => state.user.data)
   const [avatar, setAvatar] = useState()
   const [image, setImage] = useState()
@@ -21,6 +23,7 @@ const Account = () => {
   const [dob, setDOB] = useState('')
   const [hair, setHair] = useState('')
   const [eyes, setEyes] = useState('')
+  const [department,setDepartment] = useState()
   const dispatch = useDispatch()
   function onImageChange(file) {
     setImage(file)
@@ -69,8 +72,10 @@ const Account = () => {
     setDOB(data.date_of_birth)
     setHair(data.hair)
     setEyes(data.eyes)
+    setDepartment()
   }
   React.useEffect(() => {
+    dispatch(fetchDepartmentsThunk())
     populate_existing_data()
   }, [])
   return (
@@ -182,7 +187,9 @@ const Account = () => {
                             <CLabel htmlFor="date-input">Department</CLabel>
                           </CCol>
                           <CCol xs="12" md="9">
-                            <CInput type="text" id="date-input" name="date-input" />
+                            <CSelect value={department} onChange={(event)=>setDepartment(event.target.value)}>
+                              {departments.length > 0 && Array.from(departments).map((item,index)=>(<option key={item.id} value={item.id}>{item.department_name}</option>))}
+                            </CSelect>
                           </CCol>
                         </CFormGroup>
                         <CFormGroup row>
@@ -229,7 +236,7 @@ const Account = () => {
               <CRow className="justify-content-center mt-5">
                 <CCol md="8" sm="12" xs="12">
                   <CCard>
-                    <CCardHeader> <h4 className="table-header text-center">Organization Details</h4></CCardHeader>
+                    <CCardHeader> <h4 className="table-header text-center">Supervisor Details</h4></CCardHeader>
                     <CCardBody>
                       <CRow className="justify-content-center">
 

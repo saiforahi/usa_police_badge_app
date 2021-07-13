@@ -30,9 +30,11 @@ import {
   CModalFooter,
 } from "@coreui/react";
 import { useHistory } from "react-router-dom";
-import Department from "../department-type/DepartmentType";
+import { useSelector } from "react-redux";
+
 const Contacts = () => {
   let history = useHistory();
+  const departments = useSelector(state=>state.departments.data)
   const employeeList = [
     {
       id: 1,
@@ -86,61 +88,57 @@ const Contacts = () => {
                 <CValidFeedback>Cool! Input is valid</CValidFeedback>
               </CFormGroup>
             </div>
-               {/**email */}
-               <div className="mb-3">
-               <CFormGroup>
-                            <CLabel htmlFor="email" className="custom-label">
-                              Email
-                            </CLabel>
-                            <CInput id="email" value="imon99@gmail.com" />
-                            <CValidFeedback>
-                              Cool! Input is valid
-                            </CValidFeedback>
-                          </CFormGroup>
-                 </div>
-              {/**address */}
-              <div className="mb-3">
+            {/**email */}
+            <div className="mb-3">
               <CFormGroup>
-                            <CLabel htmlFor="address" className="custom-label">
-                              Address
-                            </CLabel>
-                            <CInput id="address" value="27 Jump Street,NY" />
-                            <CValidFeedback>
-                              Cool! Input is valid
-                            </CValidFeedback>
-                          </CFormGroup>
-                </div>  
-                 {/**URL */}
-                <div className="mb-3">
-                <CFormGroup>
-                            <CLabel htmlFor="url" className="custom-label">
-                              URL
-                            </CLabel>
-                            <CInput id="url"  />
-                            <CValidFeedback>
-                              Cool! Input is valid
-                            </CValidFeedback>
-                          </CFormGroup>
-                  </div>  
-                   {/**contact type */}
-                   <div className="mb-3">
-                   <CFormGroup>
-                            <CLabel
-                              htmlFor="contactType"
-                              className="custom-label"
-                            >
-                              Department Type
-                            </CLabel>
-                            <CSelect custom name="contactType" id="contactType">
-                              <option hidden>Department type</option>
-                              <option value="1">Homicide</option>
-                              <option value="2">Detective Unit</option>
-                              <option value="3">Petrol</option>
-                              <option value="4">Motors</option>
-                              <option value="5">Narcotics</option>
-                            </CSelect>
-                          </CFormGroup>  
-                     </div>  
+                <CLabel htmlFor="email" className="custom-label">
+                  Email
+                </CLabel>
+                <CInput id="email" value="imon99@gmail.com" />
+                <CValidFeedback>
+                  Cool! Input is valid
+                </CValidFeedback>
+              </CFormGroup>
+            </div>
+            {/**address */}
+            <div className="mb-3">
+              <CFormGroup>
+                <CLabel htmlFor="address" className="custom-label">
+                  Address
+                </CLabel>
+                <CInput id="address" value="27 Jump Street,NY" />
+                <CValidFeedback>
+                  Cool! Input is valid
+                </CValidFeedback>
+              </CFormGroup>
+            </div>
+            {/**URL */}
+            <div className="mb-3">
+              <CFormGroup>
+                <CLabel htmlFor="url" className="custom-label">
+                  URL
+                </CLabel>
+                <CInput id="url" />
+                <CValidFeedback>
+                  Cool! Input is valid
+                </CValidFeedback>
+              </CFormGroup>
+            </div>
+            {/**contact type */}
+            <div className="mb-3">
+              <CFormGroup>
+                <CLabel
+                  htmlFor="contactType"
+                  className="custom-label"
+                >
+                  Department Type
+                </CLabel>
+                <CSelect custom name="contactType" id="contactType">
+                  <option hidden>Department type</option>
+                  {departments.length>0 && Array.from(departments).map((department,index)=>(<option value={department.id} key={department.id}>{department.department_name}</option>))}
+                </CSelect>
+              </CFormGroup>
+            </div>
           </CForm>
         </CModalBody>
         <CModalFooter>
@@ -164,11 +162,11 @@ const Contacts = () => {
               Add Contact
             </CNavLink>
           </CNavItem>
-          <CNavItem>
+          {/* <CNavItem>
             <CNavLink data-tab="addDept" className="special">
               Add Department
             </CNavLink>
-          </CNavItem>
+          </CNavItem> */}
         </CNav>
         <CTabContent>
           <CTabPane data-tab="viewContact">
@@ -223,7 +221,7 @@ const Contacts = () => {
                           <td>
                             <CBadge>
                               <CButton
-                                onClick={() => {}}
+                                onClick={() => { }}
                                 type="button"
                                 size="sm"
                                 color="danger"
@@ -328,11 +326,7 @@ const Contacts = () => {
                             </CLabel>
                             <CSelect custom name="contactType" id="contactType">
                               <option hidden>Department type</option>
-                              <option value="1">Homicide</option>
-                              <option value="2">Detective Unit</option>
-                              <option value="3">Petrol</option>
-                              <option value="4">Motors</option>
-                              <option value="5">Narcotics</option>
+                              {departments.length>0 && Array.from(departments).map((department,index)=>(<option value={department.id} key={department.id}>{department.department_name}</option>))}
                             </CSelect>
                           </CFormGroup>
                         </CCol>
@@ -352,11 +346,11 @@ const Contacts = () => {
               </CRow>
             </CContainer>
           </CTabPane>
-        
-        {/***____DEPARTMENT ADDING START */}
-        <CTabPane data-tab="addDept">
-<Department></Department>
-        </CTabPane>
+
+          {/* **____DEPARTMENT ADDING START */}
+          {/* <CTabPane data-tab="addDept">
+            <Department></Department>
+          </CTabPane> */}
         </CTabContent>
       </CTabs>
     </>

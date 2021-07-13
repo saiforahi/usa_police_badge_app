@@ -130,26 +130,26 @@ const Officer = (data) => {
               <CCol md="4" sm="12">
                 <img
                   src={
-                    "http://103.123.8.52:8075/media/uploads/users/images/8_K285K2J.jpg"
+                    BASE_URL+user_data.profile_pic
                   }
                   className="avatar-img"
                 />
               </CCol>
               <CCol md="8" sm="12">
-                <h3>Alaimo Judith</h3>
-                <h5>Sergeant</h5>
-                <h6>Retired on 23/06/2021</h6>
-                <h5>CCN:10388</h5>
+                <h3>{user_data.first_name+' '+user_data.last_name}</h3>
+                <h5>{user_data.designation}</h5>
+                <h6>{user_data.status}</h6>
+                <h5>{user_data.badge_number}</h5>
               </CCol>
               <CCol md="12 d-flex">
                 <h6 className="d-inline-block sub-attr">Hired : 11/12/2012</h6>
-                <h6 className="d-inline-block sub-attr">Height : 5'9''</h6>
-                <h6 className="d-inline-block sub-attr">Eyes : Hazel</h6>
-                <h6 className="d-inline-block sub-attr">Hair : Brown</h6>
-                <h6 className="d-inline-block sub-attr">DOB : 19/06/1984</h6>
+                <h6 className="d-inline-block sub-attr">Height : {user_data.height}</h6>
+                <h6 className="d-inline-block sub-attr">Eyes : {user_data.eyes}</h6>
+                <h6 className="d-inline-block sub-attr">Hair : {user_data.hair}</h6>
+                <h6 className="d-inline-block sub-attr">DOB : {new Date(user_data.date_of_birth).toLocaleDateString()}</h6>
               </CCol>
               <CCol md="12" className="text-center">
-                <h5>Contact Number : +1289354759349</h5>
+                <h5>Contact Number : {user_data.phone}</h5>
               </CCol>
             </CRow>
           </CContainer>

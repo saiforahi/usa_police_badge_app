@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import swiperSlice from './slices/CardSwipeSlice'
 import DashboardSlice from './slices/DashboardSlice'
+import DepartmentSlice from './slices/DepartmentSlice'
 import EmployeesSlice from './slices/EmployeesSlice'
 import NotificationSlice from './slices/NotificationSlice'
 import RatingSlice from './slices/RatingSlice'
@@ -14,6 +14,7 @@ export default configureStore({
     user: UserSlice,
     notifications:NotificationSlice,
     ratings: RatingSlice,
-    employees:EmployeesSlice
+    employees:EmployeesSlice,
+    departments:DepartmentSlice
   },
 })

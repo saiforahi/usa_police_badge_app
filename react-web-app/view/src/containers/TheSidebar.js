@@ -45,6 +45,7 @@ const TheSidebar = () => {
         <CSidebarNavItem to="/dashboard" icon="cil-speedometer" name="Dashboard"></CSidebarNavItem>
         <CSidebarNavTitle>Administration</CSidebarNavTitle>
         <CSidebarNavItem to="/dashboard/employees" onClick={()=>{history.push('/dashboard/users/show')}} icon="cil-group" name="Employees"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/departments" icon="cil-control" name="Departments"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/badges" icon="cil-badge" name="Badges"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/scan-history" icon="cil-people" name="Scans"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/sitecontrol" icon="cil-control" name="Site Control"></CSidebarNavItem>

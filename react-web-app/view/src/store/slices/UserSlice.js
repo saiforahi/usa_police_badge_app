@@ -17,6 +17,8 @@ export const setGroupThunk = createAsyncThunk('user/setGroupThunk', async (group
   return group
 })
 
+
+
 export const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -51,7 +53,7 @@ export const userSlice = createSlice({
     },
     [setGroupThunk.fulfilled]: (state, action) => {
       state.group = action.payload
-    },
+    }
   }
 })
 

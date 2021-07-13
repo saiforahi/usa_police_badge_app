@@ -16,6 +16,7 @@ const routes = [
   {path:'/dashboard/sitecontrol',exact:true,name:'Site Control',component:React.lazy(()=>import('../components/sitecontrol/SiteControl'))},
   {path:'/dashboard/scan-history',exact:true,name:'Scan History',component:React.lazy(() => import ('../components/scan-history/ScanHistory'))},
   { path: '/dashboard/account/personal',exact:true, name: 'Officer Account', component: React.lazy(()=>import('../components/officerview/account/Account'))},
+  { path: '/dashboard/departments',exact:true, name: 'Departments', component: React.lazy(()=>import('../components/departments/Departments'))},
 ];
 
 const officer_routes=[
