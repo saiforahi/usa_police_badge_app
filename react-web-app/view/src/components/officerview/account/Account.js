@@ -85,7 +85,7 @@ const Account = () => {
             </CNavItem>
             <CNavItem>
               <CNavLink data-tab="organization-details" className="special">
-                Organization Details
+                Supervisor Details
               </CNavLink>
             </CNavItem>
           </CNav>
@@ -232,28 +232,28 @@ const Account = () => {
                     <CCardHeader> <h4 className="table-header text-center">Organization Details</h4></CCardHeader>
                     <CCardBody>
                       <CRow className="justify-content-center">
-                     
-                      
-                   <CCol md="12">
-{/**Company Name */}
-<h5><span className="custom-label">Company Name : </span> <span className="custom-details">NYPD</span></h5>
-<h5><span className="custom-label">Company Name : </span> <span className="custom-details">Homicide</span></h5>
-<br/>
-<div className="text-center">
-<CImg  className="mx-auto rounded-circle update-img"  src={"http://103.123.8.52:8075/media/uploads/users/images/8_K285K2J.jpg"} />
-<p className="mt-1">Supervisor Profile Picture</p>
-</div>
-<h5><span className="custom-label">Supervisor Contact Name : </span> <span className="custom-details">Santiago Vazquez</span></h5>
-<h5><span className="custom-label">Address : </span> <span className="custom-details">4/A,76th Street,Manhattan,NewYork</span></h5>
-<div className="d-flex">
-<h5 className="d-inline-block mr-2"><span className="custom-label">Phone : </span> <span className="custom-details">+12783728288</span></h5>
-<h5 className="d-inline-block"><span className="custom-label">Email : </span> <span className="custom-details">santiago19@gmail.com</span></h5>
-</div>
 
 
-                   </CCol>
-                        
-                      
+                        <CCol md="12">
+                          {/**Company Name */}
+                          <h5><span className="custom-label">Company Name : </span> <span className="custom-details">NYPD</span></h5>
+                          <h5><span className="custom-label">Department Name : </span> <span className="custom-details">Homicide</span></h5>
+                          <br />
+                          <div className="text-center">
+                            <CImg className="mx-auto rounded-circle update-img" src={"http://103.123.8.52:8075/media/uploads/users/images/8_K285K2J.jpg"} />
+                            <p className="mt-1">Supervisor Profile Picture</p>
+                          </div>
+                          <h5><span className="custom-label">Supervisor Contact Name : </span> <span className="custom-details">Santiago Vazquez</span></h5>
+                          <h5><span className="custom-label">Address : </span> <span className="custom-details">4/A,76th Street,Manhattan,NewYork</span></h5>
+                          <div className="d-flex">
+                            <h5 className="d-inline-block mr-2"><span className="custom-label">Phone : </span> <span className="custom-details">+12783728288</span></h5>
+                            <h5 className="d-inline-block"><span className="custom-label">Email : </span> <span className="custom-details">santiago19@gmail.com</span></h5>
+                          </div>
+
+
+                        </CCol>
+
+
                       </CRow>
 
                     </CCardBody>
