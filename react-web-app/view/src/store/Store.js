@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import ContactSlice from './slices/ContactSlice'
 import DashboardSlice from './slices/DashboardSlice'
 import DepartmentSlice from './slices/DepartmentSlice'
 import EmployeesSlice from './slices/EmployeesSlice'
@@ -15,6 +16,7 @@ export default configureStore({
     notifications:NotificationSlice,
     ratings: RatingSlice,
     employees:EmployeesSlice,
-    departments:DepartmentSlice
+    departments:DepartmentSlice,
+    contacts : ContactSlice
   },
 })

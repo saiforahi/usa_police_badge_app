@@ -1,11 +1,7 @@
 import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 import { JsonClient } from 'src/config'
 const initialState = {
-  data:{
-    total_scan: 0,
-    total_user: 0,
-    total_badge : 0
-  },
+  data:[],
   status:'idle',
   error:''
 }

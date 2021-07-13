@@ -30,29 +30,46 @@ import {
   CModalFooter,
 } from "@coreui/react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchContactsData } from "src/store/slices/ContactSlice";
+import { FILE_API } from "src/config";
+import swal from "sweetalert";
 
 const Contacts = () => {
+  //add contact form states
+  const [name,setName] = useState()
+  const [email,setEmail] = useState()
+  const [phone,setPhone] = useState()
+  const [address,setAddress] = useState()
+  const [url,setURL] = useState()
+  const [type,setType] = useState()
+  
+  function save_contact(){
+    var formData = new FormData()
+    formData.append('name',name)
+    formData.append('phone',phone)
+    formData.append('email',email)
+    formData.append('address',address)
+    formData.append('department',type)
+    formData.append('created_by',localStorage.getItem('user_id'))
+    FILE_API.post('contact/add/').then((res)=>{
+      if(res.data.success == 'True'){
+        swal('Saved','Contact Saved!','success').then(()=>{
+          history.push('/dashboard/contacts')
+        })
+      }
+    })
+  }
   let history = useHistory();
+  const dispatch = useDispatch()
   const departments = useSelector(state=>state.departments.data)
-  const employeeList = [
-    {
-      id: 1,
-      Name: "Imon Karim",
-      Email: "imon99@gmail.com",
-      Address: "27 Jump Street,New York",
-      URL: "N/A",
-      Phone: "+12893940567",
-    },
-    {
-      id: 2,
-      Name: "Theo Gibbs",
-      Email: "santiago@gmail.com",
-      Address: "Broward",
-      URL: "N/A",
-      Phone: "+17348929203",
-    },
-  ];
+  const contacts = useSelector(state=> {
+    let data = []
+    Array.from(state.contacts.data).forEach((item,index)=>{
+      data.push({'#':index+1,'Name':item.name,'Phone':item.phone,'Email':item.email,'Address':item.address,'URL':'','Department':item.department.department_name})
+    })
+    return data
+  })
   const [showContactDetails, setShowContactDetails] = useState(false);
   const toggle = () => {
     setShowContactDetails(!showContactDetails);
@@ -61,6 +78,9 @@ const Contacts = () => {
     console.log("edit view");
     setShowContactDetails(true);
   }
+  React.useEffect(()=>{
+    dispatch(fetchContactsData())
+  },[])
   return (
     <>
       {/**__________Contact Edit Modal__________ */}
@@ -179,7 +199,7 @@ const Contacts = () => {
                   </CCardHeader>
                   <CCardBody>
                     <CDataTable
-                      items={employeeList}
+                      items={contacts}
                       fields={[
                         {
                           key: "#",
@@ -191,7 +211,7 @@ const Contacts = () => {
                         "Email",
                         "Address",
                         "URL",
-                        "Department Type",
+                        "Department",
                         {
                           key: "Action",
                           label: "",
@@ -261,7 +281,7 @@ const Contacts = () => {
                             <CLabel htmlFor="name" className="custom-label">
                               Name
                             </CLabel>
-                            <CInput id="name" />
+                            <CInput id="name" value={name} onChange={(event)=>setName(name)} />
                             <CValidFeedback>
                               Cool! Input is valid
                             </CValidFeedback>
@@ -273,7 +293,7 @@ const Contacts = () => {
                             <CLabel htmlFor="phone" className="custom-label">
                               Phone
                             </CLabel>
-                            <CInput id="phone" />
+                            <CInput id="phone" value={phone} onChange={(event)=>setPhone(name)} />
                             <CValidFeedback>
                               Cool! Input is valid
                             </CValidFeedback>
@@ -285,7 +305,7 @@ const Contacts = () => {
                             <CLabel htmlFor="email" className="custom-label">
                               Email
                             </CLabel>
-                            <CInput id="email" />
+                            <CInput id="email" value={email} onChange={(event)=>setEmail(name)}/>
                             <CValidFeedback>
                               Cool! Input is valid
                             </CValidFeedback>
@@ -297,7 +317,7 @@ const Contacts = () => {
                             <CLabel htmlFor="address" className="custom-label">
                               Address
                             </CLabel>
-                            <CInput id="address" />
+                            <CInput id="address" value={address} onChange={(event)=>setAddress(name)} />
                             <CValidFeedback>
                               Cool! Input is valid
                             </CValidFeedback>
@@ -309,7 +329,7 @@ const Contacts = () => {
                             <CLabel htmlFor="url" className="custom-label">
                               URL
                             </CLabel>
-                            <CInput id="url" />
+                            <CInput id="url" value={url} onChange={(event)=>setURL(name)}/>
                             <CValidFeedback>
                               Cool! Input is valid
                             </CValidFeedback>
@@ -324,7 +344,7 @@ const Contacts = () => {
                             >
                               Department Type
                             </CLabel>
-                            <CSelect custom name="contactType" id="contactType">
+                            <CSelect custom name="contactType" id="contactType" value={type} onChange={(event)=>setType(name)}>
                               <option hidden>Department type</option>
                               {departments.length>0 && Array.from(departments).map((department,index)=>(<option value={department.id} key={department.id}>{department.department_name}</option>))}
                             </CSelect>
@@ -335,6 +355,8 @@ const Contacts = () => {
                           <CButton
                             color="primary"
                             className="button-primary px-4 mt-3"
+                            type="button"
+                            // onClick={()=>{save_contact()}}
                           >
                             Save Contact
                           </CButton>
