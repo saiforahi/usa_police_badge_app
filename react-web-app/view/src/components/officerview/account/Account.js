@@ -182,7 +182,7 @@ const Account = () => {
                             <CLabel htmlFor="date-input">Department</CLabel>
                           </CCol>
                           <CCol xs="12" md="9">
-                            <CInput type="date" id="date-input" name="date-input" />
+                            <CInput type="text" id="date-input" name="date-input" />
                           </CCol>
                         </CFormGroup>
                         <CFormGroup row>
