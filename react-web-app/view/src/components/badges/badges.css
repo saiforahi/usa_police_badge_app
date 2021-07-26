@@ -147,15 +147,17 @@ color: white;
 }
 
 @media all and (min-width:992px){
-  .custom-header{
+  /* .custom-header{
     display: flex;
-  }
+  } */
   .button-primary-small{
-   margin-left: auto;
+  float: right;
    margin-top: 10px;
+   margin-bottom: 20px;
   }
   .assign-align{
     float: left;
+   
   }
   .add-align{
     float: right;

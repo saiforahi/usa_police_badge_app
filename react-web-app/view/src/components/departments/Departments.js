@@ -147,13 +147,13 @@ const Departments = () => {
                                                 <CCol md="8" sm="12" xs="12">
                                                     <CFormGroup>
                                                         <CLabel
-                                                            htmlFor="phone"
+                                                            htmlFor="super"
                                                             className="custom-label"
                                                         >
                                                             Supervisor
                                                         </CLabel>
-                                                        <CSelect value={supervisor} onChange={(event) => setPhone(event.target.value)}>
-                                                            {officers!=undefined && Array.from(officers).map((officer)=>(<option key={officer.id} value={officer.first_name+' '+officer.last_name}>{officer.first_name+' '+officer.last_name}</option>))}
+                                                        <CSelect  id="super" value={supervisor} onChange={(event) => setSupervisor(event.target.value)}>
+                                                          {officers!=undefined && Array.from(officers).map((officer)=>(<option key={officer.id} value={officer.first_name+' '+officer.last_name}>{officer.first_name+' '+officer.last_name}</option>))}
                                                         </CSelect>
                                                         <CValidFeedback>Cool! Input is valid</CValidFeedback>
                                                     </CFormGroup>
@@ -167,7 +167,7 @@ const Departments = () => {
                                                         >
                                                             Phone
                                                         </CLabel>
-                                                        <CInput id="phone" value={phone} onChange={(event) => setPhone(event.target.value)} />
+                                                        <CInput id="phone" maxLength={15} minLength={8} value={phone} onChange={(event) => setPhone(event.target.value)} />
                                                         <CValidFeedback>Cool! Input is valid</CValidFeedback>
                                                     </CFormGroup>
                                                 </CCol>
@@ -193,7 +193,7 @@ const Departments = () => {
                                                         >
                                                             Address
                                                         </CLabel>
-                                                        <CTextarea maxLength={9} id="address" value={address} onChange={(event) => setAddress(event.target.value)} />
+                                                        <CTextarea  id="address" value={address} onChange={(event) => setAddress(event.target.value)} />
                                                         <CValidFeedback>Cool! Input is valid</CValidFeedback>
                                                     </CFormGroup>
                                                 </CCol>
