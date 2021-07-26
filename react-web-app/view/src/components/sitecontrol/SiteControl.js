@@ -102,12 +102,30 @@ const SiteControl = () => {
                           <CValidFeedback>Cool! Input is valid</CValidFeedback>
                         </CFormGroup>
                       </CCol>
-                      <CCol md="10" sm="12" xs="12">
+                      <CCol md="3" sm="12" xs="12">
                         <CFormGroup>
-                          <CLabel htmlFor="address" className="custom-label">
-                            Address
+                          <CLabel htmlFor="city" className="custom-label">
+                            City
                           </CLabel>
-                          <CInput id="address" />
+                          <CInput id="city" />
+                          <CValidFeedback>Cool! Input is valid</CValidFeedback>
+                        </CFormGroup>
+                      </CCol>
+                      <CCol md="3" sm="12" xs="12">
+                        <CFormGroup>
+                          <CLabel htmlFor="state" className="custom-label">
+                            State
+                          </CLabel>
+                          <CInput id="state" />
+                          <CValidFeedback>Cool! Input is valid</CValidFeedback>
+                        </CFormGroup>
+                      </CCol>
+                      <CCol md="3" sm="12" xs="12">
+                        <CFormGroup>
+                          <CLabel htmlFor="zipc" className="custom-label">
+                            Zip Code
+                          </CLabel>
+                          <CInput id="zipc" />
                           <CValidFeedback>Cool! Input is valid</CValidFeedback>
                         </CFormGroup>
                       </CCol>

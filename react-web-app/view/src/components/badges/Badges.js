@@ -94,12 +94,12 @@ const Badges = () => {
             </CCardHeader>
             <CCardBody>
               <div class="custom-header">
-                <CForm className="d-flex custom-form mt-2 mb-2">
+                {/* <CForm className="d-flex custom-form mt-2 mb-2">
                   <CInput type="search" className="me-2" placeholder="Search" />
                   <CButton type="button" color="primary" variant="outline">
                     Search
                   </CButton>
-                </CForm>
+                </CForm> */}
                 <CButton type="button" className="button-primary-small">
                   Export
                 </CButton>
@@ -116,8 +116,7 @@ const Badges = () => {
                   "Badge Number",
                   "Created Date",
                   "Assigned To",
-                  "Scans",
-                  "Global Scans",
+                
                   {
                     key: "Action",
                     label: "",
@@ -164,7 +163,7 @@ const Badges = () => {
           </CCard>
         </CCol>
 
-        <CCol md="12" class="button-holder">
+        <CCol md="12">
           <CButton onClick={()=>fire_reassign_modal({})} className="button-primary assign-align" type="button">
             Assign all unassigned
           </CButton>
