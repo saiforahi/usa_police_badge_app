@@ -41,7 +41,7 @@ const Employees=()=>{
                         items={empList}
                         fields={[
                             { key: '#',_style: { width: '5%' }, _classes: 'font-weight-bold' },
-                            'Name','Email','Assigned To','Assigned Date','Scans','Global Scans',{key:'Action',label:'',_style: { width: '12%' },sorter:false,filter:false}
+                            'Name','Email','Assigned To','Assigned Date',{key:'Action',label:'',_style: { width: '12%' },sorter:false,filter:false}
                         ]}
                         light
                         hover

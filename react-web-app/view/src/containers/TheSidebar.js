@@ -48,6 +48,7 @@ const TheSidebar = () => {
         <CSidebarNavItem to="/dashboard/departments" icon="cil-control" name="Departments"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/badges" icon="cil-badge" name="Badges"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/scan-history" icon="cil-people" name="Scans"></CSidebarNavItem>
+        <CSidebarNavItem to="/dashboard/rating-history" icon="cil-notes" name="Ratings"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/sitecontrol" icon="cil-control" name="Site Control"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/time" icon="cil-clock" name="Time"></CSidebarNavItem>
         <CSidebarNavItem to="/dashboard/account" icon="cil-calculator" name="Account"></CSidebarNavItem>
