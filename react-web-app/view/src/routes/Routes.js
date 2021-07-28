@@ -17,6 +17,7 @@ const routes = [
   {path:'/dashboard/scan-history',exact:true,name:'Scan History',component:React.lazy(() => import ('../components/scan-history/ScanHistory'))},
   { path: '/dashboard/account/personal',exact:true, name: 'Officer Account', component: React.lazy(()=>import('../components/officerview/account/Account'))},
   { path: '/dashboard/departments',exact:true, name: 'Departments', component: React.lazy(()=>import('../components/departments/Departments'))},
+  { path: '/dashboard/rating-history',exact:true, name: 'Ratings', component: React.lazy(()=>import('../components/ratings/Ratings'))},
 ];
 
 const officer_routes=[
