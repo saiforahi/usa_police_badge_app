@@ -2,69 +2,82 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:400,700");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
 /* -----------------------------------------------------------------------------*/
+
 .content-holder{
-  background:  #E5E5E5;
+  background:url('../../assets/51bg-disney.svg');
   padding-bottom: 70px;
 }
 .large-title{
-  font-family: 'Archivo Narrow', sans-serif;
+  font-family:'Jost', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 72px;
-  line-height: 97px;
+  font-size: 60px;
+  line-height: 80px;
   color: #13110C;
   
 }
 .contact-button{
-  background: #46AE33;
-border-radius: 10px;
-font-family:  'Archivo', sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 20px;
-color: #F7F7F7;
-padding: 17px 36px;
+  background: linear-gradient(95.41deg, #38396F 0%, #D21B30 100%);
+  border-radius: 8px;
+font-family: Jost;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  box-shadow: 0 4px 8px 0 rgba(56, 57, 111, 0.7), 0 6px 20px 0 rgba(210, 27, 48, 0.8);
+  color: #FFFFFF;
+padding: 12px 36px;
 }
 .contact-button:hover,.contact-button:active,.dwnld-business-button:hover,.dwnld-business-button:active{
   color: #F7F7F7;
   background-color:#198754;
 }
 .small-title{
-font-family: 'Archivo Narrow', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 36px;
-line-height: 48px;
-
-color: #13110C;
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 43px;
+  color: #13110C;
 }
 .add-margin{
   margin-top: 20px;
 }
 .name-title{
+  font-family: 'Jost', sans-serif;
   font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 48px;
-font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
 color: #13110C;
+
 }
 .creden-number{
-  font-style: normal;
-font-weight: 600;
+ 
+font-family: 'Jost', sans-serif;
+font-style: normal;
+font-weight: 500;
 font-size: 24px;
-line-height: 36px;
-font-family: 'Archivo Narrow', sans-serif;
-color: #46AE33;
+line-height: 35px;
+color: #13110C;
 }
 .star-count{
-  font-family: 'Archivo', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #13110C;
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.progress-label {
+  float: left;
+  margin-right: 1em;
 }
 .height-progress{
   height:8px;
@@ -72,9 +85,29 @@ color: #46AE33;
 ::ng-deep.dv-star-rating-star i{
   font-size: 20px;
 }
+.rating-count{
+  align-items: baseline;
+}
 .total-ratings{
-  font-family: 'Archivo Narrow', sans-serif;
-color: #46AE33;
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #13110C;
+}
+.rating-total{
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 35px;
+  color: #13110C;
+}
+.star-icon{
+  color: #FDB813;
+  font-size:20px;
+  margin-right: 6px;
 }
 .rate-btn{
   padding:10px 25px;
@@ -86,15 +119,29 @@ color: #46AE33;
   background-color: #46AE33;
 }
 .officer-details{
-  font-family: 'Archivo Narrow', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 36px;
-color: #13110C;
+  font-family: Jost;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  color: #13110C;
 }
 .sub-attr{
   margin-right: 9px;
+}
+.victims{
+  font-family: Jost;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 29px;
+
+text-decoration: 2px solid underline;
+text-decoration-color:rgb(106, 107, 155); 
+text-underline-offset: 3px;
+background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 .text-style{
   font-family: 'Archivo Narrow', sans-serif;
@@ -103,45 +150,78 @@ color: #13110C;
   height: 90px !important;
 }
 .assistance-btn{
-border: 2px solid #46AE33 !important;
-border-radius: 10px;
-font-family: 'Archivo', sans-serif;
+  border-color: transparent !important;
+  background: linear-gradient(95.41deg, #38396F 0%, #D21B30 100%);
+  border-radius: 8px;
+  font-family:'Jost', sans-serif;
 font-style: normal;
 font-weight: 500;
-font-size: 18px;
-line-height: 20px;
-color: #13110C;
-padding: 18px 35px;
+font-size: 20px;
+line-height: 29px;
+box-shadow: 0 4px 8px 0 rgba(56, 57, 111, 0.7), 0 6px 20px 0 rgba(210, 27, 48, 0.8);
+color: #FFFFFF;
+padding: 15px 25px;
+margin-right: 13px;
 }
 .assistance-btn:hover{
   color:#F7F7F7;
-  background: #46AE33;
+  background: linear-gradient(95.41deg, #38396F 20%, #802842 80%);
+
 }
 .dwnld-business-button{
-font-family: 'Archivo', sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 20px;
-background: #46AE33;
-border-radius: 10px;
-color: #F7F7F7;
-padding: 19px 35px;
+  
+   font-family: 'Jost', sans-serif;
+  border:2px solid rgba(56, 57, 111, 1);
+    background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-image: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1)) 25% round;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+padding: 12px 25px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .img-div img{
   height: 300px;
 }
 .only-head{
-  font-family: Archivo Narrow;
-font-style: normal;
-font-weight: 600;
-font-family: 'Archivo Narrow', sans-serif;
-color: #13110C;
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 69px;
+  text-align: center;
+  color: #13110C
 }
 .go-to-class{
   color: #13110C !important;
   text-decoration-color: #13110C !important;
   text-decoration: solid underline;
+}
+.position-name{
+  font-family: Jost;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 69px;
+text-transform: uppercase;
+color: #0F1D41;
+
+}
+.img-overlay-wrap {
+  position: relative;
+ 
+}
+.img-overlay-wrap img{
+  position: absolute;
+  top: 52px;
+  left: 57px;
+  width: 320px;
+height: 320px;
+border-radius: 50%;
+object-fit: fit;
 }
 /*________MEDIA QUERIES _____*/
 @media all and (max-width:488px){
@@ -223,7 +303,7 @@ color: #13110C;
     padding-top: 100px;
   }
   .assistance-btn{
-    margin-left: 8px;
+    margin-right: 8px;
   }
   .only-head{
     font-size: 60px;
