@@ -55,6 +55,7 @@ const WidgetsDropdown = (data) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown className="pb-4"
           color="gradient-info"
+          //header={String(Number(data.data.total_user)-1)}
           header={String(data.data.total_user)}
           text="Registered Officers"
           onClick = {()=>{history.push('/dashboard/employees')}}

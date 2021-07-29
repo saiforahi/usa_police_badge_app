@@ -8,16 +8,15 @@ const initialState = {
   error:''
 }
 
-export const fetchDetailsThunk = createAsyncThunk('user/fetchDetailsThunk', async (id) => {
-  const response = await JsonClient.get('profile/details/'+id)
+export const fetchDetailsThunk = createAsyncThunk('user/fetchDetailsThunk', async () => {
+  const response = await JsonClient.get('profile/details/'+localStorage.getItem('user_id')+'/')
+  console.log('details',localStorage.getItem('user_id'))
   return response.data
 })
 
 export const setGroupThunk = createAsyncThunk('user/setGroupThunk', async (group) => {
   return group
 })
-
-
 
 export const userSlice = createSlice({
   name: 'user',

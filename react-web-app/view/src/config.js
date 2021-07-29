@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const status = 'prod'
 export const API_URL = status === 'prod' ? 'http://103.123.8.52:8075/api/' : 'http://localhost:8000/'
 export const TOKEN = "access_token"
@@ -63,6 +62,7 @@ export async function JsonClient(endpoint, { body, ...customConfig } = {}) {
     ...customConfig,
     headers: {
       ...headers,
+      "Authorization": `Bearer ${localStorage.getItem(TOKEN)}`,
       ...customConfig.headers,
     },
   }
@@ -91,5 +91,3 @@ JsonClient.get = function (endpoint, customConfig = {}) {
 JsonClient.post = function (endpoint, body, customConfig = {}) {
   return JsonClient(endpoint, { ...customConfig, body })
 }
-
-

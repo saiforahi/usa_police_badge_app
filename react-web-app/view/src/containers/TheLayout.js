@@ -32,7 +32,7 @@ const TheLayout = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchDetailsThunk(localStorage.getItem('user_id')))
+    dispatch(fetchDetailsThunk())
     dispatch(fetchEmployeesThunk())
     dispatch(fetchDepartmentsThunk())
     web_socket.connect('ws://103.123.8.52:8075/nfc/notifications')
