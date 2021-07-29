@@ -32,10 +32,13 @@ font-family: Jost;
   color: #FFFFFF;
 padding: 12px 36px;
 }
-.contact-button:hover,.contact-button:active,.dwnld-business-button:hover,.dwnld-business-button:active{
+.contact-button:hover{
+  color: #F7F7F7 !important;
+}
+/* .contact-button:hover,.contact-button:active,.dwnld-business-button:hover,.dwnld-business-button:active{
   color: #F7F7F7;
   background-color:#198754;
-}
+} */
 .small-title{
   font-family: 'Jost', sans-serif;
   font-style: normal;
