@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import {
   CButton,
   CModal,
@@ -129,24 +131,30 @@ const Officer = (data) => {
             <CRow>
               <CCol md="4" sm="12">
                 <img
-                  src={
-                    BASE_URL+user_data.profile_pic
-                  }
+                  src={BASE_URL + user_data.profile_pic}
                   className="avatar-img"
                 />
               </CCol>
               <CCol md="8" sm="12">
-                <h3>{user_data.first_name+' '+user_data.last_name}</h3>
+                <h3>{user_data.first_name + " " + user_data.last_name}</h3>
                 <h5>{user_data.designation}</h5>
                 <h6>{user_data.status}</h6>
                 <h5>{user_data.badge_number}</h5>
               </CCol>
               <CCol md="12 d-flex">
                 <h6 className="d-inline-block sub-attr">Hired : 11/12/2012</h6>
-                <h6 className="d-inline-block sub-attr">Height : {user_data.height}</h6>
-                <h6 className="d-inline-block sub-attr">Eyes : {user_data.eyes}</h6>
-                <h6 className="d-inline-block sub-attr">Hair : {user_data.hair}</h6>
-                <h6 className="d-inline-block sub-attr">DOB : {new Date(user_data.date_of_birth).toLocaleDateString()}</h6>
+                <h6 className="d-inline-block sub-attr">
+                  Height : {user_data.height}
+                </h6>
+                <h6 className="d-inline-block sub-attr">
+                  Eyes : {user_data.eyes}
+                </h6>
+                <h6 className="d-inline-block sub-attr">
+                  Hair : {user_data.hair}
+                </h6>
+                <h6 className="d-inline-block sub-attr">
+                  DOB : {new Date(user_data.date_of_birth).toLocaleDateString()}
+                </h6>
               </CCol>
               <CCol md="12" className="text-center">
                 <h5>Contact Number : {user_data.phone}</h5>
@@ -232,22 +240,20 @@ const Officer = (data) => {
           </CButton>
         </CModalFooter>
       </CModal>
-
+      {/******MAIN CONTENT STARTS FROM HERE */}
       <div className="content-holder pt-3">
         <Header></Header>
         <section class="main-content container">
           <div className="row">
             <div className="col-lg-6  desktop-gap">
-              <h1 className="large-title">
-                National Suicide Prevention Lifeline
-              </h1>
-              <h4 className="small-title">Call Now 1-800-273-TALK (8255)</h4>
+              <h1 className="large-title">New York City Police Department</h1>
+              <h4 className="small-title">Call Now 911</h4>
               <div>
                 <button
                   className="contact-button btn add-margin"
                   onClick={() =>
                     window.open(
-                      "https://suicidepreventionlifeline.org/",
+                      "https://www1.nyc.gov/site/nypd/index.page",
                       "_blank"
                     )
                   }
@@ -259,85 +265,50 @@ const Officer = (data) => {
 
             <div className="col-lg-6 desktop-gap">
               <img
-                src="https://static.wixstatic.com/media/27d832_3bfce60b882b4fd585d46915d6d13bfb~mv2.png/v1/fill/w_596,h_224,al_c,lg_1,q_85/hotline.webp"
+                src="assets/images/police-seating.svg"
                 className="img-fluid align-center"
               />
             </div>
           </div>
           {/*VASQUEX GAP*/}
           <div className="row">
+            {/** image and pichchi texts -_- */}
             <div className="col-lg-5 desktop-gap2">
-              <div className="left-div">
-                <img
-                  src={BASE_URL + user_data.profile_pic}
-                  className="img-fluid mx-auto"
-                />
-              </div>
-            </div>
-            <div className="col-lg-7 desktop-gap2">
-              <div className="row">
-                <div className="col-lg-6 details-view">
+              <div className="left-div pt-2">
+                <h3 class="position-name"> {user_data.designation}</h3>
+                <div class="img-overlay-wrap mt-4">
+                  <svg
+                    width="380"
+                    height="400"
+                    viewBox="0 0 403 455"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M224.03 1.668C273.221 -8.72676 320.838 31.416 355.369 67.8782C386.233 100.468 398.84 145.637 402.676 190.307C405.902 227.876 384.181 260.572 375.058 297.164C364.939 337.754 375.358 385.966 346.363 416.178C316.062 447.751 267.799 452.493 224.03 454.53C178.429 456.653 131.746 452.224 93.112 427.965C52.8211 402.667 20.5282 364.081 7.31479 318.455C-5.66145 273.647 -1.75497 222.871 22.0996 182.76C43.9013 146.1 95.9492 144.479 127.726 115.982C165.762 81.871 173.993 12.2415 224.03 1.668Z"
+                      fill="#0F1D41"
+                    />
+                  </svg>
+                  <img
+                    src={BASE_URL + user_data.profile_pic}
+                    className="img-fluid off-image rounded-circle"
+                  />
+                </div>
+
+                <div class="officer-creden mt-4">
                   <h3 className="name-title">
                     {user_data.first_name + " " + user_data.last_name}
                   </h3>
                   <h5 className="creden-number">
-                    Position: {user_data.designation}
-                  </h5>
-                  <h5 className="creden-number">
                     Badge ID: {user_data.badge_number}
                   </h5>
-                  <CButton
-                    type="button"
-                    className="btn btn-success rate-btn"
-                    onClick={() => handle_rating_modal()}
-                  >
-                    Rate {user_data.first_name}!
-                  </CButton>
-                  {/* <Link to="/login" className="btn btn-success rate-btn">
-                    Rate {user_data.first_name}!
-                  </Link> */}
                 </div>
-                <div className="rating-section col-lg-6">
-                  <span className="star-count">5 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={80}
-                    className="height-progress"
-                  />
-                  <span className="star-count">4 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={60}
-                    className="height-progress"
-                  />
-                  <span className="star-count">3 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={50}
-                    className="height-progress"
-                  />
-                  <span className="star-count">2 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={40}
-                    className="height-progress"
-                  />
-                  <span className="star-count">1 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={20}
-                    className="height-progress"
-                  />
-                  <h2 className="rating-total mt-1">4.3</h2>
-                  <StarRatingComponent
-                    name="rate2"
-                    editing={false}
-                    emptyStarColor={"#6d706e"}
-                    starCount={5}
-                    value={4}
-                  />
-                  <h5 class="total-ratings">123 ratings</h5>
-                </div>
+              </div>
+            </div>
+            <div className="col-lg-7 desktop-gap2">
+              <div className="row">
                 {/**OFFICe details */}
                 <div className="col-lg-12">
                   <p className="officer-details">
@@ -354,109 +325,262 @@ const Officer = (data) => {
                     his skills and great personality that brings people
                     together.{" "}
                   </p>
-                  <div class="action-buttons">
-                    <button
-                      type="button"
-                      onClick={() => download_contact()}
-                      class="dwnld-business-button btn"
-                    >
-                      Download Business Card
-                    </button>
-                    <button className="btn btn-outline-success assistance-btn">
-                      Victim Rights & Assistance
-                    </button>
+
+                  <Link className="victims btn">
+                    {" "}
+                    Victim Rights & Assistance
+                  </Link>
+                </div>
+                {/**Rating stuffs */}
+                <div className="col-lg-12 details-view mt-2">
+                  {/**RATING DISPLAYY */}
+                  <div className="rating-count d-flex">
+                    <FontAwesomeIcon icon={faStar} className="star-icon" />
+                    <h5 className="rating-total mr-2">4.3</h5>
+                    {/*  <StarRatingComponent
+                    name="rate2"
+                    editing={false}
+                    renderStarIcon={() => <span></span>}
+                    emptyStarColor={"#6d706e"}
+                    starCount={5}
+                    value={4}
+                  /> */}
+                    <h5 class="total-ratings">(123 ratings)</h5>
                   </div>
+                </div>
+                {/**RATING SHOW BAR STYLE !!! */}
+                <div className="rating-section col-lg-8">
+                  <div class="ind-ratings">
+                    <span className="star-count">5 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={80}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    <span className="star-count">4 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={60}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    <span className="star-count">3 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={50}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    {" "}
+                    <span className="star-count">2 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={40}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    {" "}
+                    <span className="star-count">1 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={20}
+                      className="height-progress"
+                    />
+                  </div>
+                </div>
+                {/**actions buttons */}
+                <div class="action-buttons mt-5">
+                  <button
+                    className="btn assistance-btn"
+                    onClick={() => handle_rating_modal()}
+                  >
+                    Rate {user_data.first_name}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => download_contact()}
+                    class="dwnld-business-button btn"
+                  >
+                    Download Business Card
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
           {/*_____THEO GAP_________*/}
-          <div className="row flex-column-reverse flex-lg-row">
+          <div className="row">
             {/*_______DETAILS FIRST NOW*/}
-            <div class="col-lg-7 desktop-gap2">
-              <div class="row">
-                <div class="col-lg-6 details-view">
+             {/****OFFICER PHOTO AND CREDENTIALS */}
+             <div className="col-lg-5 desktop-gap2">
+              <div className="left-div pt-2">
+                <h3 class="position-name">CEO</h3>
+                <div class="img-overlay-wrap mt-4">
+                  <svg
+                    width="380"
+                    height="400"
+                    viewBox="0 0 403 455"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M224.03 1.668C273.221 -8.72676 320.838 31.416 355.369 67.8782C386.233 100.468 398.84 145.637 402.676 190.307C405.902 227.876 384.181 260.572 375.058 297.164C364.939 337.754 375.358 385.966 346.363 416.178C316.062 447.751 267.799 452.493 224.03 454.53C178.429 456.653 131.746 452.224 93.112 427.965C52.8211 402.667 20.5282 364.081 7.31479 318.455C-5.66145 273.647 -1.75497 222.871 22.0996 182.76C43.9013 146.1 95.9492 144.479 127.726 115.982C165.762 81.871 173.993 12.2415 224.03 1.668Z"
+                      fill="#0F1D41"
+                    />
+                  </svg>
+                  <img
+                    src={"assets/images/theo-demowebp.webp"}
+                    className="img-fluid off-image rounded-circle"
+                  />
+                </div>
+
+                <div class="officer-creden mt-4">
                   <h3 className="name-title">Theo Gibbs</h3>
-                  <h5 className="creden-number">Position: CEO</h5>
                   <h5 className="creden-number">Badge ID: #10250</h5>
-                  <Link to="/login" className="btn btn-success rate-btn">
-                    Rate Theo!
-                  </Link>
                 </div>
-                <div className="rating-section col-lg-6">
-                  <span className="star-count">5 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={80}
-                    className="height-progress"
-                  />
-                  <span className="star-count">4 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={60}
-                    className="height-progress"
-                  />
-                  <span className="star-count">3 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={50}
-                    className="height-progress"
-                  />
-                  <span className="star-count">2 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={40}
-                    className="height-progress"
-                  />
-                  <span className="star-count">1 stars</span>{" "}
-                  <ProgressBar
-                    variant="warning"
-                    now={20}
-                    className="height-progress"
-                  />
-                  <h2 className="rating-total mt-1">4.3</h2>
-                  <StarRatingComponent
-                    name="rate2"
-                    editing={false}
-                    emptyStarColor={"#6d706e"}
-                    starCount={5}
-                    value={4}
-                  />
-                  <h5 class="total-ratings">123 ratings</h5>
-                </div>
+              </div>
+            </div>
+            {/***OFFICER DESCRIPTION */}
+            <div className="col-lg-7 desktop-gap2">
+              <div className="row">
                 {/**OFFICe details */}
-                <div class="col-lg-12">
-                  <p class="officer-details">
-                    Theo Gibbs; Founder and CEO of Global Accountability Corp.
+                <div className="col-lg-12">
+                  <p className="officer-details">
+                  Theo Gibbs; Founder and CEO of Global Accountability Corp.
                     Theo is an inventor of the applied use of NFC technology in
                     order to generate a previously untapped or created market.
                     This work centers around focused engagement that includes
                     the implementation and production of the aforementioned
                     technology.
                   </p>
-                  <div class="action-buttons">
-                    <button class="dwnld-business-button btn">
-                      Download Business Card
-                    </button>
-                    <button className="btn btn-outline-success assistance-btn">
-                      Victim Rights & Assistance
-                    </button>
+
+                  <Link className="victims btn">
+                    {" "}
+                    Victim Rights & Assistance
+                  </Link>
+                </div>
+                <div className="col-lg-12 details-view mt-2">
+                  {/**RATING DISPLAYY */}
+                  <div className="rating-count d-flex">
+                    <FontAwesomeIcon icon={faStar} className="star-icon" />
+                    <h5 className="rating-total mr-2">4.3</h5>
+                    {/*  <StarRatingComponent
+                    name="rate2"
+                    editing={false}
+                    renderStarIcon={() => <span></span>}
+                    emptyStarColor={"#6d706e"}
+                    starCount={5}
+                    value={4}
+                  /> */}
+                    <h5 class="total-ratings">(123 ratings)</h5>
                   </div>
+                </div>
+                <div className="rating-section col-lg-8">
+                  <div class="ind-ratings">
+                    <span className="star-count">5 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={80}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    <span className="star-count">4 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={60}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    <span className="star-count">3 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={50}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    {" "}
+                    <span className="star-count">2 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={40}
+                      className="height-progress"
+                    />
+                  </div>
+
+                  <div class="ind-ratings">
+                    {" "}
+                    <span className="star-count">1 stars</span>{" "}
+                    <ProgressBar
+                      variant="warning"
+                      now={20}
+                      className="height-progress"
+                    />
+                  </div>
+                </div>
+                <div class="action-buttons mt-5">
+                <button className="btn assistance-btn" onClick={() => handle_rating_modal()}>
+                      Rate Theo
+                    </button>
+                  <button
+                    class="dwnld-business-button btn"
+                    onClick={() => download_contact()}
+                  >
+                    Download Business Card
+                  </button>
                 </div>
               </div>
             </div>
-
-            {/*____________PICTURE TIME_____________*/}
-            <div class="col-lg-5 desktop-gap2">
-              <div class="right-div">
-                <img
-                  src={"assets/images/theo-demowebp.webp"}
-                  className="img-fluid"
-                />
-              </div>
-            </div>
+         
           </div>
+          </section>
+          {/*****************SPACE FOR OFFICERS BANNERS______coz why not -_-* */}
+<section className="banners">
+<div class="container">
+<div className="row">
+  <div className="col-lg-5">
+<h1 class="thin-head">Your</h1>
+<h1 class="fat-head">Banners</h1>
+  </div>
+  <div className="col-lg-7">
+    <div className="row justify-content-between">
+      <div className="col-lg-6">
+        <Link  onClick={() =>
+                    window.open(
+                      "https://www1.nyc.gov/site/nypd/index.page",
+                      "_blank"
+                    )}><img src={"assets/images/dumm1ban1.svg"} className="img-fluid" /></Link>
+      </div>
+      <div className="col-lg-6">
+      <Link><img src={"assets/images/dum2ban2.svg"} className="img-fluid"/></Link>
+      </div>
+      <div className="col-lg-6">
+       <Link><img src={"assets/images/dum3ban3.svg"} className="img-fluid"/></Link>
+      </div>
+      <div className="col-lg-6">
+       <Link><img src={"assets/images/dum4ban4.svg"} className="img-fluid"/></Link>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
           {/**_____________SPACE FOR BADGE RELEASE COUNTDOWN___________ */}
           <div className="row pb-4">
             <div className="col-lg-12 desktop-gap2">
@@ -477,11 +601,17 @@ const Officer = (data) => {
               </h3>
             </div>
           </div>
+
+
+
+
           {/**_________________SPACE FOR TWITTER FEED___________ */}
 
           {/**______FOOTER_____ */}
+          <section className="container">
           <Footer></Footer>
-        </section>
+          </section>
+      
       </div>
     </>
   );
