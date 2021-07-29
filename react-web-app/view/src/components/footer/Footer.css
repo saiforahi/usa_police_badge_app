@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap');
+
 
 .footer-images{
     height: 245.51px;
@@ -8,32 +8,31 @@
     padding-top: 100px;
 }
 .footer-header{
-    font-family: 'Archivo Narrow', sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 60px;
-line-height: 81px;
-text-align: center;
-color: #13110C;
+    font-family: Jost;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 58px;
+    text-align: center;
+   color: #13110C;
 }
 .footer-minor-details{
-    font-family: 'Archivo Narrow', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 32px;
-text-align: center;
-color: #13110C;
+    font-family: Jost;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+   color: #13110C;
 }
 .copyright-info{
-font-family: 'Archivo Narrow', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 22px;
-color: #13110C;
-margin-top: 80px;
-text-align: center;
+    font-family: Jost;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+  color: #13110C;
 }
 
 /**_____MEDIA QUERY________*/

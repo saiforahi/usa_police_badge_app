@@ -1,28 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Montserrat&display=swap');
-.sign-btn{
-    
-    padding:10px 25px;
-    font-family: 'Archivo', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap');
+a.btn.sign-btn{
+    font-family: 'Jost', sans-serif;
+    border-image-slice: 1;
+    border: 2px solid transparent;
+    background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-image: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1)) 10% round;
     font-style: normal;
-    font-weight: 500 !important;
-    font-size: 16px;
-    line-height: 17px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    padding: 8px 40px;
+   
+   
+}
+.clock-btn{
+    font-family: 'Jost', sans-serif;
+  border:2px solid rgba(56, 57, 111, 1);
+    background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-image: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1)) 20% round;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    padding: 8px 40px;  
+}
 
+a.btn.sign-btn:hover,.clock-btn:hover{
+    background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+    color:#FFFFFF; 
+  border-image: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color:#FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.navbar{
-    background-color: #E5E5E5;
+
+.bell{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 5s infinite;
 }
-Nav,a.nav-link{
-    font-family: 'Archivo', sans-serif;
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(210, 27, 48, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(210, 27, 48, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+.navbar.colorChange{
+    background:#FFFFFF;
+}
+
+a.nav-link{
+font-family: 'Jost', sans-serif;
 font-style: normal;
 font-weight: 500 !important;
-font-size: 16px;
-line-height: 17px;
-color: rgba(19, 17, 12, 1)!important;
+font-size: 20px !important;
+line-height: 29px;
+color: #13110C !important;
+
 
 }
- .navbar-light .navbar-nav .nav-link:hover{
-    color: rgba(70, 174, 51, 1) !important;
+ .navbar-light .navbar-nav .nav-link:hover,a.nav-link:hover{
+    background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.active,.a.nav-link:active{
+    background: -webkit-linear-gradient(rgba(56, 57, 111, 1), rgba(210, 27, 48, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
 }
 span.navbar-brand img{
     height: 60px !important;
@@ -34,5 +96,10 @@ span.navbar-brand img{
 @media all and (min-width:992px){
     .padding-desktop{
         margin-left: 100px;
+    }
+    .navbar{
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
     }
 }
